@@ -31,11 +31,18 @@
 ;; disable toolbar
 (tool-bar-mode -1)
 
+;;disable menu bar
+(menu-bar-mode -1)
+
 ;; Window move
 (global-set-key (kbd "C-c <left>")  'windmove-left)
 (global-set-key (kbd "C-c <right>") 'windmove-right)
 (global-set-key (kbd "C-c <up>")    'windmove-up)
 (global-set-key (kbd "C-c <down>")  'windmove-down)
+
+;; scrolling
+(global-set-key [C+prior] (lambda () (interactive) (scroll-down 10)))
+(global-set-key [C+next] (lambda () (interactive) (scroll-up 10)))
 
 ;; multiple cursors
 (add-to-list 'load-path "~/emacs/multiple-cursors.el")
@@ -67,7 +74,6 @@
      ))
 (setq ess-tab-complete-in-script t)
 (setq-default ess-dialect "R")
-(require 'ess-site)
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((R . t)))

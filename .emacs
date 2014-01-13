@@ -31,6 +31,9 @@
 ;; disable toolbar
 (tool-bar-mode -1)
 
+;;disable menu bar
+(menu-bar-mode -1)
+
 ;; Window move
 (global-set-key (kbd "C-c <left>")  'windmove-left)
 (global-set-key (kbd "C-c <right>") 'windmove-right)
