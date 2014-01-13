@@ -41,7 +41,7 @@
 (global-set-key (kbd "C-c <down>")  'windmove-down)
 
 ;; multiple cursors
-(add-to-list 'load-path "~/emacs/multiple-cursors.el")
+
 (require 'multiple-cursors)
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
@@ -70,6 +70,7 @@
      ))
 (setq ess-tab-complete-in-script t)
 (setq-default ess-dialect "R")
+(require 'ess-site)
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((R . t)))
@@ -94,7 +95,7 @@
 (global-set-key (kbd "C-S-d") 'duplicate-line)
 
 ;; move text
-(add-to-list 'load-path "~/emacs/")
+
 (require 'move-text)
 (move-text-default-bindings)
 
