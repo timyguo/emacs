@@ -8,6 +8,7 @@
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
+
 ;; custom theme
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -31,21 +32,22 @@
 ;; disable toolbar
 (tool-bar-mode -1)
 
-;;disable menu bar
+;; disable menu bar
 (menu-bar-mode -1)
 
-;; Window move
-(global-set-key (kbd "C-c <left>")  'windmove-left)
-(global-set-key (kbd "C-c <right>") 'windmove-right)
-(global-set-key (kbd "C-c <up>")    'windmove-up)
-(global-set-key (kbd "C-c <down>")  'windmove-down)
+;; kill buffer shortcut
+(global-set-key (kbd "C-x k") 'kill-this-buffer)
 
-;; scrolling
-(global-set-key [C+prior] (lambda () (interactive) (scroll-down 10)))
-(global-set-key [C+next] (lambda () (interactive) (scroll-up 10)))
+;; tabbar
+(require 'tabbar)
+(tabbar-mode)
+(global-set-key [M-left] 'tabbar-backward-tab)
+(global-set-key [M-right] 'tabbar-forward-tab)
+
+;; Window move
+(windmove-default-keybindings)
 
 ;; multiple cursors
-(add-to-list 'load-path "~/emacs/multiple-cursors.el")
 (require 'multiple-cursors)
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
@@ -74,6 +76,7 @@
      ))
 (setq ess-tab-complete-in-script t)
 (setq-default ess-dialect "R")
+(require 'ess-site)
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((R . t)))
@@ -98,7 +101,6 @@
 (global-set-key (kbd "C-S-d") 'duplicate-line)
 
 ;; move text
-(add-to-list 'load-path "~/emacs/")
 (require 'move-text)
 (move-text-default-bindings)
 

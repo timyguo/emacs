@@ -8,6 +8,7 @@
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
+
 ;; custom theme
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -31,17 +32,23 @@
 ;; disable toolbar
 (tool-bar-mode -1)
 
-;;disable menu bar
+;; disable menu bar
 (menu-bar-mode -1)
 
+;; kill buffer shortcut
+(global-set-key (kbd "C-x k") 'kill-this-buffer)
+
+;; tabbar
+(require 'tabbar)
+(tabbar-mode)
+(global-set-key [M-left] 'tabbar-backward-tab)
+(global-set-key [M-right] 'tabbar-forward-tab)
+
 ;; Window move
-(global-set-key (kbd "C-c <left>")  'windmove-left)
-(global-set-key (kbd "C-c <right>") 'windmove-right)
-(global-set-key (kbd "C-c <up>")    'windmove-up)
-(global-set-key (kbd "C-c <down>")  'windmove-down)
+(winner-mode)
+(windmove-default-keybindings)
 
 ;; multiple cursors
-
 (require 'multiple-cursors)
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
@@ -63,10 +70,10 @@
      (define-key comint-mode-map [down]
        'comint-next-matching-input-from-input)
      ;; also recommended for ESS use --
-     (setq comint-scroll-to-bottom-on-output 'others)
-     (setq comint-scroll-show-maximum-output t)
+     (setq comint-scroll-to-bottom-on-output nil)
+     (setq comint-scroll-show-maximum-output nil)
      ;; somewhat extreme, almost disabling writing in *R*, *shell* buffers above prompt
-     (setq comint-scroll-to-bottom-on-input 'this)
+     (setq comint-scroll-to-bottom-on-input nil)
      ))
 (setq ess-tab-complete-in-script t)
 (setq-default ess-dialect "R")
@@ -95,7 +102,6 @@
 (global-set-key (kbd "C-S-d") 'duplicate-line)
 
 ;; move text
-
 (require 'move-text)
 (move-text-default-bindings)
 
