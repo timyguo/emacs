@@ -38,6 +38,11 @@
 ;; kill buffer shortcut
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
 
+;; suspend-frame
+(global-unset-key (kbd "C-z"))
+(global-set-key (kbd "C-x C-z") 'suspend-frame)
+
+
 ;; tabbar
 (require 'tabbar)
 (tabbar-mode)
@@ -116,3 +121,9 @@
 
 ;; Ignore compiled Haskell files in filename completions
 (add-to-list 'completion-ignored-extensions ".hi")
+(require 'helm-config)
+(helm-mode t)
+
+;; ido
+(require 'ido)
+(ido-mode t)
