@@ -121,9 +121,18 @@
 
 ;; Ignore compiled Haskell files in filename completions
 (add-to-list 'completion-ignored-extensions ".hi")
+
+;; helm
 (require 'helm-config)
 (helm-mode t)
 
 ;; ido
 (require 'ido)
 (ido-mode t)
+
+;; key bind to resolve conflicts between ido and helm
+(global-set-key (kbd "M-x") 'helm-M-x)
+
+;; highlight parentheses
+(show-paren-mode 1)
+(setq show-paren-delay 0)

@@ -38,6 +38,11 @@
 ;; kill buffer shortcut
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
 
+;; suspend-frame
+(global-unset-key (kbd "C-z"))
+(global-set-key (kbd "C-x C-z") 'suspend-frame)
+
+
 ;; tabbar
 (require 'tabbar)
 (tabbar-mode)
@@ -45,6 +50,7 @@
 (global-set-key [M-right] 'tabbar-forward-tab)
 
 ;; Window move
+(winner-mode)
 (windmove-default-keybindings)
 
 ;; multiple cursors
@@ -69,10 +75,10 @@
      (define-key comint-mode-map [down]
        'comint-next-matching-input-from-input)
      ;; also recommended for ESS use --
-     (setq comint-scroll-to-bottom-on-output 'others)
-     (setq comint-scroll-show-maximum-output t)
+     (setq comint-scroll-to-bottom-on-output nil)
+     (setq comint-scroll-show-maximum-output nil)
      ;; somewhat extreme, almost disabling writing in *R*, *shell* buffers above prompt
-     (setq comint-scroll-to-bottom-on-input 'this)
+     (setq comint-scroll-to-bottom-on-input nil)
      ))
 (setq ess-tab-complete-in-script t)
 (setq-default ess-dialect "R")
@@ -115,3 +121,14 @@
 
 ;; Ignore compiled Haskell files in filename completions
 (add-to-list 'completion-ignored-extensions ".hi")
+
+;; helm
+(require 'helm-config)
+(helm-mode t)
+
+;; ido
+(require 'ido)
+(ido-mode t)
+
+;; key bind to resolve conflicts between ido and helm
+(global-set-key (kbd "M-x") 'helm-M-x)
