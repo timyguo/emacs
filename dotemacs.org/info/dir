@@ -1,0 +1,16 @@
+(dir)Top.
+
+
+File: dir,	Node: Top	This is the top of the INFO tree
+
+  |q| exit|
+  |?| list commands|
+  |d| return here|
+  |h| help|
+
+* Menu:
+
+Stuff
+* org: (/Users/tonyday/.emacs.d/site-lisp/org-mode/doc/org). Org
+* magit: (/Users/tonyday/.emacs.d/elpa/magit-1.1.1/magit).    Magit
+* elisp: (/Users/tonyday/Downloads/elisp.info/elisp).    elisp

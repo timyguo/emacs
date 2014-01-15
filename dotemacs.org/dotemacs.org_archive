@@ -1,0 +1,5511 @@
+
+Archived entries from file /Users/tonyday/.emacs.d/dotemacs.org
+
+
+* Archived Tasks
+
+** yas
+:PROPERTIES:
+:ARCHIVE_TIME: 2012-12-08 Sat 18:34
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: clipboard/debugs and tools/current startup bugz
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+Configuring package yasnippet...
+File mode specification error: (void-function yas/initialize)
+(No changes need to be saved)
+ad-handle-definition: `yas-global-mode' got redefined
+Configuring package yasnippet...
+Wrote /Users/tonyday/.emacs.d/org-mode-prequel.el
+
+** helm-config
+:PROPERTIES:
+:ARCHIVE_TIME: 2012-12-08 Sat 18:34
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: clipboard/debugs and tools/current startup bugz
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+Could not load package helm-config
+
+** Could not load package ido-hacks
+:PROPERTIES:
+:ARCHIVE_TIME: 2012-12-08 Sat 18:34
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: clipboard/debugs and tools/current startup bugz
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+
+** Could not load package ido-springboard
+:PROPERTIES:
+:ARCHIVE_TIME: 2012-12-08 Sat 18:34
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: clipboard/debugs and tools/current startup bugz
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+
+** diary
+:PROPERTIES:
+:ARCHIVE_TIME: 2012-12-08 Sat 18:34
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: clipboard/debugs and tools/current startup bugz
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+No event to add
+Appointment reminders enabled (no diary file found)
+
+** Could not load package keyfreq
+:PROPERTIES:
+:ARCHIVE_TIME: 2012-12-08 Sat 18:34
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: clipboard/debugs and tools/current startup bugz
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+
+** ls does not support --dired; see `dired-use-ls-dired' for more details.
+:PROPERTIES:
+:ARCHIVE_TIME: 2012-12-08 Sat 18:34
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: clipboard/debugs and tools/current startup bugz
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+
+** zeroed package bugz
+:PROPERTIES:
+:ARCHIVE_TIME: 2012-12-08 Sat 18:35
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: clipboard/debugs and tools
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+ 1. `flet' is an obsolete macro (as of 24.3); use either `cl-flet' or `cl-letf'.
+ 2.  org-fixup.el: redefined Org version
+
+** link abbreviations
+:PROPERTIES:
+:ARCHIVE_TIME: 2012-12-10 Mon 16:35
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages/org-mode/other stuff
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+  #+begin_src emacs-lisp
+  (setq org-link-abbrev-alist
+       '(("google"    . "http://www.google.com/search?q=")))
+#+end_src
+
+** mobileorg settings
+:PROPERTIES:
+:ARCHIVE_TIME: 2012-12-10 Mon 16:50
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages/org-mode/other stuff
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+  #+begin_src emacs-lisp 
+  (setq org-default-notes-file "~/stuff/org/refile.org")
+  ;; Set to the name of the file where new notes will be stored
+  (setq org-mobile-inbox-for-pull "~/stuff/org/refile.org")
+  ;; Set to <your Dropbox root directory>/MobileOrg.
+  (setq org-mobile-directory "~/Dropbox/MobileOrg")
+#+end_src
+
+** gnus custom-set-variables backup 
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2012-12-10 Mon 19:00
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages/gnus/current production gnus
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+ #+begin_src emacs-lisp
+   (custom-set-variables
+    ;; custom-set-variables was added by Custom.
+    ;; If you edit it by hand, you could mess it up, so be careful.
+    ;; Your init file should contain only one such instance.
+    ;; If there is more than one, they won't work right.
+    '(gnus-activate-level 1)
+    '(gnus-after-getting-new-news-hook
+      (quote
+       (gnus-display-time-event-handler gnus-group-save-newsrc)))
+    '(gnus-agent-expire-all nil)
+    '(gnus-agent-expire-days 14)
+    '(gnus-agent-go-online t)
+    '(gnus-agent-mark-unread-after-downloaded nil)
+    '(gnus-agent-synchronize-flags t)
+    '(gnus-always-read-dribble-file t)
+    '(gnus-article-address-banner-alist
+      (quote
+       (("@sig\\.com\\'" . signature)
+        ("@volcanocorp\\.com\\'" . signature))))
+    '(gnus-article-sort-functions
+      (quote
+       ((not gnus-article-sort-by-number))))
+    '(gnus-article-update-date-headers nil)
+    '(gnus-asynchronous t)
+    '(gnus-auto-select-next nil nil nil "
+   VERY IMPORTANT SETTING ***.  See http://debbugs.gnu.org/cgi/bugreport.cgi?bug=9399")
+    '(gnus-buttonized-mime-types
+      (quote
+       ("multipart/alternative")))
+    '(gnus-check-new-newsgroups nil)
+    '(gnus-cited-closed-text-button-line-format "...<schnipp %n>...
+   ")
+    '(gnus-cited-lines-visible
+      (quote
+       (5 . 10)))
+    '(gnus-cited-opened-text-button-line-format "")
+    '(gnus-completing-read-function
+      (quote gnus-ido-completing-read))
+    '(gnus-default-article-saver
+      (quote gnus-summary-write-to-file))
+    '(gnus-default-directory "~")
+    '(gnus-duplicate-list-length 100000)
+    '(gnus-extra-headers
+      (quote
+       (To Cc Content-Type)))
+    '(gnus-gcc-mark-as-read t)
+    '(gnus-generate-tree-function
+      (quote gnus-generate-horizontal-tree))
+    '(gnus-group-default-list-level 4)
+    '(gnus-group-line-format "%S%p%P%5y%5T: %(%B%G%B%)
+   ")
+    '(gnus-group-mode-hook
+      (quote
+       (gnus-topic-mode gnus-agent-mode)))
+    '(gnus-group-use-permanent-levels t)
+    '(gnus-ignored-from-addresses "^zygomega\\|tonyday567\\|tony.day")
+    '(gnus-ignored-mime-types
+      (quote
+       ("application/x-pkcs7-signature" "application/ms-tnef" "text/x-vcard")))
+    '(gnus-interactive-exit
+      (quote quiet))
+    '(gnus-large-newsgroup 1000)
+    '(gnus-message-archive-group
+      (quote
+       ((format-time-string "sent.%Y-%m"))))
+    '(gnus-message-replyencrypt nil)
+    '(gnus-novice-user nil)
+    '(gnus-parameters
+      (quote
+       (("^INBOX"
+         (expiry-wait . immediate)
+         (expiry-target . delete)
+         (display .
+                  [or
+                   (not reply)
+                   (not expire)])))))
+    '(gnus-read-active-file nil)
+    '(gnus-read-newsrc-file nil)
+    '(gnus-refer-article-method
+      (quote
+       (current
+        (nnregistry)
+        (nntp "Gmane"
+              (nntp-address "news.gmane.org"))
+        (nntp "GigaNews"
+              (nntp-address "text.giganews.com")
+              (nntp-authinfo-user "tonyday567"))))
+      nil nil "***** NOTE: NEED TO RESTORE (nnregistry) here")
+    '(gnus-refer-thread-use-nnir t)
+    '(gnus-safe-html-newsgroups ".")
+    '(gnus-save-duplicate-list t)
+    '(gnus-save-killed-list nil)
+    '(gnus-save-newsrc-file nil)
+    '(gnus-score-default-duration
+      (quote p))
+    '(gnus-score-expiry-days 30)
+    '(gnus-score-find-score-files-function
+      (quote
+       (gnus-score-find-hierarchical)))
+   
+   
+    '(gnus-select-group-hook
+      (quote
+       (gnus-group-set-timestamp)))
+     
+    '(gnus-signature-separator
+      (quote
+       ("^-- $" "^-- *$" "^_____+$" "^-----+
+   ?
+   NOTICE: ")))
+    '(gnus-simplify-subject-functions
+      (quote
+       (gnus-simplify-subject-fuzzy)))
+    '(gnus-sort-gathered-threads-function
+      (quote gnus-thread-sort-by-date)
+      t)
+   
+    ;;'(smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil)))
+    ;;'(smtpmail-smtp-server "smtp.gmail.com")
+    ;;'(smtpmailil-default-smtp-server "smtp.gmail.com")
+    ;;'(send-mail-function 'smtpmail-send-it)
+    ;;'(message-send-mail-function 'smtpmail-send-it)
+    ;;'(smtpmail-smtp-service 587)
+    ;;'(gnus-outgoing-message-group "[Google Mail]/Sent Mail")
+   
+   
+    '(gnus-spam-process-destinations
+      (quote
+       (("^\\(\\(nnimap\\+\\)?Mail:\\)?[^+]*$" "[Gmail].Spam"))))
+    '(gnus-spam-process-newsgroups
+      (quote
+       (("^\\(\\(nntp\\+\\)?LocalNNTP:\\)?gmane\\."
+         ((spam spam-use-gmane))))))
+    '(gnus-split-methods
+      (quote
+       ((gnus-save-site-lisp-file)
+        (gnus-article-archive-name)
+        (gnus-article-nndoc-name))))
+    '(gnus-started-hook
+      (quote
+       ((lambda nil
+          (run-hooks
+           (quote gnus-after-getting-new-news-hook))))))
+    '(gnus-subscribe-newsgroup-method
+      (quote gnus-subscribe-topics))
+    '(gnus-summary-expunge-below -100)
+    '(gnus-summary-highlight
+      (quote
+       (((eq mark gnus-spam-mark)
+         . spam)
+        ((eq mark gnus-spam-mark)
+         . spam)
+        ((eq mark gnus-expirable-mark)
+         . gnus-summary-expirable-face)
+        ((eq mark gnus-spam-mark)
+         . spam)
+        ((eq mark gnus-spam-mark)
+         . spam)
+        ((eq mark gnus-canceled-mark)
+         . gnus-summary-cancelled)
+        ((and uncached
+              (> score default-high))
+         . gnus-summary-high-undownloaded)
+        ((and uncached
+              (< score default-low))
+         . gnus-summary-low-undownloaded)
+        (uncached . gnus-summary-normal-undownloaded)
+        ((and
+          (> score default-high)
+          (or
+           (eq mark gnus-dormant-mark)
+           (eq mark gnus-ticked-mark)))
+         . gnus-summary-high-ticked)
+        ((and
+          (< score default-low)
+          (or
+           (eq mark gnus-dormant-mark)
+           (eq mark gnus-ticked-mark)))
+         . gnus-summary-low-ticked)
+        ((or
+          (eq mark gnus-dormant-mark)
+          (eq mark gnus-ticked-mark))
+         . gnus-summary-normal-ticked)
+        ((and
+          (> score default-high)
+          (eq mark gnus-ancient-mark))
+         . gnus-summary-high-ancient)
+        ((and
+          (< score default-low)
+          (eq mark gnus-ancient-mark))
+         . gnus-summary-low-ancient)
+        ((eq mark gnus-ancient-mark)
+         . gnus-summary-normal-ancient)
+        ((and
+          (> score default-high)
+          (eq mark gnus-unread-mark))
+         . gnus-summary-high-unread)
+        ((and
+          (< score default-low)
+          (eq mark gnus-unread-mark))
+         . gnus-summary-low-unread)
+        ((eq mark gnus-unread-mark)
+         . gnus-summary-normal-unread)
+        ((> score default-high)
+         . gnus-summary-high-read)
+        ((< score default-low)
+         . gnus-summary-low-read)
+        (t . gnus-summary-normal-read))))
+    '(gnus-summary-line-format "%O%U%R%z%~(form my-align-gnus-summary)@%B%&user-date;: %(%f%~(form my-align-gnus-subject)@%)               %s
+   ")
+    '(gnus-suppress-duplicates t)
+    '(gnus-suspend-gnus-hook
+      (quote
+       (gnus-group-save-newsrc)))
+    '(gnus-thread-hide-subtree
+      (quote
+       (not gnus-article-unread-p)))
+    '(gnus-thread-sort-functions
+      (quote
+       ((not gnus-thread-sort-by-number)
+        (not gnus-thread-sort-by-most-recent-date)
+        gnus-thread-sort-by-total-score)))
+    '(gnus-topic-display-empty-topics nil)
+    '(gnus-topic-line-format "%i[ %A: %(%{%n%}%) ]%v
+   ")
+    '(gnus-treat-date-lapsed
+      (quote head))
+    '(gnus-treat-display-smileys nil)
+    '(gnus-treat-from-gravatar
+      (quote head))
+    '(gnus-treat-hide-citation t)
+    '(gnus-treat-mail-gravatar
+      (quote head))
+    '(gnus-treat-strip-cr t)
+    '(gnus-treat-strip-leading-blank-lines
+      (quote first))
+    '(gnus-treat-strip-multiple-blank-lines t)
+    '(gnus-treat-strip-trailing-blank-lines
+      (quote last))
+    '(gnus-tree-minimize-window nil)
+    '(gnus-uncacheable-groups "^nnml")
+    '(gnus-use-cache t)
+    '(gnus-use-trees t)
+   '(user-mail-address "tonyday567@gmail.com")
+   '(user-full-name "Tony Day")
+   
+    '(gnus-valid-select-methods
+      (quote
+       (("nntp" post address prompt-address physical-address)
+        ("nnspool" post address)
+        ("nnvirtual" post-mail prompt-address virtual)
+        ("nnmbox" mail address respool)
+        ("nnml" post-mail address respool)
+        ("nnmh" mail address respool)
+        ("nndir" post-mail prompt-address physical-address)
+        ("nneething" none address prompt-address physical-address)
+        ("nndoc" none address prompt-address virtual)
+        ("nnbabyl" mail address respool)
+        ("nndraft" post-mail)
+        ("nnfolder" mail address respool)
+        ("nngateway" post-mail address prompt-address physical-address)
+        ("nnweb" none)
+        ("nnrss" none)
+        ("nnagent" post-mail)
+        ("nnimap" post-mail address prompt-address physical-address respool server-marks)
+        ("nnmaildir" mail address respool server-marks)
+        ("nnnil" none)
+        ("nndiary" post-mail respool address)
+        ("nnir" mail virtual))))
+    '(gnus-verbose 4)
+    '(nnir-hyrex-remove-prefix "~/Library/Data/Gnus/Mail")
+    '(nnir-ignored-newsgroups "^\"\\([^[]\\|\\[Gmail][/.][^A]\\)")
+    '(nnir-imap-default-search-key "imap")
+    '(nnir-namazu-index-directory "~/Library/Data/Gnus/Mail/namazu")
+    '(nnir-namazu-remove-prefix "~/Library/Data/Gnus/Mail")
+    '(nnir-notmuch-remove-prefix "~/Library/Data/Gnus/Mail")
+    '(nnir-swish++-configuration-file "~/Library/Data/Gnus/Mail/swish++.conf")
+    '(nnir-swish++-remove-prefix "~/Library/Data/Gnus/Mail/")
+    '(nnir-swish-e-index-file "~/Library/Data/Gnus/Mail/index.swish-e")
+    '(nnir-swish-e-index-files
+      (quote
+       ("~/Library/Data/Gnus/Mail/index.swish-e")))
+    '(nnir-swish-e-remove-prefix "~/Library/Data/Gnus/Mail/")
+    '(nnmail-crosspost nil)
+    '(nnmail-expiry-wait 30)
+    '(nnmail-extra-headers
+      (quote
+       (To Cc Content-Type)))
+    '(nnmail-scan-directory-mail-source-once t)
+    '(mail-dont-reply-to-names "dave@\\(boost-consulting\\|boostpro\\)\\.com\\|dave\\.abrahams@rcn\\.com\\|boost\\.consulting@gmail\\.com\\|dave\\.boostpro@gmail\\.com\\|Undisclosed-recipients[:;]*")
+    '(mail-envelope-from
+      (quote header))
+    '(mail-setup-with-from nil)
+    '(mail-signature t)
+    '(mail-source-delete-incoming t)
+    '(mail-source-delete-old-incoming-confirm nil)
+    '(mail-source-report-new-mail-interval 15)
+    '(mail-specify-envelope-from t)
+    '(mail-user-agent
+      (quote gnus-user-agent)))
+ #+end_src
+
+** custom-set-faces
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2012-12-10 Mon 19:06
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages/gnus/current production gnus
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+ #+begin_src emacs-lisp
+
+;;;_ + faces
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(gnus-summary-expirable-face
+   ((t
+     (:foreground "grey55" :strike-through t :slant italic :weight normal :width condensed :family "DejaVu Sans")))))
+
+ #+end_src
+
+** install instructions
+:PROPERTIES:
+:ARCHIVE_TIME: 2012-12-16 Sun 23:06
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages/gnus/gnus r&d/gnus dev status
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+For Dovecot to work, you will need to do the following:
+
+1) Create configuration in /usr/local/etc
+
+2) If required by the configuration above, create a dovecot user and group
+
+3) possibly create a launchd item in /Library/LaunchDaemons/homebrew.mxcl.dovecot.plist, like so:
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+        <key>Label</key>
+        <string>homebrew.mxcl.dovecot</string>
+        <key>OnDemand</key>
+        <false/>
+        <key>ProgramArguments</key>
+        <array>
+                <string>/usr/local/sbin/dovecot</string>
+                <string>-F</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>ServiceDescription</key>
+        <string>Dovecot mail server</string>
+</dict>
+</plist>
+
+Source: http://wiki.dovecot.org/LaunchdInstall
+4) start the server using: sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dovecot.plist
+
+http://wiki2.dovecot.org/TestInstallation
+
+** TODO dovecot execution choices
+:PROPERTIES:
+:ID:       C94AFA9F-AB07-4CFE-9DCE-A16F1805D315
+:ARCHIVE_TIME: 2012-12-16 Sun 23:06
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages/gnus/gnus r&d/gnus dev status
+:ARCHIVE_CATEGORY: dotemacs
+:ARCHIVE_TODO: TODO
+:END:
+
+- [ ] what is (nnimap-shell-program "/usr/local/opt/dovecot/libexec/dovecot/imap")
+/usr/local/Cellar/dovecot/2.1.10/libexec/dovecot/imap
+http://wiki2.dovecot.org/LaunchdInstall
+
+#+begin_src sh
+            ps auxw|grep "dovecot"
+
+#+end_src
+
+#+results:
+| root    |    95 | 0.0 | 0.0 | 2433616 |   4 | ?? | S  | 8:37PM | 0:00.01 | dovecot/config          |         |
+| root    |    91 | 0.0 | 0.0 | 2433284 |   4 | ?? | S  | 8:37PM | 0:00.00 | dovecot/log             |         |
+| tonyday |    90 | 0.0 | 0.0 | 2433284 |   4 | ?? | S  | 8:37PM | 0:00.00 | dovecot/anvil           |         |
+| root    |    71 | 0.0 | 0.0 | 2433328 |   4 | ?? | Ss | 8:37PM | 0:00.02 | /usr/local/sbin/dovecot | -F      |
+| tonyday | 15142 | 0.0 | 0.0 | 2423540 | 180 | ?? | R  | 2:35PM | 0:00.00 | grep                    | dovecot |
+
+ps auxw|grep "dovecot"
+http://wiki.dovecot.org/TestInstallation
+
+auth default {
+..
+  passdb passwd-file {
+    args = /etc/passwd.dovecot
+  }
+protocols = imap
+mail_location = maildir:~/Mail
+auth default {
+  passdb passwd-file {
+    args = /etc/passwd.dovecot
+  }
+}
+
+
+
+- [ ] (setq imap-shell-program
+       (quote
+        ("/opt/local/sbin/dovecot --exec-mail imap" 
+         "ssh %s imapd"
+         "rsh %s imapd"
+         "ssh %g ssh %s imapd"
+         "rsh %g rsh %s imapd")))
+- [ ] (setq imap-shell-program "dovecot -c ~/.dovecotrc --exec-mail imap")
+- [ ] '(offlineimap-command "offlineimap -u machineui")
+
+** gnus r&d
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2012-12-17 Mon 00:17
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages/gnus
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+*** NEXT gnus dev status
+SCHEDULED: <2012-12-14 Fri>
+:LOGBOOK:
+CLOCK: [2012-12-16 Sun 09:35]--[2012-12-17 Mon 06:42] => 21:07
+CLOCK: [2012-12-14 Fri 13:46]--[2012-12-15 Sat 18:32] => 28:46
+:END:
+:PROPERTIES:
+:ID:       6069F551-22F4-4F47-B33E-CE9A07A70C32
+:END:
+
+refs
+http://www.sanityinc.com/articles/read-mailing-lists-in-emacs-over-imap
+http://stackoverflow.com/questions/9977182/how-to-integrate-dovecot-version-2-with-gnus-emacs
+
+(gnus-refer-article-method
+
+status
+- offlineimap working from the terminal and start-offlineimap-regular, but not
+  on the launchctl platform.  The problem might be due to an inability to
+  pass gmail the passord(?)
+    - [X] problem with getting password to gmail???
+    - [X] check rc
+- [X] lay in solid primary select method
+- [X] scrape back old secondaries
+- [X] add in scarce
+  dovecot offlineimap setup needed
+- [X] add newsreadings (and review setup)
+- [X] smtp needs/changes
+    - [X] immediately mail send might be ok
+
+
+**** dovecot.conf stash
+#+begin_example
+# 2.1.10: /usr/local/etc/dovecot/dovecot.conf
+# OS: Darwin 12.2.0 x86_64  
+default_internal_user = tonyday
+default_login_user = tonyday
+disable_plaintext_auth = no
+mail_debug = yes
+mail_location = maildir:~/Maildir:LAYOUT=fs:INBOX=~/Maildir/INBOX
+namespace inbox {
+  inbox = yes
+  location = 
+  mailbox Drafts {
+    special_use = \Drafts
+  }
+  mailbox Junk {
+    special_use = \Junk
+  }
+  mailbox Sent {
+    special_use = \Sent
+  }
+  mailbox "Sent Messages" {
+    special_use = \Sent
+  }
+  mailbox Trash {
+    special_use = \Trash
+  }
+  prefix = 
+}
+passdb {
+  args = /etc/passwd.dovecot
+  driver = passwd-file
+}
+passdb {
+  driver = pam
+}
+passdb {
+  driver = pam
+}
+protocols = imap
+ssl = no
+ssl_cert = </etc/ssl/certs/dovecot.pem
+ssl_key = </etc/ssl/private/dovecot.pem
+userdb {
+  driver = passwd
+}
+userdb {
+  driver = passwd
+} 
+#+end_example
+
+
+**** .offlineimaprc stash
+
+#+begin_example
+  [general]
+accounts = Work, Home
+maxsyncaccounts = 2
+ui = TTYUI
+
+[Account Work]
+localrepository = LocalWork
+remoterepository = GmailWork
+autorefresh = 5
+maxage = 20
+
+[Repository LocalWork]
+#type= Maildir
+#localfolders = ~/Maildir
+type = IMAP
+preauthtunnel = /usr/local/Cellar/dovecot/2.1.10/libexec/dovecot/imap
+nametrans = lambda folder: re.sub('^Work/', '', folder)
+
+[Repository GmailWork]
+type = Gmail
+cert_fingerprint=6d1b5b5ee0180ab493b71d3b94534b5ab937d042
+remoteuser = tony.day@scarcecapital.com
+remotepass = xxxxxxxxx
+createfolders=false
+maxconnections=4
+nametrans = lambda folder: re.sub('^', 'Work/', folder)
+folderfilter = lambda folder: folder in ['INBOX', '[Gmail]/Sent Mail', '[Gmail]/Starred', 'linkedin']
+
+[Account Home]
+localrepository = LocalHome
+remoterepository = GmailHome
+autorefresh = 5
+maxage = 20
+
+[Repository LocalHome]
+type = IMAP
+preauthtunnel = /usr/local/Cellar/dovecot/2.1.10/libexec/dovecot/imap
+nametrans = lambda folder: re.sub('^Home/', '', folder)
+
+[Repository GmailHome]
+type = Gmail
+cert_fingerprint=6d1b5b5ee0180ab493b71d3b94534b5ab937d042
+remoteuser = tonyday567@gmail.com
+remotepass = xxxxxxxxxx
+maxconnections=4
+nametrans = lambda folder: re.sub('^', 'Home/', folder)
+folderfilter = lambda folder: folder in ['INBOX', '[Gmail]/Sent Mail', '[Gmail]/Starred', 'org', 'emacs', 'github', 'keepers', 'paperwork']
+
+  
+#+end_example
+
+
+**** dev tools
+
+What dovecot processes are running
+#+begin_src sh
+  ps auxw|grep "dovecot"
+#+end_src
+
+#+results:
+| tonyday | 416 | 0.0 | 0.0 | 2433512 | 1048 | ?? | S  | 11:02PM | 0:00.00 | dovecot/auth            |         |
+| root    |  81 | 0.0 | 0.0 | 2433284 |  880 | ?? | S  | 11:02PM | 0:00.00 | dovecot/log             |         |
+| tonyday |  80 | 0.0 | 0.0 | 2433284 |  804 | ?? | S  | 11:02PM | 0:00.00 | dovecot/anvil           |         |
+| root    |  71 | 0.0 | 0.0 | 2433328 |  988 | ?? | Ss | 11:02PM | 0:00.02 | /usr/local/sbin/dovecot | -F      |
+| tonyday | 489 | 0.0 | 0.0 | 2424992 |  464 | ?? | R  | 11:05PM | 0:00.00 | grep                    | dovecot |
+
+#+begin_src sh
+  ps auxw|grep "offlineimap"
+#+end_src
+
+#+results:
+| tonyday | 409 | 0.1 | 0.1 | 2504792 | 14876 | s001 | Ss+ | 11:02PM | 0:00.89 | /usr/local/Cellar/python/2.7.3/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python | /usr/local/bin/offlineimap |
+| tonyday | 492 | 0.0 | 0.0 | 2424992 |   464 | ??   | R   | 11:05PM | 0:00.00 | grep                                                                                                               | offlineimap                |
+
+
+
+*** links
+
+http://comments.gmane.org/gmane.emacs.gnus.general/72313
+http://www.sanityinc.com/articles/read-mailing-lists-in-emacs-over-imap
+http://www.xemacs.org/Links/tutorials_3.html
+http://getapix.wordpress.com/2008/12/07/setting-up-gmail-with-postfix-and-fetchmail-on-osx-and-linux-laptops/
+
+*** gmail to gnu table
+
+
+| Action on client                                    | Result in Gmail on the web                                      | Command in Gnus                           |
+|-----------------------------------------------------+-----------------------------------------------------------------+-------------------------------------------|
+| Open a message                                      | Mark a message as read                                          | RET                                       |
+| Flag a message                                      | Apply a star to the message                                     | !                                         |
+| Unflag a message                                    | Remove the star from the message                                | M-u                                       |
+| Move a message to a folder                          | Apply a label to the message                                    | B m                                       |
+| Move a message to a folder within a folder          | Apply a label showing folder hierarchy (’MainFolder/SubFolder’) | B m                                       |
+| Create a folder                                     | Create a label                                                  | B m to nonexistent folder will create it. |
+| Move a message to [Gmail]/Spam                      | Report a message as spam                                        | B m [Gmail]/Spam RET                      |
+| Move a message to [Gmail]/Trash                     | Move a message to Trash                                         | B m [Gmail]/Trash RET                     |
+| Send a message                                      | Store message in Sent Mail                                      | m                                         |
+| Delete a message in inbox                           | Remove the message from inbox                                   | B DEL                                     |
+| Delete a message from a folder                      | Remove that label from the message                              | B DEL                                     |
+| Delete a message from [Gmail]/Spam or [Gmail]/Trash | Delete the message permanently                                  | B DEL                                     |
+
+*** gnus r&d code
+
+#+begin_src emacs-lisp :tangle no
+  (require 'nnir)
+  (nnir-search-engine imap)
+#+end_src
+
+#+begin_src emacs-lisp
+(nnimap-expunge-on-close 'never)
+#+end_src
+
+#+begin_src emacs-lisp
+  ;; for autocompletion of email addresses
+  ;; (setq bbdb/news-auto-create-p t)
+  ;; Reply-to with the same address as it was sent to
+  (setq gnus-posting-styles
+      '(((header "to" "zygomega@gmail.com")
+         (address "zygomega@gmail.com"))
+	((header "to" "koolkeith73@gmail.com")
+         (address "koolkeith73@gmail.com"))
+	((header "cc" "zygomega@gmail.com")
+         (address "zygomega@gmail.com"))
+	((header "cc" "koolkeith73@gmail.com")
+         (address "koolkeith73@gmail.com"))))
+
+#+end_src
+
+
+
+
+*** dovecot imap reference
+:PROPERTIES:
+:tangle:   no
+:END:
+ #+begin_src emacs-lisp
+ ;;(setq imap-shell-program "dovecot -c ~/.dovecotrc --exec-mail imap")
+ ;;
+ ;;(setq gnus-select-method '(nnimap "Mail"
+ ;;                                (nnimap-stream shell)))
+ ;;
+ ;;(setq imap-shell-program "/usr/lib/dovecot/imap" )
+ (setq imap-shell-program
+       (quote
+        ("/opt/local/sbin/dovecot --exec-mail imap" 
+         "ssh %s imapd"
+         "rsh %s imapd"
+         "ssh %g ssh %s imapd"
+         "rsh %g rsh %s imapd")))
+ 
+ 
+;; (setq gnus-secondary-select-methods '((nnimap "Mail" (nnimap-stream
+;;  shell))))
+ #+end_src
+ 
+
+*** dwa select method
+:PROPERTIES:
+:tangle:   no
+:END:
+ #+begin_src emacs-lisp
+;; primary and secondary methods
+ (setq gnus-select-method
+   (quote
+    (nnimap "LocalIMAP"
+            (nnimap-address "localhost")
+            (nnimap-user "dave")
+            (nnimap-server-port 9143)
+            (nnimap-stream network))))
+
+ #+end_src
+
+*** jw select method
+:PROPERTIES:
+:tangle:   no
+:END:
+
+#+begin_src emacs-lisp
+(setq gnus-select-method
+  (quote
+   (nnimap "Local"
+           (nnimap-stream shell)
+           (nnimap-shell-program "/usr/local/opt/dovecot/libexec/dovecot/imap"))))
+
+#+end_src
+ 
+*** secondaries
+:PROPERTIES:
+:tangle:   no
+:END:
+ #+begin_src emacs-lisp
+(setq gnus-secondary-select-methods
+   (quote
+    ((nntp "GigaNews"
+           (nntp-address "text.giganews.com")
+           (nntp-authinfo-user "dabrahams"))
+     (nntp "Gmane"
+           (nntp-address "news.gmane.org"))
+     (nnimap "GMail"
+             (nnimap-address "imap.gmail.com")
+             (nnimap-server-port 993)
+             (nnimap-stream ssl)
+             (nnimap-user "dave.abrahams@gmail.com"))
+     (nntp "Gwene"
+           (nntp-address "news.gwene.org")))))
+ 
+#+end_src
+
+ #+results:
+ | nnimap | tonyday567 | (nnimap-address imap.gmail.com) |
+ | nnml   |            |                                 |
+
+
+
+
+*** jw hook
+    :PROPERTIES:
+    :tangle:   no
+    :END:
+#+begin_src emacs-lisp
+(use-package dotgnus
+  :bind (("M-G"   . switch-to-gnus)
+         ("C-x m" . compose-mail))
+  :init
+  (progn
+    (setq gnus-init-file (expand-file-name "dotgnus" user-emacs-directory)
+          gnus-home-directory "~/Messages/Gnus/")))
+  
+#+end_src
+
+*** minimal
+
+This minimalist version is mostly gleaned from the help files
+
+:PROPERTIES:
+:tangle:   no
+:END:
+#+begin_src emacs-lisp
+(setq user-mail-address "tonyday567@gmail.com")
+(setq user-full-name "Tony Day")
+(setq gnus-select-method '(nnimap "imap.gmail.com"
+                           (nnimap-address "imap.gmail.com")
+                           (nnimap-server-port 993)
+                           (nnimap-authinfo-file "~/.authinfo.gpg")
+                           (nnimap-stream ssl)))
+
+(setq smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
+      smtpmail-smtp-server "smtp.gmail.com"
+      smtpmailil-default-smtp-server "smtp.gmail.com"
+      send-mail-function 'smtpmail-send-it
+      message-send-mail-function 'smtpmail-send-it
+      smtpmail-smtp-service 587)
+
+(add-hook 'gnus-topic-mode-hook 'gnus-topic-mode)
+
+(setq gnus-invalid-group-regexp "[:`'\"]\\|^$")
+(setq gnus-ignored-newsgroups "")
+(setq gnus-outgoing-message-group "[Google Mail]/Sent Mail")
+
+ '(gnus-secondary-select-methods
+   (quote
+    ((nntp "giganews"
+           (nntp-address "text.giganews.com")
+           (nntp-authinfo-user "tonyday567"))
+     (nntp "gmane"
+           (nntp-address "news.gmane.org"))
+     (nnimap "scarce"
+             (nnimap-address "imap.gmail.com")
+             (nnimap-server-port 993)
+             (nnimap-stream ssl)
+             (nnimap-user "tony.day@scarcecapital.com")))))
+
+(setq gnus-group-line-format "%S%p%P%5y%5T%5R: %(%B%G%B%)
+")
+(setq gnus-summary-line-format "%O%U%R%z%~(form my-align-gnus-summary)@%B%&user-date;: %(%f%~(form my-align-gnus-subject)@%)		%s
+")
+(defvar my-align-gnus-summary (propertize " " 'display '(space :align-to 5)))
+(defvar my-align-gnus-subject (propertize " " 'display '(space :align-to 30)))
+
+(defvar my-align-gnus-group (propertize " " 'display '(space :align-to 8)))
+
+#+end_src
+
+
+
+
+*** primary select (now in settings.el)
+#+begin_src emacs-lisp
+  (setq gnus-select-method '(nnimap "main"
+                              (nnimap-address "imap.gmail.com")
+                              (nnimap-server-port 993)
+                              (nnimap-authinfo-file "~/.authinfo.gpg")
+                              (nnimap-user "tonyday567")
+                              (nnimap-stream ssl)))
+ #+end_src
+ 
+
+*** full secondary
+:PROPERTIES:
+:tangle:   no
+:END:
+
+#+begin_src emacs-lisp
+(setq gnus-secondary-select-methods
+      (quote
+       ((nntp "giganews"
+              (nntp-address "text.giganews.com")
+              (nntp-authinfo-user "tonyday567"))
+        (nntp "gmane"
+              (nntp-address "news.gmane.org"))
+        (nnimap "scarce"
+                (nnimap-address "imap.gmail.com")
+                (nnimap-server-port 993)
+                (nnimap-stream ssl)
+                (nnimap-user "tony.day@scarcecapital.com"))
+        (nnimap "gmail"
+                (nnimap-address "imap.gmail.com")
+                (nnimap-server-port 993)
+                (nnimap-stream ssl)
+                (nnimap-user "tonyday567@gmail.com"))
+        (nntp "Gwene"
+              (nntp-address "news.gwene.org"))
+        (nnimap "LocalIMAP"
+                (nnimap-address "localhost")
+                (nnimap-user "tonyday")
+                (nnimap-server-port 9143)
+                (nnimap-stream network)))))
+#+end_src 
+
+
+*** various select method attempts and patterns
+:PROPERTIES:
+:tangle:   no
+:END:
+
+#+begin_src emacs-lisp
+(setq gnus-select-method
+   (quote
+    (nnimap "LocalIMAP"
+            (nnimap-address "localhost")
+            (nnimap-user "tonyday")
+            (nnimap-stream network))))
+#+end_src
+
+
+#+begin_src emacs-lisp
+(setq imap-shell-method "/usr/local/sbin/dovecot")
+(setq gnus-secondary-select-methods '((nnimap "mail" (nnimap-stream shell))))
+(setq gnus-secondary-select-methods '((nnimap "localhost" (nnimap-stream network))))
+(setq gnus-select-method (quote
+  (nnimap "localhost" 
+    (nnimap-stream network))))
+
+'(gnus-secondary-select-methods (quote ((nnimap "scarce" (nnimap-address "imap.gmail.com") (nnimap-server-port 993) (nnimap-stream ssl) (nnimap-user "tony.day@scarcecapital.com")) (nntp "giganews" (nntp-address "text.giganews.com") (nntp-authinfo-user "tonyday567")) (nntp "gmane" (nntp-address "news.gmane.org")) (nntp "Gwene" (nntp-address "news.gwene.org")))))
+
+(setq gnus-select-method '(nnimap "Local" (nnimap-stream shell)))
+
+
+(setq gnus-select-method
+  (quote
+   (nnimap "localhost"
+           (nnimap-stream shell)
+           (nnimap-shell-program "/usr/local/sbin/dovecot"))))
+
+#+end_src
+
+#+results:
+| nnimap | Local | (nnimap-stream shell) | (nnimap-shell-program /usr/local/sbin/dovecot/libexec/dovecot/imap) |
+
+
+
+
+*** actual secondary (in settings)
+
+#+begin_src emacs-lisp
+(setq gnus-secondary-select-methods
+      (quote
+       (
+        (nnimap "scarce"
+                (nnimap-address "imap.gmail.com")
+                (nnimap-server-port 993)
+                (nnimap-stream ssl)
+                (nnimap-user "tony.day@scarcecapital.com"))
+        (nntp "giganews"
+              (nntp-address "text.giganews.com")
+              (nntp-authinfo-user "tonyday567"))
+        (nntp "gmane"
+              (nntp-address "news.gmane.org"))
+        (nntp "Gwene"
+              (nntp-address "news.gwene.org"))
+
+        )))
+#+end_src
+
+** DONE slow packages
+CLOSED: [2012-12-28 Fri 23:57]
+:LOGBOOK:
+- State "DONE"       from "NEXT"       [2012-12-28 Fri 23:57]
+CLOCK: [2012-12-28 Fri 20:29]--[2012-12-28 Fri 23:50] =>  3:21
+:END:
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-03-09 Sat 16:02
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: clipboard/debugs and tools/current startup bugz and readings
+:ARCHIVE_CATEGORY: dotemacs
+:ARCHIVE_TODO: DONE
+:END:
+Configuring package gnus...done (1.473s)
+Loading package bbdb-gnus...done (0.905s)
+Loading package org-magit...done (0.996s)
+Configuring package erc...done (0.419s)
+Loading package erc-yank...done (0.374s)
+Loading /Users/tonyday/.emacs.d/dotemacs.el...done (10.830s) [after-init]
+
+** current startup bugz and readings
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-03-09 Sat 16:02
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: clipboard/debugs and tools
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+*** flet
+`flet' is an obsolete macro (as of 24.3); use either `cl-flet' or `cl-letf'. [3 times]
+*** babel insisting on messaging tangled
+*** diary
+No event to add
+Appointment reminders enabled (no diary file found)
+*** eieio
+Unsafe call to `eieio-persistent-read'.
+
+
+
+*** org-modifier
+org-modifier-cursor-error: This command is active in special context like tables, headlines or items
+
+*** CTags
+Exuberant CTags not found.  Found ectags that comes with Emacs
+
+*** yas load messages
+[yas] Loading compiled snippets from /Users/tonyday/.emacs.d/snippets/org-mode
+[yas] Prepared just-in-time loading for /Users/tonyday/git/jwiegley-dot-emacs/site-lisp/yasnippet/snippets
+[yas] Prepared just-in-time loading for ~/.emacs.d/snippets
+[yas] Reloaded everything (snippets will load just-in-time)....
+
+** development area
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2013-03-09 Sat 16:02
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: clipboard
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+
+*** html5check hook
+#+begin_src emacs-lisp
+  (add-hook 'html-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-c v")
+                           (lambda () (interactive)
+                             (save-buffer)
+                             (shell-command (concat "html5check.py " (shell-quote-argument (buffer-file-name))))
+                             ))))
+#+end_src
+
+** NEXT tex development
+:LOGBOOK:
+CLOCK: [2013-02-24 Sun 21:13]--[2013-02-25 Mon 16:57] => 19:44
+:END:
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2013-03-16 Sat 13:39
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages/auctex
+:ARCHIVE_CATEGORY: dotemacs
+:ARCHIVE_TODO: NEXT
+:END:
+Some random old-school instructions
+
+- best config
+  - auctex-autoloads???
+  - tex-site???
+  - fix bug
+  - reload helm
+
+
+#+begin_src emacs-lisp
+  (load "auctex.el" nil t t)
+  (load "preview-latex.el" nil t t)
+#+end_src
+
+This gives you latex-mode
+#+begin_src emacs-lisp
+ (use-package latex)
+  (use-package preview)
+(use-package auctex-autoloads)
+(use-package url)
+#+end_src
+
+** jwiegley cc-mode
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2013-03-16 Sat 13:43
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages/cc-mode/cedet development
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+
+- [ ] compare with dwa
+
+#+begin_src emacs-lisp
+  (use-package cc-mode
+    :mode (("\\.h\\(h?\\|xx\\|pp\\)\\'" . c++-mode)
+           ("\\.m\\'"                   . c-mode)
+           ("\\.mm\\'"                  . c++-mode))
+    :init
+    (progn
+      (defun llvm-info ()
+        (interactive)
+        (w3m-find-file "/usr/local/opt/clang/docs/llvm/html/doxygen/classllvm_1_1IRBuilder.html"))
+      
+      (defun my-paste-as-check ()
+        (interactive)
+        (save-excursion
+          (insert "/*\n")
+          (let ((beg (point)) end)
+            (yank)
+            (setq end (point-marker))
+            (goto-char beg)
+            (while (< (point) end)
+              (forward-char 2)
+              (insert "CHECK: ")
+              (forward-line 1)))
+          (insert "*/\n")))
+      
+      (defun my-c-indent-or-complete ()
+        (interactive)
+        (let ((class (syntax-class (syntax-after (1- (point))))))
+          (if (or (bolp) (and (/= 2 class)
+                              (/= 3 class)))
+              (call-interactively 'indent-according-to-mode)
+            (call-interactively 'auto-complete))))
+      
+      (defvar printf-index 0)
+      
+      (defun insert-counting-printf (arg)
+        (interactive "P")
+        (if arg
+            (setq printf-index 0))
+        (if t
+            (insert (format "std::cerr << \"step %d..\" << std::endl;\n"
+                            (setq printf-index (1+ printf-index))))
+          (insert (format "printf(\"step %d..\\n\");\n"
+                          (setq printf-index (1+ printf-index)))))
+        (forward-line -1)
+        (indent-according-to-mode)
+        (forward-line))
+      
+      (defun my-c-save-buffer ()
+        (interactive)
+        (if (buffer-modified-p)
+            (call-interactively 'save-buffer))
+        (if flymake-mode
+            (flymake-start-syntax-check)))
+      
+      (defun my-c-mode-common-hook ()
+        (abbrev-mode 1)
+        (gtags-mode 1)
+        (hs-minor-mode 1)
+        (hide-ifdef-mode 1)
+        (whitespace-mode 1)
+        (which-function-mode 1)
+        (auto-complete-mode 1)
+        (yas/minor-mode 1)
+        
+        (diminish 'gtags-mode)
+        (diminish 'hs-minor-mode)
+        (diminish 'hide-ifdef-mode)
+        
+        (add-to-list 'load-path "~/.emacs.d/site-lisp/ghc-mod/elisp")
+        (require 'ghc-flymake)            ; jww (2012-09-19): hack!
+        (bind-key "M-?" 'ghc-flymake-display-errors c-mode-base-map)
+        (bind-key "M-p" 'flymake-goto-prev-error c-mode-base-map)
+        (bind-key "M-n" 'flymake-goto-next-error c-mode-base-map)
+        (bind-key "C-x C-s" 'my-c-save-buffer c-mode-base-map)
+        
+        (bind-key "C-c p" 'insert-counting-printf c-mode-base-map)
+        
+        (auto-complete-mode 1)
+        (setq ac-sources (list (if (and (fboundp 'semantic-active-p)
+                                        (funcall #'semantic-active-p))
+                                   'ac-source-semantic
+                                 'ac-source-gtags)))
+        (bind-key "<A-tab>" 'ac-complete c-mode-base-map)
+        
+        ;;(doxymacs-mode 1)
+        ;;(doxymacs-font-lock)
+        
+        (bind-key "<return>" 'newline-and-indent c-mode-base-map)
+        
+        (set (make-local-variable 'yas/fallback-behavior)
+             '(apply my-c-indent-or-complete . nil))
+        (bind-key "<tab>" 'yas/expand-from-trigger-key c-mode-base-map)
+        
+        (unbind-key "M-j" c-mode-base-map)
+        (bind-key "C-c C-i" 'c-includes-current-file c-mode-base-map)
+        (bind-key "C-c C-y" 'my-paste-as-check c-mode-base-map)
+        
+        (set (make-local-variable 'parens-require-spaces) nil)
+        (setq indicate-empty-lines t)
+        (setq fill-column 72)
+        
+        (bind-key "M-q" 'c-fill-paragraph c-mode-base-map)
+        
+        (let ((bufname (buffer-file-name)))
+          (when bufname
+            (cond
+             ((string-match "/ledger/" bufname)
+              (c-set-style "ledger"))
+             ((string-match "/ansi/" bufname)
+              (c-set-style "ti")
+              (substitute-key-definition 'fill-paragraph 'ti-refill-comment
+                                         c-mode-base-map global-map)
+              (bind-key "M-q" 'ti-refill-comment c-mode-base-map))
+             ((string-match "/edg/" bufname)
+              (c-set-style "edg"))
+             (t
+              (c-set-style "clang")))))
+        
+        (font-lock-add-keywords 'c++-mode '(("\\<\\(assert\\|DEBUG\\)("
+                                             1 font-lock-warning-face t))))
+      
+      (add-hook 'c-mode-common-hook 'my-c-mode-common-hook))
+    
+    :config
+    (progn
+      (setq c-syntactic-indentation nil)
+      
+      (bind-key "#" 'self-insert-command c-mode-base-map)
+      (bind-key "{" 'self-insert-command c-mode-base-map)
+      (bind-key "}" 'self-insert-command c-mode-base-map)
+      (bind-key "/" 'self-insert-command c-mode-base-map)
+      (bind-key "*" 'self-insert-command c-mode-base-map)
+      (bind-key ";" 'self-insert-command c-mode-base-map)
+      (bind-key "," 'self-insert-command c-mode-base-map)
+      (bind-key ":" 'self-insert-command c-mode-base-map)
+      (bind-key "(" 'self-insert-command c-mode-base-map)
+      (bind-key ")" 'self-insert-command c-mode-base-map)
+      (bind-key "<" 'self-insert-command c++-mode-map)
+      (bind-key ">" 'self-insert-command c++-mode-map)
+      
+      (use-package cedet
+        :disabled t
+        :init
+        (progn
+          ;; Add further minor-modes to be enabled by semantic-mode.  See
+          ;; doc-string of `semantic-default-submodes' for other things you can
+          ;; use here.
+          (dolist (submode '(global-semantic-idle-summary-mode
+                             global-semantic-mru-bookmark-mode
+                             global-semantic-idle-local-symbol-highlight-mode
+                             global-semantic-show-unmatched-syntax-mode))
+            (add-to-list 'semantic-default-submodes submode t))
+          
+          ;; Enable Semantic
+          (semantic-mode 1)
+          
+          (when nil              ; jww (2012-06-20): this kills buffers
+            ;; if you want to enable support for gnu global
+            (use-package semanticdb-global)
+            
+            (semanticdb-enable-gnu-global-databases 'c-mode)
+            (semanticdb-enable-gnu-global-databases 'c++-mode))))
+      
+      (add-to-list 'c-style-alist
+                   '("ti"
+                     (indent-tabs-mode . nil)
+                     (c-basic-offset . 3)
+                     (c-comment-only-line-offset . (0 . 0))
+                     (c-hanging-braces-alist
+                      . ((substatement-open before after)
+                         (arglist-cont-nonempty)))
+                     (c-offsets-alist
+                      . ((statement-block-intro . +)
+                         (knr-argdecl-intro . 5)
+                         (substatement-open . 0)
+                         (substatement-label . 0)
+                         (label . 0)
+                         (case-label . +)
+                         (statement-case-open . 0)
+                         (statement-cont . +)
+                         (arglist-intro . c-lineup-arglist-intro-after-paren)
+                         (arglist-close . c-lineup-arglist)
+                         (inline-open . 0)
+                         (brace-list-open . 0)
+                         (topmost-intro-cont
+                          . (first c-lineup-topmost-intro-cont
+                                   c-lineup-gnu-DEFUN-intro-cont))))
+                     (c-special-indent-hook . c-gnu-impose-minimum)
+                     (c-block-comment-prefix . "")))
+      
+      (add-to-list 'c-style-alist
+                   '("edg"
+                     (indent-tabs-mode . nil)
+                     (c-basic-offset . 2)
+                     (c-comment-only-line-offset . (0 . 0))
+                     (c-hanging-braces-alist
+                      . ((substatement-open before after)
+                         (arglist-cont-nonempty)))
+                     (c-offsets-alist
+                      . ((statement-block-intro . +)
+                         (knr-argdecl-intro . 5)
+                         (substatement-open . 0)
+                         (substatement-label . 0)
+                         (label . 0)
+                         (case-label . +)
+                         (statement-case-open . 0)
+                         (statement-cont . +)
+                         (arglist-intro . +)
+                         (arglist-close . +)
+                         (inline-open . 0)
+                         (brace-list-open . 0)
+                         (topmost-intro-cont
+                          . (first c-lineup-topmost-intro-cont
+                                   c-lineup-gnu-DEFUN-intro-cont))))
+                     (c-special-indent-hook . c-gnu-impose-minimum)
+                     (c-block-comment-prefix . "")))
+      
+      (add-to-list 'c-style-alist
+                   '("ledger"
+                     (indent-tabs-mode . nil)
+                     (c-basic-offset . 2)
+                     (c-comment-only-line-offset . (0 . 0))
+                     (c-hanging-braces-alist
+                      . ((substatement-open before after)
+                         (arglist-cont-nonempty)))
+                     (c-offsets-alist
+                      . ((statement-block-intro . +)
+                         (knr-argdecl-intro . 5)
+                         (substatement-open . 0)
+                         (substatement-label . 0)
+                         (label . 0)
+                         (case-label . 0)
+                         (statement-case-open . 0)
+                         (statement-cont . +)
+                         (arglist-intro . +)
+                         (arglist-close . +)
+                         (inline-open . 0)
+                         (brace-list-open . 0)
+                         (topmost-intro-cont
+                          . (first c-lineup-topmost-intro-cont
+                                   c-lineup-gnu-DEFUN-intro-cont))))
+                     (c-special-indent-hook . c-gnu-impose-minimum)
+                     (c-block-comment-prefix . "")))
+      
+      (add-to-list 'c-style-alist
+                   '("clang"
+                     (indent-tabs-mode . nil)
+                     (c-basic-offset . 2)
+                     (c-comment-only-line-offset . (0 . 0))
+                     (c-hanging-braces-alist
+                      . ((substatement-open before after)
+                         (arglist-cont-nonempty)))
+                     (c-offsets-alist
+                      . ((statement-block-intro . +)
+                         (knr-argdecl-intro . 5)
+                         (substatement-open . 0)
+                         (substatement-label . 0)
+                         (label . 0)
+                         (case-label . 0)
+                         (statement-case-open . 0)
+                         (statement-cont . +)
+                         (arglist-intro . +)
+                         (arglist-close . +)
+                         (inline-open . 0)
+                         (brace-list-open . 0)
+                         (topmost-intro-cont
+                          . (first c-lineup-topmost-intro-cont
+                                   c-lineup-gnu-DEFUN-intro-cont))))
+                     (c-special-indent-hook . c-gnu-impose-minimum)
+                     (c-block-comment-prefix . "")))
+            
+      (defun ti-refill-comment ()
+        (interactive)
+        (let ((here (point)))
+          (goto-char (line-beginning-position))
+          (let ((begin (point)) end
+                (marker ?-) (marker-re "\\(-----\\|\\*\\*\\*\\*\\*\\)")
+                (leader-width 0))
+            (unless (looking-at "[ \t]*/\\*[-* ]")
+              (search-backward "/*")
+              (goto-char (line-beginning-position)))
+            (unless (looking-at "[ \t]*/\\*[-* ]")
+              (error "Not in a comment"))
+            (while (and (looking-at "\\([ \t]*\\)/\\* ")
+                        (setq leader-width (length (match-string 1)))
+                        (not (looking-at (concat "[ \t]*/\\*" marker-re))))
+              (forward-line -1)
+              (setq begin (point)))
+            (when (looking-at (concat "[^\n]+?" marker-re "\\*/[ \t]*$"))
+              (setq marker (if (string= (match-string 1) "-----") ?- ?*))
+              (forward-line))
+            (while (and (looking-at "[^\n]+?\\*/[ \t]*$")
+                        (not (looking-at (concat "[^\n]+?" marker-re
+                                                 "\\*/[ \t]*$"))))
+              (forward-line))
+            (when (looking-at (concat "[^\n]+?" marker-re "\\*/[ \t]*$"))
+              (forward-line))
+            (setq end (point))
+            (let ((comment (buffer-substring-no-properties begin end)))
+              (with-temp-buffer
+                (insert comment)
+                (goto-char (point-min))
+                (flush-lines (concat "^[ \t]*/\\*" marker-re "[-*]+\\*/[ \t]*$"))
+                (goto-char (point-min))
+                (while (re-search-forward "^[ \t]*/\\* ?" nil t)
+                  (goto-char (match-beginning 0))
+                  (delete-region (match-beginning 0) (match-end 0)))
+                (goto-char (point-min))
+                (while (re-search-forward "[ \t]*\\*/[ \t]*$" nil t)
+                  (goto-char (match-beginning 0))
+                  (delete-region (match-beginning 0) (match-end 0)))
+                (goto-char (point-min)) (delete-trailing-whitespace)
+                (goto-char (point-min)) (flush-lines "^$")
+                (set-fill-column (- 80    ; width of the text
+                                    6     ; width of "/*  */"
+                                    leader-width))
+                (goto-char (point-min)) (fill-paragraph nil)
+                (goto-char (point-min))
+                (while (not (eobp))
+                  (insert (make-string leader-width ? ) "/* ")
+                  (goto-char (line-end-position))
+                  (insert (make-string (- 80 3 (current-column)) ? ) " */")
+                  (forward-line))
+                (goto-char (point-min))
+                (insert (make-string leader-width ? )
+                        "/*" (make-string (- 80 4 leader-width) marker) "*/\n")
+                (goto-char (point-max))
+                (insert (make-string leader-width ? )
+                        "/*" (make-string (- 80 4 leader-width) marker) "*/\n")
+                (setq comment (buffer-string)))
+              (goto-char begin)
+              (delete-region begin end)
+              (insert comment)))
+          (goto-char here)))))
+  
+#+end_src
+
+** org R&D
+:PROPERTIES:
+:tangle:   no
+:ID:       F066ACCB-918B-4326-A354-13ECA60A7D57
+:ARCHIVE_TIME: 2013-03-16 Sat 13:45
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages/org-mode
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+
+jwiegley org setup
+#+begin_src emacs-lisp
+;;;_ , org-mode
+
+(use-package dot-org
+  :commands org-agenda-list
+  :bind (("M-C"   . jump-to-org-agenda)
+         ("M-m"   . org-smart-capture)
+         ("M-M"   . org-inline-note)
+         ("C-c a" . org-agenda)
+         ("C-c S" . org-store-link)
+         ("C-c l" . org-insert-link))
+  :init
+  (progn
+    (unless running-alternate-emacs
+      (run-with-idle-timer 300 t 'jump-to-org-agenda))
+
+    (if (string-match "\\.elc\\'" load-file-name)
+        (add-hook 'after-init-hook
+                  #'(lambda ()
+                      (org-agenda-list)
+                      (org-fit-agenda-window)
+                      (org-resolve-clocks))) t)))
+
+#+end_src
+
+*** diminish
+#+begin_src emacs-lisp
+  ;;(diminish 'org-indent-mode)
+#+end_src
+
+** TODO haskell-org
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-05-26 Sun 16:45
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:ARCHIVE_TODO: TODO
+:END:
+
+http://sidhusblog.wordpress.com/2012/11/06/haskell-org/
+
+#+begin_src emacs-lisp :tangle no
+(setq auto-mode-alist (append (rassq-delete-all 'literate-haskell-mode auto-mode-alist) '(("\\.lhs$"  . haskell-org-mode))))
+(autoload 'haskell-org-mode "haskell-org" "Major mode for editing literate Haskell Org scripts." t)
+(setq auto-mode-alist (append auto-mode-alist '(("\\.l[hg]s$" . literate-haskell-mode))))  
+#+end_src
+
+** haskell-mode
+:PROPERTIES:
+:tangle:   yes
+:ARCHIVE_TIME: 2013-06-02 Sun 15:58
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+
+#+begin_src emacs-lisp
+(custom-set-variables
+ ;; Use cabal-dev for the GHCi session. Ensures our dependencies are in scope.
+ '(haskell-process-type 'cabal-dev)
+ 
+ ;; Use notify.el (if you have it installed) at the end of running
+ ;; Cabal commands or generally things worth notifying.
+ '(haskell-notify-p t)
+
+ ;; To enable tags generation on save.
+ '(haskell-tags-on-save t)
+
+ ;; To enable stylish on save.
+ '(haskell-stylish-on-save t))
+
+(use-package haskell-cabal
+    :mode ("\\.cabal\\'" . haskell-cabal-mode))
+  
+  (use-package haskell-mode
+    :mode (("\\.hsc?\\'" . haskell-mode)
+           ("\\.lhs\\'" . literate-haskell-mode))
+
+:config
+    (progn
+      (use-package haskell-process)
+(add-hook 'haskell-mode-hook 'haskell-hook)
+(add-hook 'haskell-cabal-mode-hook 'haskell-cabal-hook)
+
+;; Haskell main editing mode key bindings.
+(defun haskell-hook ()
+  ;; Use simple indentation.
+  (turn-on-haskell-simple-indent)
+
+  (flymake-mode)
+  ;;(setq haskell-saved-check-command "/Users/tonyday/Library/Haskell/bin/hlint")
+  (setq haskell-saved-check-command 
+"/Users/tonyday/.emacs.d/elpa/flymake-haskell-multi-0.3/haskell_multi")
+  
+(define-key haskell-mode-map (kbd "<return>") 'haskell-simple-indent-newline-same-col)
+  (define-key haskell-mode-map (kbd "C-<return>") 'haskell-simple-indent-newline-indent)
+
+  ;; Load the current file (and make a session if not already made).
+  (define-key haskell-mode-map [?\C-c ?\C-l] 'haskell-process-load-file)
+  (define-key haskell-mode-map [f5] 'haskell-process-load-file)
+
+  ;; Switch to the REPL.
+  (define-key haskell-mode-map [?\C-c ?\C-z] 'haskell-interactive-switch)
+  ;; “Bring” the REPL, hiding all other windows apart from the source
+  ;; and the REPL.
+  (define-key haskell-mode-map (kbd "C-`") 'haskell-interactive-bring)
+
+  ;; Build the Cabal project.
+  (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
+  ;; Interactively choose the Cabal command to run.
+  (define-key haskell-mode-map (kbd "C-c c") 'haskell-process-cabal)
+
+  ;; Get the type and info of the symbol at point, print it in the
+  ;; message buffer.
+  (define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
+  (define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
+
+  ;; Contextually do clever things on the space key, in particular:
+  ;;   1. Complete imports, letting you choose the module name.
+  ;;   2. Show the type of the symbol after the space.
+  (define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)
+
+  ;; Jump to the imports. Keep tapping to jump between import
+  ;; groups. C-u f8 to jump back again.
+  (define-key haskell-mode-map [f8] 'haskell-navigate-imports)
+
+  ;; Jump to the definition of the current symbol.
+  (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-tag-find)
+
+  ;; Indent the below lines on columns after the current column.
+  (define-key haskell-mode-map (kbd "C-<right>")
+    (lambda ()
+      (interactive)
+      (haskell-move-nested 1)))
+  ;; Same as above but backwards.
+  (define-key haskell-mode-map (kbd "C-<left>")
+    (lambda ()
+      (interactive)
+      (haskell-move-nested -1))))
+
+
+;; Useful to have these keybindings for .cabal files, too.
+(defun haskell-cabal-hook ()
+  (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
+  (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)
+  (define-key haskell-cabal-mode-map (kbd "C-`") 'haskell-interactive-bring)
+  (define-key haskell-cabal-mode-map [?\C-c ?\C-z] 'haskell-interactive-switch)))
+
+
+)
+  
+#+end_src
+
+#+results:
+: t
+
+** ghc-mod
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2013-06-15 Sat 13:21
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+
+#+begin_src emacs-lisp
+   (use-package ghc
+          :load-path "site-lisp/ghc-mod/elisp/"
+          ;;:commands ghc-init
+          :init
+          (progn
+            (setq ghc-module-command
+                  (expand-file-name "~/Library/Haskell/bin/ghc-mod")
+                  haskell-saved-check-command
+                  (expand-file-name "~/Library/Haskell/bin/hlint")
+                  )
+            (add-hook 'haskell-mode-hook 'ghc-init))
+          :config
+          (setq ghc-hoogle-command hoogle-binary-path)
+          :config
+          (defun ghc-save-buffer ()
+            (interactive)
+            (if (buffer-modified-p)
+                (call-interactively 'save-buffer))
+            (flymake-start-syntax-check))
+          (defun credmp/flymake-display-err-minibuf ()
+            "Displays the error/warning for the current line in the minibuffer"
+            (interactive)
+            (let* ((line-no (flymake-current-line-no))
+                   (line-err-info-list (nth 0 (flymake-find-err-info flymake-err-info line-no)))
+                   (count (length line-err-info-list))
+                   )
+              (while (> count 0)
+                (when line-err-info-list
+                  (let* ((file (flymake-ler-file (nth (1- count) line-err-info-list)))
+                         (full-file (flymake-ler-full-file (nth (1- count) line-err-info-list)))
+                         (text (flymake-ler-text (nth (1- count) line-err-info-list)))
+                         (line (flymake-ler-line (nth (1- count) line-err-info-list))))
+                    (message "[%s] %s" line (substring text 0 -1))
+                    )
+                  )
+                (setq count (1- count)))))
+  
+          (defun flymake-ler-fix-text (line-err-info)
+            (flymake-ler-make-ler (flymake-ler-file line-err-info)
+                                  (flymake-ler-line line-err-info)
+                                  (flymake-ler-type line-err-info)
+                                  (replace-regexp-in-string "\000" "\n" 
+                                                            (flymake-ler-text line-err-info))
+                                  (flymake-ler-full-file line-err-info)))
+          
+          (defadvice flymake-cursor-get-errors-at-point (after fixlines)
+            (setq ad-return-value 
+                  (mapcar 'flymake-ler-fix-text ad-return-value)))
+          (ad-activate 'flymake-cursor-get-errors-at-point))  
+#+end_src
+
+** group load path table
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2013-06-27 Thu 09:01
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: bootstrap/load-path
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+
+These directory groups (directory and sub-directories) are added to the path.
+
+#+name: group-load-path-table
+| directory               | toggle |
+|-------------------------+--------|
+| overides                | t      |
+| elpa                    | t      |
+| site-lisp               | t      |
+| site-lisp/cedet         | t      |
+| site-lisp/jwiegley-lisp | t      |
+| site-lisp/ac            | t      |
+
+And here's where we start taking advantage of using org on startup.
+If you would like to add more group loads, just add to the above
+table. You can temporarily turn anything off by deleting the toggle
+row.
+
+#+begin_src emacs-lisp :var table=group-load-path-table
+(defvar group-load-directories
+      (list "lisp" "site-lisp")
+      "directories that should have their subdirectories added
+to the load-path. Can be absolute or relative to user-emacs-directory")
+
+(setq group-load-directories (org-table-list-and-toggle table))
+(mapc #'add-to-load-path-include-subdirs
+          (nreverse group-load-directories))
+#+end_src
+
+#+results:
+| site-lisp/ac | site-lisp/jwiegley-lisp | site-lisp/cedet | site-lisp | elpa/auctex-11.86 | elpa | overides |
+
+** load path table
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2013-06-27 Thu 09:01
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: bootstrap/load-path
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+
+Any other directories needed on the path go here:
+
+#+name: load-path-table
+| directory                                  | toggle |
+|--------------------------------------------+--------|
+| ~/.emacs.d                                 | t      |
+| ~/.emacs.d/elpa/ess-20121027.2218/lisp     | t      |
+| ~/.emacs.d/site-lisp/org-mode/contrib/lisp | t      |
+
+#+begin_src emacs-lisp :var table=load-path-table
+(defvar path-directories
+      (list "~/.emacs.d")
+      "Directories that should be added to load-path.")
+
+(setq path-directories (org-table-list-and-toggle table))
+    (mapc #'add-to-load-path
+          (nreverse path-directories))
+    (setq load-path (delete-dups load-path))
+(require 'autoloads nil t)
+(require 'cus-load nil t)
+#+end_src
+
+#+results:
+: cus-load
+
+** process settings table
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-06-27 Thu 09:05
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: guff
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+
+#+name: process-settings-table
+| variable                       | value |
+|--------------------------------+-------|
+
+
+#+name: process-settings-function-table
+| function                   | args   |
+|----------------------------+--------|
+
+
+#+begin_src emacs-lisp
+  (defun set-variables-from-table (data)
+    "Takes a list of key bindings and commands (both in string format) and binds them using bind-key
+  "
+    (dolist (row data)
+      (eval (car (read-from-string
+                  (apply 'format "(setq %s %s)" row))))))
+
+  (defun set-functions-from-table (data)
+    "Takes a list of key bindings and commands (both in string format) and binds them using bind-key
+  "
+    (dolist (row data)
+      (eval (car (read-from-string
+                  (apply 'format "(%s %s)" row))))))
+
+#+end_src
+
+  #+begin_src emacs-lisp :var table=process-settings-table
+  (set-variables-from-table (org-table-remove-header table))
+  #+end_src
+
+  #+begin_src emacs-lisp :var table=process-settings-function-table
+  (set-functions-from-table (org-table-remove-header table))
+  #+end_src
+
+** extra bindings
+   :PROPERTIES:
+   :tangle:
+   :ARCHIVE_TIME: 2013-06-27 Thu 09:05
+   :ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+   :ARCHIVE_OLPATH: guff
+   :ARCHIVE_CATEGORY: dotemacs
+   :END:
+
+#+name: tob
+| key       | binding                             |
+|-----------+-------------------------------------|
+| C-+       | text-scale-increase                 |
+| C--       | text-scale-decrease                 |
+| C-c C-v k | org-table-recalculate-buffer-tables |
+
+- unit test one row
+  #+begin_src emacs-lisp :var table=tob[2,] :tangle no
+(setq row '("C-c C-v k" "org-table-recalculate-buffer-tables"))
+(eval (car (read-from-string
+                     (apply 'format "(bind-key %S '%s)" row))))
+#+end_src
+
+  #+RESULTS:
+  : org-table-recalculate-buffer-tables
+
+#+begin_src emacs-lisp :var table=tob
+  (bind-keys-from-table (org-table-remove-header table))
+#+end_src
+
+** elpa
+   :PROPERTIES:
+   :tangle:   yes
+   :ARCHIVE_TIME: 2013-06-27 Thu 10:32
+   :ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+   :ARCHIVE_OLPATH: bootstrap
+   :ARCHIVE_CATEGORY: dotemacs
+   :END:
+
+*** elpa archive repositories
+    :PROPERTIES:
+    :tangle: no
+    :END:
+
+#+begin_src emacs-lisp
+    (setq package-enable-at-startup nil)
+    (setq package-archives
+          '(("melpa" . "http://melpa.milkbox.net/packages/")
+            ("gnu"         . "http://elpa.gnu.org/packages/")
+            ("marmalade"   . "http://marmalade-repo.org/packages/")))
+
+(defvar base-packages
+  '(ido-ubiquitous
+    yasnippet
+    helm
+    magithub
+    zenburn-theme
+    flymake-cursor
+    smex
+    auto-complete
+    mic-paren)
+  "packages that should be checked and loaded if not found")
+
+;; we activate the packages via use-package below
+;; but we need to initialize so they get on the path
+(setq package-enable-at-startup nil)
+
+;;(package-initialize t)
+(add-to-list 'package-directory-list
+	     (expand-file-name "elpa" user-emacs-directory))
+
+;;(package-refresh-contents)
+
+;;(dolist (package base-packages)
+;;  (when (not (package-installed-p package))
+;;    (package-install package)))
+
+ #+end_src
+
+*** dependency checks
+:PROPERTIES:
+:tangle:   no
+:END:
+
+#+TBLNAME: table-elpa-check
+| package              | check? | notes                      |
+|----------------------+--------+----------------------------|
+| auctex               | t      |                            |
+| clojure-mode         |        |                            |
+| elisp-slime-nav      | t      | add to sklisp              |
+| find-file-in-project | t      | delay                      |
+| idle-highlight-...   |        | didnt install properly     |
+| ido-ubiquitous       | t      | package add elsewhere      |
+| js-comint            |        |                            |
+| js2-mode             |        |                            |
+| json                 |        |                            |
+| magit                | t      |                            |
+| magithub             | t      | learn                      |
+| org                  |        | direct from repo           |
+| org-magit            |        |                            |
+| org2blog             |        |                            |
+| paredit              | t      |                            |
+| slime                | t      | check                      |
+| smex                 | t      |                            |
+| xml-rpc              | t      | dep for org2blog           |
+| yaml-mode            | t      | check                      |
+| yasnippet            | t      |                            |
+| zenburn-theme        | t      | check how themes are added |
+
+#+begin_src emacs-lisp :var table=table-elpa-check
+  (defvar package-list-to-check
+        (list "")
+        "packages that should be checked and loaded if not found")
+  (setq package-list-to-check (org-table-list-and-toggle table))
+      (unless package-archive-contents
+        (package-refresh-contents))
+      (dolist (package package-list-to-check)
+         (eval (car (read-from-string (format "(unless (package-installed-p '%s)
+                                               (package-install '%s))" package package)))))
+#+end_src
+
+#+begin_src emacs-lisp :var table=table-elpa-check
+(org-table-list-and-toggle table)
+#+end_src
+
+#+results:
+| auctex | elisp-slime-nav | find-file-in-project | ido-ubiquitous | magit | magithub | paredit | slime | smex | xml-rpc | yaml-mode | yasnippet | zenburn-theme |
+
+** old haskell-mode
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2013-06-27 Thu 15:55
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+  ;;;_ , haskell-mode
+  (use-package ob-haskell)
+
+  (defcustom haskell-config-use-unicode-symbols nil
+    "If non-nil, use Unicode symbols to represent mathematical operators."
+    :type 'boolean
+    :group 'haskell)
+
+  (defface haskell-subscript '((t :height 0.6))
+   "Face used for subscripts."
+   :group 'haskell)
+
+  (use-package haskell-cabal
+    :mode ("\\.cabal\\'" . haskell-cabal-mode))
+
+  (use-package haskell-mode
+    :mode (("\\.hsc?\\'" . haskell-mode)
+           ("\\.lhs\\'" . literate-haskell-mode))
+    :init
+    (when haskell-config-use-unicode-symbols
+      (if (and nil (featurep 'proof-site))
+          (use-package haskell-unicode-tokens
+            :load-path "site-lisp/proofgeneral/generic/"
+            :config
+            (hook-into-modes #'(lambda ()
+                                 (ignore-errors
+                                   (unicode-tokens-mode 1))
+                                 (unicode-tokens-use-shortcuts 0))
+                             '(haskell-mode-hook
+                               literate-haskell-mode-hook)))
+        (let ((conv-chars '(("[ (]\\(->\\)[) \n]"     . ?→)
+                            ("[ (]\\(/=\\)[) ]"       . ?≠)
+                            ;;("[ (]\\(<=\\)[) ]"       . ?≤)
+                            ;;("[ (]\\(>=\\)[) ]"       . ?≥)
+                            ;;("[ (]\\(=\\)[) ]"        . ?≡)
+                            ("[ (]\\(\\.\\)[) ]"      . ?∘)
+                            ("[ (]\\(&&\\)[) ]"       . ?∧)
+                            ("[ (]\\(||\\)[) ]"       . ?∨)
+                            ("[ (]\\(\\*\\)[) ]"      . ?×)
+                            ("[ (]\\(\\\\\\)[(_a-z]"  . ?λ)
+                            (" \\(<-\\)[ \n]"         . ?←)
+                            (" \\(-<\\) "             . ?↢)
+                            (" \\(>-\\) "             . ?↣)
+                            (" \\(=>\\)[ \n]"         . ?⇒)
+                            ;;(" \\(>=>\\) "           . ?↣)
+                            ;;(" \\(<=<\\) "           . ?↢)
+                            ;;(" \\(>>=\\) "           . ?↦)
+                            ;;(" \\(=<<\\) "           . ?↤)
+                            ("[ (]\\(\\<not\\>\\)[ )]" . ?¬)
+                            ;;("[ (]\\(<<<\\)[ )]"      . ?⋘)
+                            ;;("[ (]\\(>>>\\)[ )]"      . ?⋙)
+                            (" \\(::\\) "             . ?∷)
+                            ("\\(`union`\\)"          . ?⋃)
+                            ("\\(`intersect`\\)"      . ?⋂)
+                            ("\\(`elem`\\)"           . ?∈)
+                            ("\\(`notElem`\\)"        . ?∉)
+                            ;;("\\<\\(mempty\\)\\>"    . ??)
+                            ;; ("\\(`mappend`\\)"        . ?⨂)
+                            ;; ("\\(`msum`\\)"           . ?⨁)
+                            ;; ("\\(\\<True\\>\\)"       . "𝗧𝗿𝘂𝗲")
+                            ;; ("\\(\\<False\\>\\)"      . "𝗙𝗮𝗹𝘀𝗲")
+                            ("\\(\\<undefined\\>\\)"  . ?⊥)
+                            ("\\<\\(forall \\)\\>"   . ?∀))))
+          (mapc (lambda (mode)
+                  (font-lock-add-keywords
+                   mode
+                   (append (mapcar (lambda (chars)
+                                     `(,(car chars)
+                                       ,(if (characterp (cdr chars))
+                                            `(0 (ignore
+                                                 (compose-region (match-beginning 1)
+                                                                 (match-end 1)
+                                                                 ,(cdr chars))))
+                                          `(0 ,(cdr chars)))))
+                                   conv-chars)
+                           '(("(\\|)" . 'esk-paren-face)
+                             ;; ("\\<[a-zA-Z]+\\([0-9]\\)\\>"
+                             ;;  1 haskell-subscript)
+                             ))))
+                '(haskell-mode literate-haskell-mode)))))
+
+    :config
+    (progn
+      (use-package inf-haskell
+        :config
+        (progn
+          (defun my-haskell-load-and-run ()
+            "Loads and runs the current Haskell file."
+            (interactive)
+            (inferior-haskell-load-and-run inferior-haskell-run-command)
+            (sleep-for 0 100)
+            (end-of-buffer))
+
+          (defun my-inferior-haskell-find-definition ()
+            "Jump to the definition immediately, the way that SLIME does."
+            (interactive)
+            (inferior-haskell-find-definition (haskell-ident-at-point))
+            (forward-char -1))
+
+          (defun my-inferior-haskell-find-haddock (sym)
+            (interactive
+             (let ((sym (haskell-ident-at-point)))
+               (list (read-string
+                      (if (> (length sym) 0)
+                          (format "Find documentation of (default %s): " sym)
+                        "Find documentation of: ")
+                      nil nil sym))))
+            (inferior-haskell-find-haddock sym)
+            (goto-char (point-min))
+            (search-forward (concat sym " ::") nil t)
+            (search-forward (concat sym " ::") nil t)
+            (goto-char (match-beginning 0)))
+
+          (defun my-inferior-haskell-type (expr &optional insert-value)
+            "When used with C-u, don't do any prompting."
+            (interactive
+             (let ((sym (haskell-ident-at-point)))
+               (list (if current-prefix-arg
+                         sym
+                       (read-string (if (> (length sym) 0)
+                                        (format "Show type of (default %s): " sym)
+                                      "Show type of: ")
+                                    nil nil sym))
+                     current-prefix-arg)))
+            (message (inferior-haskell-type expr insert-value)))
+
+          (defun my-inferior-haskell-break (&optional arg)
+            (interactive "P")
+            (let ((line (line-number-at-pos))
+                  (col (if arg
+                           ""
+                         (format " %d" (current-column))))
+                  (proc (inferior-haskell-process)))
+              (inferior-haskell-send-command
+               proc (format ":break %d%s" line col))
+              (message "Breakpoint set at %s:%d%s"
+                       (file-name-nondirectory (buffer-file-name)) line col)))))
+
+      (defcustom hoogle-binary-path (expand-file-name "~/Library/haskell/bin/hoogle")
+        "Path to the local 'hoogle' binary."
+        :type 'file
+        :group 'haskell)
+
+      (use-package ghc
+        :load-path "site-lisp/ghc-mod/elisp/"
+        :commands ghc-init
+        :init
+        (progn
+          (setq ghc-module-command
+                    (expand-file-name "~/Library/Haskell/bin/ghc-mod")
+
+                haskell-saved-check-command
+                (expand-file-name "~/Library/Haskell/bin/hlint")
+                )
+          (add-hook 'haskell-mode-hook 'ghc-init))
+
+        :config
+        (setq ghc-hoogle-command hoogle-binary-path)
+
+        :config
+        (defun ghc-save-buffer ()
+          (interactive)
+          (if (buffer-modified-p)
+              (call-interactively 'save-buffer))
+          (flymake-start-syntax-check)))
+
+      (use-package haskell-bot
+        :commands haskell-bot-show-bot-buffer)
+
+      (use-package hpaste
+        :commands (hpaste-paste-buffer hpaste-paste-region))
+
+      (defun hoogle-local (query)
+        (interactive
+         (let ((def (haskell-ident-at-point)))
+           (if (and def (symbolp def)) (setq def (symbol-name def)))
+           (list (read-string (if def
+                                  (format "Hoogle query (default %s): " def)
+                                "Hoogle query: ")
+                              nil nil def))))
+        (let ((buf (get-buffer "*hoogle*")))
+          (if buf
+              (kill-buffer buf))
+          (setq buf (get-buffer-create "*hoogle*"))
+          (with-current-buffer buf
+            (delete-region (point-min) (point-max))
+            (call-process hoogle-binary-path nil t t query)
+            (goto-char (point-min))
+            (highlight-lines-matching-regexp (regexp-quote query) 'helm-match)
+            (display-buffer (current-buffer)))))
+
+      (defvar hoogle-server-process nil)
+
+      (defun haskell-hoogle (query &optional arg)
+        "Do a Hoogle search for QUERY."
+        (interactive
+         (let ((def (haskell-ident-at-point)))
+           (if (and def (symbolp def)) (setq def (symbol-name def)))
+           (list (read-string (if def
+                                  (format "Hoogle query (default %s): " def)
+                                "Hoogle query: ")
+                              nil nil def)
+                 current-prefix-arg)))
+        (let ((browse-url-browser-function
+               (if (not arg)
+                   browse-url-browser-function
+                 '((".*" . w3m-browse-url)))))
+          (if (null haskell-hoogle-command)
+              (progn
+                (unless (and hoogle-server-process
+                             (process-live-p hoogle-server-process))
+                  (message "Starting local Hoogle server on port 8687...")
+                  (with-current-buffer (get-buffer-create " *hoogle-web*")
+                    (cd temporary-file-directory)
+                    (setq hoogle-server-process
+                          (start-process "hoogle-web" (current-buffer)
+                                         (expand-file-name ghc-hoogle-command)
+                                         "server" "--local" "--port=8687")))
+                  (sleep-for 0 500)
+                  (message "Starting local Hoogle server on port 8687...done"))
+                (browse-url (format "http://localhost:8687/?hoogle=%s" query)))
+            (lexical-let ((temp-buffer (if (fboundp 'help-buffer)
+                                           (help-buffer) "*Help*")))
+              (with-output-to-temp-buffer temp-buffer
+                (with-current-buffer standard-output
+                  (let ((hoogle-process
+                         (start-process "hoogle" (current-buffer)
+                                        haskell-hoogle-command query))
+                        (scroll-to-top
+                         (lambda (process event)
+                           (set-window-start (get-buffer-window temp-buffer t) 1))))
+                    (set-process-sentinel hoogle-process scroll-to-top))))))))
+
+      (defun inferior-haskell-find-haddock (sym &optional arg)
+        (interactive
+         (let ((sym (haskell-ident-at-point)))
+           (list (read-string (if (> (length sym) 0)
+                                  (format "Find documentation of (default %s): "
+                                          sym)
+                                "Find documentation of: ")
+                              nil nil sym)
+                 current-prefix-arg)))
+        (setq sym (inferior-haskell-map-internal-ghc-ident sym))
+        (let* ( ;; Find the module and look it up in the alist
+               (module (let ((mod (condition-case err
+                                      (inferior-haskell-get-module sym)
+                                    (error sym))))
+                         (if (string-match ":\\(.+?\\)\\.[^.]+$" mod)
+                             (match-string 1 mod)
+                           mod)))
+               (alist-record (assoc module (inferior-haskell-module-alist))))
+          (if (null alist-record)
+              (haskell-hoogle sym arg)
+            (let* ((package (nth 1 alist-record))
+                   (file-name (concat (subst-char-in-string ?. ?- module)
+                                      ".html"))
+                   (local-path (concat (nth 2 alist-record) "/" file-name))
+                   (url (if (or (eq inferior-haskell-use-web-docs 'always)
+                                (and (not (file-exists-p local-path))
+                                     (eq inferior-haskell-use-web-docs
+                                         'fallback)))
+                            (concat inferior-haskell-web-docs-base
+                                    package "/" file-name
+                                    ;; Jump to the symbol anchor within Haddock.
+                                    "#v:" sym)
+                          (and (file-exists-p local-path)
+                               (concat "file://" local-path)))))
+              (let ((browse-url-browser-function
+                     (if (not arg)
+                         browse-url-browser-function
+                       '((".*" . w3m-browse-url)))))
+                (if url
+                    (browse-url url)
+                  (error "Local file doesn't exist")))))))
+
+      (defun my-haskell-mode-hook ()
+        (auto-complete-mode 1)
+        (whitespace-mode 1)
+
+        (require 'align)
+        (add-to-list 'align-rules-list
+                     '(haskell-types
+                       (regexp . "\\(\\s-+\\)\\(::\\|∷\\)\\s-+")
+                       (modes quote (haskell-mode literate-haskell-mode))))
+        (add-to-list 'align-rules-list
+                     '(haskell-assignment
+                       (regexp . "\\(\\s-+\\)=\\s-+")
+                       (modes quote (haskell-mode literate-haskell-mode))))
+        (add-to-list 'align-rules-list
+                     '(haskell-arrows
+                       (regexp . "\\(\\s-+\\)\\(->\\|→\\)\\s-+")
+                       (modes quote (haskell-mode literate-haskell-mode))))
+        (add-to-list 'align-rules-list
+                     '(haskell-left-arrows
+                       (regexp . "\\(\\s-+\\)\\(<-\\|←\\)\\s-+")
+                       (modes quote (haskell-mode literate-haskell-mode))))
+
+        (require 'haskell-align-imports)
+        (require 'haskell-sort-imports)
+        (require 'haskell-move-nested)
+
+        (bind-key "C-<left>" (lambda ()
+                               (interactive)
+                               (haskell-move-nested -1))
+                  haskell-mode-map)
+
+        (bind-key "C-<right>" (lambda ()
+                                (interactive)
+                                (haskell-move-nested 1))
+                  haskell-mode-map)
+
+        (when (featurep 'inf-haskell)
+          (bind-key "C-x SPC" 'my-inferior-haskell-break haskell-mode-map)
+          (bind-key "C-h C-i" 'my-inferior-haskell-find-haddock haskell-mode-map)
+          (bind-key "C-c C-b" 'haskell-bot-show-bot-buffer haskell-mode-map)
+          (bind-key "C-c C-d" 'ghc-browse-document haskell-mode-map)
+          (bind-key "C-c C-k" 'inferior-haskell-kind haskell-mode-map)
+          (bind-key "C-c C-r" 'inferior-haskell-load-and-run haskell-mode-map)
+
+          ;; Use C-u C-c C-t to auto-insert a function's type above it
+          (if t
+              (progn
+                (bind-key "C-c C-t" 'ghc-show-type haskell-mode-map)
+                (bind-key "C-c C-i" 'ghc-show-info haskell-mode-map))
+            (bind-key "C-c C-t" 'my-inferior-haskell-type haskell-mode-map)
+            (bind-key "C-c C-i" 'inferior-haskell-info haskell-mode-map))
+
+          ;; (bind-key "M-." 'my-inferior-haskell-find-definition haskell-mode-map)
+          (bind-key "M-." 'find-tag haskell-mode-map))
+
+        (when (featurep 'ghc)
+          (bind-key "C-c C-s" 'ghc-insert-template haskell-mode-map)
+
+          (setq ac-sources (list 'ac-source-words-in-same-mode-buffers
+                                 'ac-source-ghc-mod))
+          (bind-key "<A-tab>" 'ac-complete haskell-mode-map))
+
+        (unbind-key "M-s" haskell-mode-map)
+        (unbind-key "M-t" haskell-mode-map)
+
+        (bind-key "A-M-h" 'hoogle-local haskell-mode-map)
+        (bind-key "C-M-x" 'inferior-haskell-send-decl haskell-mode-map)
+        (unbind-key "C-x C-d" haskell-mode-map)
+
+        ;;(setq haskell-saved-check-command haskell-check-command)
+        ;;(flymake-mode 1)
+
+        (bind-key "C-c w" 'flymake-display-err-menu-for-current-line
+                  haskell-mode-map)
+        (bind-key "C-c *" 'flymake-start-syntax-check haskell-mode-map)
+        (bind-key "M-n" 'flymake-goto-next-error haskell-mode-map)
+        (bind-key "M-p" 'flymake-goto-prev-error haskell-mode-map))
+
+      (add-hook 'haskell-mode-hook 'my-haskell-mode-hook)))
+
+#+end_src
+
+
+*** notes
+on cabal install ghc-mod
+
+Warning: could not create symlinks in /Users/tonyday/Library/Haskell/bin for
+ghc-mod, hlint, HsColour because the files exist there already and are not
+managed by cabal. You can create symlinks for these executables manually if
+you wish. The executable files have been installed at
+/Users/tonyday/Library/Haskell/ghc-7.4.2/lib/ghc-mod-2.0.3/bin/ghc-mod,
+/Users/tonyday/Library/Haskell/ghc-7.4.2/lib/hlint-1.8.45/bin/hlint,
+/Users/tonyday/Library/Haskell/ghc-7.4.2/lib/hscolour-1.20.3/bin/HsColour
+
+** sunrise-commander
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-06-27 Thu 16:05
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+;;;_ , sunrise-commander
+
+(use-package sunrise-commander
+  :disabled t
+  :commands (sunrise sunrise-cd)
+  :init
+  (progn
+    (defun my-activate-sunrise ()
+      (interactive)
+      (let ((sunrise-exists
+             (loop for buf in (buffer-list)
+                   when (string-match " (Sunrise)$" (buffer-name buf))
+                   return buf)))
+        (if sunrise-exists
+            (call-interactively 'sunrise)
+          (sunrise "~/dl/" "~/Archives/"))))
+
+    (bind-key "C-c j" 'my-activate-sunrise)
+    (bind-key "C-c C-j" 'sunrise-cd))
+
+  :config
+  (progn
+    (require 'sunrise-x-modeline)
+    (require 'sunrise-x-tree)
+    (require 'sunrise-x-tabs)
+
+    (bind-key "/" 'sr-sticky-isearch-forward sr-mode-map)
+    (bind-key "<backspace>" 'sr-scroll-quick-view-down sr-mode-map)
+    (bind-key "C-x t" 'sr-toggle-truncate-lines sr-mode-map)
+
+    (bind-key "q" 'sr-history-prev sr-mode-map)
+    (bind-key "z" 'sr-quit sr-mode-map)
+
+    (unbind-key "C-e" sr-mode-map)
+    (unbind-key "C-p" sr-tabs-mode-map)
+    (unbind-key "C-n" sr-tabs-mode-map)
+    (unbind-key "M-<backspace>" sr-term-line-minor-mode-map)
+
+    (bind-key "M-[" 'sr-tabs-prev sr-tabs-mode-map)
+    (bind-key "M-]" 'sr-tabs-next sr-tabs-mode-map)
+
+    (defun sr-browse-file (&optional file)
+      "Display the selected file with the default appication."
+      (interactive)
+      (setq file (or file (dired-get-filename)))
+      (save-selected-window
+        (sr-select-viewer-window)
+        (let ((buff (current-buffer))
+              (fname (if (file-directory-p file)
+                         file
+                       (file-name-nondirectory file)))
+              (app (cond
+                    ((eq system-type 'darwin)       "open %s")
+                    ((eq system-type 'windows-nt)   "open %s")
+                    (t                              "xdg-open %s"))))
+          (start-process-shell-command "open" nil (format app file))
+          (unless (eq buff (current-buffer))
+            (sr-scrollable-viewer (current-buffer)))
+          (message "Opening \"%s\" ..." fname))))
+
+    (defun sr-goto-dir (dir)
+      "Change the current directory in the active pane to the given one."
+      (interactive (list (progn
+                           (require 'lusty-explorer)
+                           (lusty-read-directory))))
+      (if sr-goto-dir-function
+          (funcall sr-goto-dir-function dir)
+        (unless (and (eq major-mode 'sr-mode)
+                     (sr-equal-dirs dir default-directory))
+          (if (and sr-avfs-root
+                   (null (posix-string-match "#" dir)))
+              (setq dir (replace-regexp-in-string
+                         (expand-file-name sr-avfs-root) "" dir)))
+          (sr-save-aspect
+           (sr-within dir (sr-alternate-buffer (dired dir))))
+          (sr-history-push default-directory)
+          (sr-beginning-of-buffer))))))
+
+#+end_src
+
+** archive-region
+:PROPERTIES:
+:tangle:   yes
+:ARCHIVE_TIME: 2013-06-28 Fri 07:52
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+;;;_ , archive-region
+
+(use-package archive-region
+  :commands kill-region-or-archive-region
+  :bind ("C-w" . kill-region-or-archive-region))
+
+#+end_src
+
+** autopair
+:PROPERTIES:
+:tangle:   yes
+:ARCHIVE_TIME: 2013-06-28 Fri 07:53
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+;;;_ , autopair
+
+(use-package autopair
+  :disabled t
+  :commands autopair-mode
+  :diminish autopair-mode
+  :init
+  (hook-into-modes #'autopair-mode '(c-mode-common-hook
+                                     text-mode-hook
+                                     ruby-mode-hook
+                                     python-mode-hook
+                                     sh-mode-hook)))
+
+#+end_src
+
+** autorevert
+:PROPERTIES:
+:tangle:   yes
+:ARCHIVE_TIME: 2013-06-28 Fri 07:53
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+;;;_ , autorevert
+
+(use-package autorevert
+  :commands auto-revert-mode
+  :diminish auto-revert-mode
+  :init
+  (add-hook 'find-file-hook
+            #'(lambda ()
+                (auto-revert-mode 1))))
+
+#+end_src
+
+** iflipb
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-06-28 Fri 07:57
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+;;;_ , iflipb
+
+(use-package iflipb
+  :disabled t
+  :commands (iflipb-next-buffer iflipb-previous-buffer)
+  :bind (("S-<tab>" . my-iflipb-next-buffer)
+         ("A-S-<tab>" . my-iflipb-previous-buffer))
+  :init
+  (progn
+    (defvar my-iflipb-auto-off-timeout-sec 2)
+    (defvar my-iflipb-auto-off-timer-canceler-internal nil)
+    (defvar my-iflipb-ing-internal nil)
+
+    (defun my-iflipb-auto-off ()
+      (message nil)
+      (setq my-iflipb-auto-off-timer-canceler-internal nil
+            my-iflipb-ing-internal nil))
+
+    (defun my-iflipb-next-buffer (arg)
+      (interactive "P")
+      (iflipb-next-buffer arg)
+      (if my-iflipb-auto-off-timer-canceler-internal
+          (cancel-timer my-iflipb-auto-off-timer-canceler-internal))
+      (run-with-idle-timer my-iflipb-auto-off-timeout-sec 0 'my-iflipb-auto-off)
+      (setq my-iflipb-ing-internal t))
+
+    (defun my-iflipb-previous-buffer ()
+      (interactive)
+      (iflipb-previous-buffer)
+      (if my-iflipb-auto-off-timer-canceler-internal
+          (cancel-timer my-iflipb-auto-off-timer-canceler-internal))
+      (run-with-idle-timer my-iflipb-auto-off-timeout-sec 0 'my-iflipb-auto-off)
+      (setq my-iflipb-ing-internal t)))
+
+  :config
+  (progn
+    (setq iflipb-always-ignore-buffers
+          "\\`\\( \\|diary\\|ipa\\|\\.newsrc-dribble\\'\\)"
+          iflipb-wrap-around t)
+
+    (defun iflipb-first-iflipb-buffer-switch-command ()
+      "Determines whether this is the first invocation of
+iflipb-next-buffer or iflipb-previous-buffer this round."
+      (not (and (or (eq last-command 'my-iflipb-next-buffer)
+                    (eq last-command 'my-iflipb-previous-buffer))
+                my-iflipb-ing-internal)))))
+
+#+end_src
+
+** debbugs
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-06-28 Fri 07:57
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+;;;_ , debbugs
+
+(use-package debbugs-gnu
+  :commands (debbugs-gnu debbugs-gnu-search))
+
+#+end_src
+
+** not delsel
+:PROPERTIES:
+:tangle:   yes
+:ARCHIVE_TIME: 2013-06-28 Fri 07:58
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+
+#+begin_src emacs-lisp
+  (delete-selection-mode t)
+#+end_src
+
+** delsel
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2013-06-28 Fri 07:58
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+
+#+begin_src emacs-lisp
+  (use-package delsel
+    :init (delete-selection-mode t))
+#+end_src
+
+** doxymacs
+:PROPERTIES:
+:tangle:   yes
+:ARCHIVE_TIME: 2013-06-28 Fri 07:58
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+;;;_ , doxymacs
+
+(use-package doxymacs
+  :disabled t
+  :load-path "site-lisp/doxymacs/lisp/")
+
+#+end_src
+
+** dvc
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-06-28 Fri 07:59
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+;;;_ , dvc
+
+(use-package dvc-autoloads
+  :load-path "site-lisp/dvc/lisp/")
+
+#+end_src
+
+** emms
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-06-28 Fri 07:59
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+;;;_ , emms
+
+(use-package emms-setup
+  :load-path "site-lisp/emms/lisp"
+  :defines emms-info-functions
+  :commands (emms-all emms-devel)
+  :init
+  (progn
+    (defvar emms-initialized nil)
+
+    (defun my-emms ()
+      (interactive)
+      (unless emms-initialized
+        (emms-devel)
+        (emms-default-players)
+        (require 'emms-info-libtag)
+        (setq emms-info-functions '(emms-info-libtag))
+        (setq emms-initialized t))
+      (call-interactively #'emms-smart-browse))
+
+    (bind-key "C-. M" 'my-emms))
+
+  :config
+  (progn
+    (bind-key "S-<f7>" 'emms-previous)
+    (bind-key "S-<f8>" 'emms-pause)
+    (bind-key "S-<f9>" 'emms-next)
+    (bind-key "S-<f10>" 'emms-stop)
+
+    (defun emms-player-mplayer-volume-up ()
+      "Depends on mplayer’s -slave mode."
+      (interactive)
+      (process-send-string
+       emms-player-simple-process-name "volume 1\n"))
+
+    (defun emms-player-mplayer-volume-down ()
+      "Depends on mplayer’s -slave mode."
+      (interactive)
+      (process-send-string
+       emms-player-simple-process-name "volume -1\n"))
+
+    (bind-key "C-. C--" 'emms-player-mplayer-volume-down)
+    (bind-key "C-. C-=" 'emms-player-mplayer-volume-up)))
+
+#+end_src
+
+** flymake-haskell-multi
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2013-06-28 Fri 08:04
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+   (use-package flymake-haskell-multi
+     :config
+     (progn
+       (add-hook 'haskell-mode-hook 'flymake-haskell-multi-load)
+       ))
+#+end_src
+
+#+results:
+: t
+
+
+#+begin_src emacs-lisp :tangle no
+(mapc
+        (lambda (pattern)
+          (add-to-list 'flymake-err-line-patterns pattern))
+        flymake-haskell-multi-err-line-patterns)
+#+end_src
+
+** gnus
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2013-06-28 Fri 08:05
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+ #+begin_src emacs-lisp
+   (use-package gnus
+     :bind (("C-. C-. g" . gnus))
+     :config
+     (progn
+       (use-package bbdb)
+       (use-package bbdb-gnus)
+       (use-package bbdb-message)
+
+       (use-package gnus-harvest
+         init: (gnus-harvest-install 'message-x))
+       (use-package starttls)
+       (gnus-registry-initialize)
+       (autoload 'gnus-dired-mode "gnus-dired" nil t)
+       (add-hook 'dired-mode-hook 'gnus-dired-mode)
+
+       (defun my-process-running-p (name)
+         (catch 'proc-running
+           (dolist (proc (process-list))
+             (if (and (string-match name (process-name proc))
+                      (eq 'run (process-status proc)))
+                 (throw 'process-running-child-p proc)))))
+
+       (defun start-offlineimap-regular()
+         (interactive)
+         (shell-command "offlineimap&" "*offlineimap*" nil))
+
+       (defun start-offlineimap ()
+         (interactive)
+         (shell-command
+          "launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.offline-imap.plist")
+         (message "Offlineimap started"))
+
+       (defun shutdown-offlineimap ()
+         (interactive)
+         (message "Stopping offlineimap...")
+         (set-process-sentinel
+          (start-process-shell-command
+           "*offlineimap*" "*offlineimap*"
+           "launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.offline-imap.plist")
+          (lambda (process event)
+            (when (string= event "finished\n")
+              (message "Stopping offlineimap...done")))))
+
+
+       (defun gnus-query (query)
+         (interactive "sMail Query: ")
+         (let ((nnir-imap-default-search-key "imap"))
+           (gnus-group-make-nnir-group
+            nil
+            `((query    . ,query)
+              (criteria . "")
+              (server   . "nnimap:Mail") ))))
+
+       (bind-key "s-M-f" 'gnus-query)
+
+       (defun gnus-goto-article (message-id)
+         (with-temp-buffer
+           (erase-buffer)
+           ;; Insert dummy article
+           (insert (format "From nobody Tue Sep 13 22:05:34 2011\n\n"))
+           (gnus-group-read-ephemeral-group
+            message-id
+            `(nndoc ,message-id
+                    (nndoc-address ,(current-buffer))
+                    (nndoc-article-type mbox))
+            :activate
+            (cons (current-buffer) gnus-current-window-configuration)
+            (not :request-only)
+            '(-1)                          ; :select-articles
+            (not :parameters)
+            0                              ; :number
+            )
+           (gnus-summary-refer-article message-id)
+                                           ;           (and (bound-and-true-p gnus-registry-enabled)
+                                           ;            (gnus-try-warping-via-registry))
+           ))
+
+       (defun gnus-current-message-id ()
+         (with-current-buffer gnus-original-article-buffer
+           (nnheader-narrow-to-headers)
+           (message-fetch-field "message-id")))
+
+       (defun gnus-open-article-in-apple-mail ()
+         (interactive)
+         (let ((message-id (gnus-current-message-id)))
+           (start-process (concat "open message:" message-id) nil
+                          "open" (concat "message://<"
+                                         (substring message-id 1 -1) ">"))))
+
+       (defun gmail-report-spam ()
+         "Report the current or marked mails as spam.
+   This moves them into the Spam folder."
+         (interactive)
+         (gnus-summary-move-article nil "[Gmail].Spam"))
+
+
+       (use-package gnus-sum
+         :init
+         (progn
+           (bind-key "$" 'gmail-report-spam gnus-summary-mode-map)
+           (bind-key "<C-backspace>" 'gnus-summary-mark-as-expirable gnus-summary-mode-map)
+           (bind-key  "<S-backspace>" 'gnus-summary-expire-thread gnus-summary-mode-map)
+           (bind-key "O O" 'gnus-open-article-in-apple-mail gnus-summary-mode-map)
+           (bind-key "C-c C-o" 'gnus-article-browse-urls gnus-summary-mode-map)))
+
+       (defadvice message-goto-from (after insert-boostpro-address activate)
+         (if (looking-back ": ")
+             (insert "Tony Day <tonyday567@gmail.com>"))
+         (goto-char (line-end-position))
+         (re-search-backward ": ")
+         (goto-char (match-end 0)))
+
+       (setq my-smtpmailer-alist
+             '((".*"
+                ("tonyday567@gmail.com" . "smtp.gmail.com")
+                ("tony.day@scarcecapital.com" . "smtp.gmail.com"))
+               ))
+
+       (defun my-set-smtp-server ()
+         (when (message-field-value "to")
+           (let* ((to-field (cadr (mail-extract-address-components
+                                   (message-field-value "to"))))
+                  (from (let ((field (message-field-value "from")))
+                          (and field (cadr (mail-extract-address-components field)))))
+                  (result
+                   (car (assoc-default (or from to-field)
+                                       my-smtpmailer-alist
+                                       'string-match
+                                       (cons user-mail-address
+                                             (if (boundp 'smtpmail-default-smtp-server)
+                                                 smtpmail-default-smtp-server
+                                               ""))))))
+             (if from
+                 (setq smtpmail-mail-address from
+                       mail-envelope-from from
+                       smtpmail-smtp-server (cdr result)
+                       smtpmail-smtp-service 587)
+               ;; set mailer address and port
+               (setq smtpmail-mail-address (car result)
+                     mail-envelope-from (car result)
+                     smtpmail-smtp-server (cdr result)
+                     smtpmail-smtp-service 587)
+               (message-remove-header "From")
+               (message-add-header
+                (format "From: %s <%s>" user-full-name (car result)))))))
+
+       (add-hook 'message-send-hook 'my-set-smtp-server)
+
+   ;;;_ + Determine layout of the summary windows
+
+       (progn
+         (gnus-add-configuration
+          '(article
+            (horizontal 1.0
+                        (vertical 1.0
+                                  (group 10)
+                                  (summary 1.0 point))
+                        (vertical .5 (article 1.0)))))
+
+
+         (gnus-add-configuration
+          '(summary
+            (horizontal 1.0
+                        (vertical 1.0
+                                  (group 10)
+                                  (summary 1.0 point))
+                        (vertical .5 (article 1.0)))))
+
+         (gnus-add-configuration
+          '(message
+            (horizontal 1.0
+                        (vertical 1.0
+                                  (group 10)
+                                  (summary 1.0))
+                        (vertical .5
+                                  (message 1.0 point)))))
+
+         (gnus-add-configuration
+          '(reply
+            (horizontal 1.0
+                        (vertical 1.0
+                                  (group 10)
+                                  (summary 1.0))
+                        (vertical .5
+                                  (message 1.0 point)
+                                  (article .25)))))
+
+         (gnus-add-configuration
+          '(reply-yank
+            (horizontal 1.0
+                        (vertical 1.0
+                                  (group 10)
+                                  (summary 1.0))
+                        (vertical .5
+                                  (message 1.0 point)))))
+         )
+
+   ;;;_ + Cleanup all Gnus buffers on exit
+
+       (defun exit-gnus-on-exit ()
+         (if (and (fboundp 'gnus-group-exit)
+                  (gnus-alive-p))
+             (with-current-buffer (get-buffer "*Group*")
+               (gnus-group-exit))))
+
+       (add-hook 'kill-emacs-hook 'exit-gnus-on-exit)
+
+   ;;;_ + Scoring
+
+       (eval-when-compile
+         (defvar arg))
+
+       (defun gnus-score-groups ()
+         (interactive)
+         (save-excursion
+           (dolist (info (cdr gnus-newsrc-alist))
+             ;; Only consider this group if it's at or below the current level
+             (when (<= (gnus-info-level info)
+                       (if (numberp arg)
+                           arg
+                         (or (gnus-group-default-level nil t)
+                             (gnus-group-default-list-level)
+                             gnus-level-subscribed)))
+               (let* ((group (gnus-info-group info))
+                      (unread (gnus-group-unread group)))
+                 (when (and (not (string-match "^\\(\\(nnimap\\+\\)?Mail:\\)?" group))
+                            (numberp unread) (> unread 0))
+                   (ignore-errors
+                     (gnus-summary-read-group group nil t))
+                   (when (and gnus-summary-buffer
+                              (buffer-live-p gnus-summary-buffer)
+                              (eq (current-buffer)
+                                  (get-buffer gnus-summary-buffer)))
+                     (gnus-summary-exit))))))))
+
+   ;;;_ + Summary line formats
+
+       (defun gnus-user-format-function-Z (header)
+         (let ((to (cdr (assq 'To (mail-header-extra header))))
+               (newsgroups (cdr (assq 'Newsgroups (mail-header-extra header))))
+               (mail-parse-charset gnus-newsgroup-charset)
+               (mail-parse-ignored-charsets
+                (with-current-buffer gnus-summary-buffer
+                  gnus-newsgroup-ignored-charsets)))
+           (cond
+            ((and to gnus-ignored-from-addresses
+                  (string-match gnus-ignored-from-addresses
+                                (mail-header-from header)))
+             (concat "-> "
+                     (or (car (funcall gnus-extract-address-components
+                                       (funcall
+                                        gnus-decode-encoded-word-function to)))
+                         (funcall gnus-decode-encoded-word-function to))))
+            ((and newsgroups gnus-ignored-from-addresses
+                  (string-match gnus-ignored-from-addresses
+                                (mail-header-from header)))
+             (concat "=> " newsgroups))
+            (t
+             (let* ((from (mail-header-from header))
+                    (data (condition-case nil
+                              (mail-extract-address-components from)
+                            (error nil)))
+                    (name (car data))
+                    (net (car (cdr data))))
+               (or name net))))))
+
+       (defsubst dot-gnus-tos (time)
+         "Convert TIME to a floating point number."
+         (+ (* (car time) 65536.0)
+            (cadr time)
+            (/ (or (car (cdr (cdr time))) 0) 1000000.0)))
+
+       (defun gnus-user-format-function-S (header)
+         "Return how much time it's been since something was sent."
+         (condition-case err
+             (let ((date (mail-header-date header)))
+               (if (> (length date) 0)
+                   (let* ((then (dot-gnus-tos
+                                 (apply 'encode-time (parse-time-string date))))
+                          (now (dot-gnus-tos (current-time)))
+                          (diff (- now then)))
+                     (cond ((>= diff (* 86400.0 7.0 52.0))
+                            (if (>= diff (* 86400.0 7.0 52.0 10.0))
+                                (format "%3dY" (floor (/ diff (* 86400.0 7.0 52.0))))
+                              (format "%3.1fY" (/ diff (* 86400.0 7.0 52.0)))))
+                           ((>= diff (* 86400.0 30.0))
+                            (if (>= diff (* 86400.0 30.0 10.0))
+                                (format "%3dM" (floor (/ diff (* 86400.0 30.0))))
+                              (format "%3.1fM" (/ diff (* 86400.0 30.0)))))
+                           ((>= diff (* 86400.0 7.0))
+                            (if (>= diff (* 86400.0 7.0 10.0))
+                                (format "%3dw" (floor (/ diff (* 86400.0 7.0))))
+                              (format "%3.1fw" (/ diff (* 86400.0 7.0)))))
+                           ((>= diff 86400.0)
+                            (if (>= diff (* 86400.0 10.0))
+                                (format "%3dd" (floor (/ diff 86400.0)))
+                              (format "%3.1fd" (/ diff 86400.0))))
+                           ((>= diff 3600.0)
+                            (if (>= diff (* 3600.0 10.0))
+                                (format "%3dh" (floor (/ diff 3600.0)))
+                              (format "%3.1fh" (/ diff 3600.0))))
+                           ((>= diff 60.0)
+                            (if (>= diff (* 60.0 10.0))
+                                (format "%3dm" (floor (/ diff 60.0)))
+                              (format "%3.1fm" (/ diff 60.0))))
+                           (t
+                            (format "%3ds" (floor diff)))))))
+           (error "    ")))
+
+       (eval-when-compile
+         (defvar thread)
+         (defvar gnus-tmp-level))
+
+       (defun gnus-user-format-function-t-johnw (header)
+         (let ((tcount (gnus-summary-number-of-articles-in-thread
+                        (and (boundp 'thread) (car thread)) gnus-tmp-level)))
+           (if (> tcount 1)
+               (number-to-string tcount)
+             " ")))
+
+   ;;;_ + gnus-article-browse-urls
+
+       (defun gnus-article-browse-urls ()
+         "Visit a URL from the `gnus-article-buffer' by prompting via a
+       poping up a buffer showing the list of URLs found with the
+       `gnus-button-url-regexp'."
+         (interactive)
+         (gnus-configure-windows 'article)
+         (gnus-summary-select-article nil nil 'pseudo)
+         (let ((temp-buffer (generate-new-buffer " *Article URLS*"))
+               (urls (gnus-article-get-current-urls))
+               (this-window (selected-window))
+               (browse-window (get-buffer-window gnus-article-buffer))
+               (count 0))
+           (save-excursion
+             (save-window-excursion
+               (set-buffer temp-buffer)
+               (mapc (lambda (string)
+                       (insert (format "\t%d: %s\n" count string))
+                       (setq count (1+ count))) urls)
+               (not-modified)
+               (pop-to-buffer temp-buffer)
+               (setq count
+                     (string-to-number
+                      (char-to-string (if (fboundp
+                                           'read-char-exclusive)
+                                          (read-char-exclusive)
+                                        (read-char)))))
+               (kill-buffer temp-buffer))
+             (if browse-window
+                 (progn (select-window browse-window)
+                        (browse-url (nth count urls)))))
+           (select-window this-window)))
+
+       (defun gnus-article-get-current-urls ()
+         "Return a list of the urls found in the current `gnus-article-buffer'"
+         (let (url-list)
+           (with-current-buffer gnus-article-buffer
+             (setq url-list (gnus-article-get-urls-region (point-min) (point-max))))
+           url-list))
+
+       (defun gnus-article-get-urls-region (min max)
+         "Return a list of urls found in the region between MIN and MAX"
+         (let (url-list)
+           (save-excursion
+             (save-restriction
+               (narrow-to-region min max)
+               (goto-char (point-min))
+               (while (re-search-forward gnus-button-url-regexp nil t)
+                 (let ((match-string (match-string-no-properties 0)))
+                   (if (and (not (equal (substring match-string 0 4) "file"))
+                            (not (member match-string url-list)))
+                       (setq url-list (cons match-string url-list)))))))
+           url-list))
+
+
+   ;;;_* keybindings
+
+   ;;;_ + gnus-group-score
+
+       (eval-after-load "gnus-group"
+         '(progn
+            (bind-key "s" 'gnus-score-groups gnus-group-score-map)
+            (bind-key "v o" 'start-offlineimap gnus-group-mode-map)))
+
+       (eval-after-load "w3m"
+         '(bind-key "\C-m" 'w3m-view-url-with-external-browser w3m-minor-mode-map))
+
+   ;;;_ + dave's stuff
+
+       (defun dwa/gnus-summary-ignore-thread ()
+         (interactive)
+         (gnus-summary-top-thread)
+         (let ((message-id (gnus-summary-header "message-id")))
+           (dolist (hdr-type '(("references" . s) ("message-id" . e)))
+             (gnus-summary-score-entry
+              (car hdr-type)                       ; Header
+              (gnus-summary-header "message-id")   ; Match
+              (cdr hdr-type)                       ; Type
+              (- (gnus-score-delta-default nil))   ; Score
+              nil                                  ; Temp
+              nil                                  ; Prompt
+              nil                                  ; not silent
+              nil)))                               ; non-standard overview.
+         (gnus-summary-kill-thread))
+       (bind-key "i" 'dwa/gnus-summary-ignore-thread gnus-summary-mode-map)
+
+       ;;
+       ;; Support proportional fonts in the summary and group buffers by inserting a forced alignment
+       ;;
+       ;; See http://news.gmane.org/find-root.php?message_id=%3cyoij63rj41q5.fsf%40remote5.student.chalmers.se%3e
+       (defvar my-align-gnus-summary (propertize " " 'display '(space :align-to 5)))
+       (defvar my-align-gnus-subject (propertize " " 'display '(space :align-to 30)))
+
+       (defvar my-align-gnus-group (propertize " " 'display '(space :align-to 8)))
+
+
+       ;; Display word docs inline with antiword installed.  See
+       ;; http://www.emacswiki.org/emacs/MimeTypesWithGnus
+       (when nil
+         (require 'mm-view)
+         (add-to-list 'mm-inline-media-tests
+                      '("application/msword" mm-inline-text identity))
+         (add-to-list 'mm-automatic-external-display "application/msword")
+         (add-to-list 'mm-attachment-override-types "application/msword")
+         (add-to-list 'mm-automatic-display "application/msword"))
+
+       (defun dwa/gnus-summary-first-unread-or-first-subject ()
+         "Place the point on the subject line of the first unseen article.
+   If all article have been seen, on the subject line of the last article."
+         (interactive)
+         (prog1
+             (unless
+                 (when (gnus-summary-first-subject t nil t)
+                   (gnus-summary-show-thread)
+                   (gnus-summary-first-subject t nil t))
+               (goto-char (point-min)))))
+       (setq gnus-auto-select-subject 'dwa/gnus-summary-first-unread-or-first-subject)
+
+                                           ;(require 'gnus-spec)
+                                           ;(eval-when-compile (gnus-compile))
+
+       (require 'gravatar nil 'noerror)
+       (require 'gnus-gravatar nil 'noerror)
+       (spam-initialize)
+       (bind-key "$" 'gnus-summary-mark-as-spam gnus-summary-mode-map)
+       (bind-key "v o" 'start-offlineimap gnus-summary-mode-map)
+
+
+       (defvar my-gnus-group-faces
+         '(
+           gnus-group-news-1
+           gnus-group-news-1-empty
+           gnus-group-news-2
+           gnus-group-news-2-empty
+           gnus-group-news-3
+           gnus-group-news-3-empty
+           gnus-group-news-4
+           gnus-group-news-4-empty
+           gnus-group-news-5
+           gnus-group-news-5-empty
+           gnus-group-news-6
+           gnus-group-news-6-empty
+           gnus-group-news-low
+           gnus-group-news-low-empty
+           gnus-group-mail-1
+           gnus-group-mail-1-empty
+           gnus-group-mail-2
+           gnus-group-mail-2-empty
+           gnus-group-mail-3
+           gnus-group-mail-3-empty
+           gnus-group-mail-low
+           gnus-group-mail-low-empty))
+
+       (defvar my-gnus-summary-faces
+         '(
+           gnus-summary-selected
+           gnus-summary-cancelled
+           gnus-summary-high-ticked
+           gnus-summary-low-ticked
+           gnus-summary-normal-ticked
+           gnus-summary-high-ancient
+           gnus-summary-low-ancient
+           gnus-summary-normal-ancient
+           gnus-summary-high-undownloaded
+           gnus-summary-low-undownloaded
+           gnus-summary-normal-undownloaded
+           gnus-summary-high-unread
+           gnus-summary-low-unread
+           gnus-summary-normal-unread
+           gnus-summary-high-read
+           gnus-summary-low-read
+           gnus-summary-normal-read
+           gnus-summary-expirable-face))
+
+                                           ;(defvar my-gnus-group-face-attributes '(:family "DejaVu Sans" :weight normal :width condensed))
+       (defvar my-gnus-summary-face-attributes '(:family "DejaVu Sans" :weight normal :width condensed))
+
+                                           ;(dolist (facename my-gnus-group-faces)
+                                           ;  (apply 'set-face-attribute facename nil my-gnus-group-face-attributes))
+       (dolist (facename my-gnus-summary-faces)
+         (when (facep facename)
+           (apply 'set-face-attribute facename nil my-gnus-summary-face-attributes)))
+
+       (defface gnus-summary-expirable-face
+         '((((class color) (background dark))
+            (:foreground "grey50" :italic t :strike-through t))
+           (((class color) (background light))
+            (:foreground "grey55" :italic t :strike-through t)))
+         "Face used to highlight articles marked as expirable."
+         :group 'gnus-summary-visual)
+
+       ;; prettier summary buffers
+       (when window-system
+         (setq gnus-sum-thread-tree-indent "  ")                            ;; "  "
+         (setq gnus-sum-thread-tree-root "\u229e ")                         ;; "⊞ "
+         (setq gnus-sum-thread-tree-false-root "\u22a1 ")                   ;; "⊡ "
+         (setq gnus-sum-thread-tree-single-indent   " -  ")              ;; " -  "
+         (setq gnus-sum-thread-tree-vertical        " \u2502")              ;; " │"
+         (setq gnus-sum-thread-tree-leaf-with-other " \u251c\u2500 ")  ;; " ├─ "
+         (setq gnus-sum-thread-tree-single-leaf     " \u2570\u2500 ")) ;; " ╰─ "
+
+
+       ;; Make sure cited text has a light gray background, in case people
+       ;; forget to add a blank line after their citations.
+       (use-package gnus-cite)
+
+       ;; Thanks to David Engster
+       ;; [[gnus:nntp%2Bnews.gmane.org:gmane.emacs.gnus.general#87vdnimyxd.fsf@randomsample.de][Posting on ding@gnus.org]]
+       (defun DE-collapse-group-names ()
+         (save-excursion
+           (let (previous-group current-group common-prefix
+                                common-dot-count prefix suffix)
+             (goto-char (point-min))
+             (while (not (eobp))
+               (when (setq current-group
+                           (get-text-property (point) 'gnus-group))
+                 (setq current-group (symbol-name current-group))
+                 (when (string-match "\\(.+\\):\\(.+\\)" current-group)
+                   (setq current-group (match-string 2 current-group)))
+                 (setq common-prefix (substring current-group 0
+                                                (mismatch previous-group current-group))
+                       common-dot-count (count ?. common-prefix)
+                       prefix (mapconcat (lambda (x) x)
+                                         (make-list common-dot-count "  .") "")
+                       suffix (and (string-match
+                                    (format "\\([^.]*[.]\\)\\{%d\\}\\(.+\\)" common-dot-count)
+                                    current-group)
+                                   (match-string 2 current-group))
+                       previous-group current-group)
+                 (unless (zerop (length prefix))
+                   (when (search-forward current-group (point-at-eol) t)
+                     (let ((props (text-properties-at (1- (point)))))
+                       (replace-match (apply 'propertize (concat prefix suffix)
+                                             props))))))
+               (forward-line 1)))))
+
+       (add-hook 'gnus-group-prepare-hook 'DE-collapse-group-names)
+       (add-hook 'gnus-group-update-group-hook 'DE-collapse-group-names)
+
+       ;; Queueing messages in Gnus (instead of Postfix) when
+       ;; disconnected:
+
+       ;; uncomment to enable
+       ;; (add-hook 'message-send-hook 'queue-message-if-not-connected)
+
+       (defun quickping (host)
+         (= 0 (call-process "/sbin/ping" nil nil nil "-c1" "-W50" "-q" host)))
+
+       (defun queue-message-if-not-connected ()
+         (set (make-local-variable 'gnus-agent-queue-mail)
+              (if (quickping "smtp.gmail.com") t 'always)))
+       ;;
+       ;;
+
+       ;; I like citations in email to be set off from the rest of the text
+       ;; by a slightly different background color.  This helps immeasurably
+       ;; when people forget to leave a blank line after citations.  see
+       ;; gnus-settings.el and wl-settings.el, where I inherit this face.
+       (defface dwa/mail-citation '((((class color)
+                                      (background dark))
+                                     (:background "#383838"))
+                                    (((class color)
+                                      (background light))
+                                     (:background "#efefef")))
+         "Mail citation base face.")))
+
+ #+end_src
+
+** orgstruct mode for mail
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2013-06-28 Fri 08:05
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+
+from org-mode.org
+
+=orgstruct++-mode= is enabled in =Gnus= message buffers to aid in
+creating structured email messages.
+
+#+begin_src emacs-lisp :tangle yes
+(add-hook 'message-mode-hook 'orgstruct++-mode 'append)
+(add-hook 'message-mode-hook 'turn-on-auto-fill 'append)
+(add-hook 'mail-setup-hook 'bbdb-mail-aliases)
+;;(add-hook 'message-mode-hook 'bbdb-define-all-aliases 'append)
+(add-hook 'message-mode-hook 'orgtbl-mode 'append)
+(add-hook 'message-mode-hook 'turn-on-flyspell 'append)
+(add-hook 'message-mode-hook
+          '(lambda () (setq fill-column 72))
+          'append)
+(add-hook 'message-mode-hook
+          '(lambda () (local-set-key (kbd "C-c M-o") 'org-mime-htmlize))
+          'append)
+#+end_src
+
+** ledger
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-06-28 Fri 08:08
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+;;;_ , ledger
+
+(use-package "ldg-new"
+  :commands ledger-mode
+  :init
+  (progn
+    (defun my-ledger-start-entry (&optional arg)
+      (interactive "p")
+      (find-file-other-window "~/Documents/Accounts/ledger.dat")
+      (goto-char (point-max))
+      (skip-syntax-backward " ")
+      (if (looking-at "\n\n")
+          (goto-char (point-max))
+        (delete-region (point) (point-max))
+        (insert ?\n)
+        (insert ?\n))
+      (insert (format-time-string "%Y/%m/%d ")))
+
+    (bind-key "C-c L" 'my-ledger-start-entry)
+
+    (defun ledger-matchup ()
+      (interactive)
+      (while (re-search-forward "\\(\\S-+Unknown\\)\\s-+\\$\\([-,0-9.]+\\)"
+                                nil t)
+        (let ((account-beg (match-beginning 1))
+              (account-end (match-end 1))
+              (amount (match-string 2))
+              account answer)
+          (goto-char account-beg)
+          (set-window-point (get-buffer-window) (point))
+          (recenter)
+          (redraw-display)
+          (with-current-buffer (get-buffer "nrl-mastercard-old.dat")
+            (goto-char (point-min))
+            (when (re-search-forward (concat "\\(\\S-+\\)\\s-+\\$" amount)
+                                     nil t)
+              (setq account (match-string 1))
+              (goto-char (match-beginning 1))
+              (set-window-point (get-buffer-window) (point))
+              (recenter)
+              (redraw-display)
+              (setq answer
+                    (read-char (format "Is this a match for %s (y/n)? "
+                                       account)))))
+          (when (eq answer ?y)
+            (goto-char account-beg)
+            (delete-region account-beg account-end)
+            (insert account))
+          (forward-line))))))
+
+#+end_src
+
+** TODO log4j-mode
+:PROPERTIES:
+:tangle:   yes
+:ARCHIVE_TIME: 2013-06-28 Fri 08:08
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:ARCHIVE_TODO: TODO
+:END:
+#+begin_src emacs-lisp
+;;;_ , log4j-mode
+
+(use-package log4j-mode
+  :disabled t
+  :mode ("\\.log\\'" . log4j-mode))
+
+#+end_src
+
+** lua-mode
+:PROPERTIES:
+:tangle:   yes
+:ARCHIVE_TIME: 2013-06-28 Fri 08:08
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+;;;_ , lua-mode
+
+(use-package lua-mode
+  :mode ("\\.lua\\'" . lua-mode)
+  :interpreter ("lua" . lua-mode))
+
+#+end_src
+
+** lusty-explorer
+    :PROPERTIES:
+    :tangle:   no
+    :ARCHIVE_TIME: 2013-06-28 Fri 08:08
+    :ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+    :ARCHIVE_OLPATH: packages
+    :ARCHIVE_CATEGORY: dotemacs
+    :END:
+#+begin_src emacs-lisp
+;;;_ , lusty-explorer
+
+(use-package lusty-explorer
+  :bind ("C-x C-f" . lusty-file-explorer)
+  :config
+  (progn
+    (add-hook 'lusty-setup-hook
+              (lambda ()
+                (bind-key "SPC" 'lusty-select-match lusty-mode-map)
+                (bind-key "C-d" 'exit-minibuffer lusty-mode-map)))
+
+    (defun lusty-open-this ()
+      "Open the given file/directory/buffer, creating it if not already present."
+      (interactive)
+      (when lusty--active-mode
+        (ecase lusty--active-mode
+          (:file-explorer
+           (let* ((path (minibuffer-contents-no-properties))
+                  (last-char (aref path (1- (length path)))))
+             (lusty-select-match)
+             (lusty-select-current-name)))
+          (:buffer-explorer (lusty-select-match)))))
+
+    (defvar lusty-only-directories nil)
+
+    (defun lusty-file-explorer-matches (path)
+      (let* ((dir (lusty-normalize-dir (file-name-directory path)))
+             (file-portion (file-name-nondirectory path))
+             (files
+              (and dir
+                   ;; NOTE: directory-files is quicker but
+                   ;;       doesn't append slash for directories.
+                   ;;(directory-files dir nil nil t)
+                   (file-name-all-completions "" dir)))
+             (filtered (lusty-filter-files
+                        file-portion
+                        (if lusty-only-directories
+                            (loop for f in files
+                                  when (= ?/ (aref f (1- (length f))))
+                                  collect f)
+                          files))))
+        (if (or (string= file-portion "")
+                (string= file-portion "."))
+            (sort filtered 'string<)
+          (lusty-sort-by-fuzzy-score filtered file-portion))))
+
+    (defun lusty-read-directory ()
+      "Launch the file/directory mode of LustyExplorer."
+      (interactive)
+      (let ((lusty--active-mode :file-explorer))
+        (lusty--define-mode-map)
+        (let* ((lusty--ignored-extensions-regex
+                (concat "\\(?:" (regexp-opt completion-ignored-extensions) "\\)$"))
+               (minibuffer-local-filename-completion-map lusty-mode-map)
+               (lusty-only-directories t))
+          (lusty--run 'read-directory-name default-directory ""))))
+
+    (defun lusty-read-file-name ()
+      "Launch the file/directory mode of LustyExplorer."
+      (interactive)
+      (let ((lusty--active-mode :file-explorer))
+        (lusty--define-mode-map)
+        (let* ((lusty--ignored-extensions-regex
+                (concat "\\(?:" (regexp-opt completion-ignored-extensions) "\\)$"))
+               (minibuffer-local-filename-completion-map lusty-mode-map)
+               (lusty-only-directories nil))
+          (lusty--run 'read-file-name default-directory ""))))
+
+    (if (featurep 'icicles)
+        (defadvice lusty-file-explorer (around lusty-file-explorer-without-icy
+                                               activate)
+          (cl-flet ((message (&rest ignore)))
+            (let ((icy-was-on icicle-mode))
+              (if icy-was-on (icy-mode 0))
+              (unwind-protect
+                  ad-do-it
+                (if icy-was-on (icy-mode 1)))))))))
+
+#+end_src
+
+** merlin
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-06-28 Fri 08:09
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+;;;_ , merlin
+
+(defun merlin-record-times ()
+  (interactive)
+  (require 'rx)
+  (let* ((text (buffer-substring-no-properties (line-beginning-position)
+                                               (line-end-position)))
+         (regex
+          (rx (and string-start (0+ space)
+                   (group (and (= 2 num) ?/ (= 2 num) ?/ (= 2 num)
+                               space (= 2 num) ?: (= 2 num) space
+                               (in "AP") ?M)) (1+ space)
+                   (group (and (= 2 num) ?/ (= 2 num) ?/ (= 2 num)
+                               space (= 2 num) ?: (= 2 num) space
+                               (in "AP") ?M)) (1+ space)
+                   (? (and (group ?*) (1+ space)))
+                   (group (1+ (or digit (in ".hms"))))
+                   (1+ space) (group (1+ nonl)) string-end))))
+    (if (string-match regex text)
+        (let ((start (match-string 1 text))
+              (end (match-string 2 text))
+              (cleared (match-string 3 text))
+              (duration (match-string 4 text)) commodity
+              (account (match-string 5 text)))
+          (when (string-match "\\([0-9.]+\\)\\([mhs]\\)" duration)
+            (setq commodity (match-string 2 duration)
+                  duration (match-string 1 duration))
+            (cond ((string= commodity "h")
+                   (setq commodity "hours"))
+                  ((string= commodity "m")
+                   (setq commodity "minutes"))
+                  ((string= commodity "s")
+                   (setq commodity "seconds"))))
+          (if (string-match "\\([0-9.][0-9.a-z]+\\)" account)
+              (setq account (match-string 1 account)))
+          (do-applescript
+           (format
+            "
+          tell application \"Merlin\"
+          activate
+
+          set act to 0
+
+          set listActivity to every activity of first document
+          repeat with oneActivity in listActivity
+          if subtitle of oneActivity is \"%s\" then
+          set act to oneActivity
+          exit repeat
+          end if
+          end repeat
+
+          if act is 0 then
+          set myselection to selected object of main window of first document as list
+
+          if (count of myselection) is 0 then
+          display dialog \"Please select activity to set time for\" buttons {\"OK\"}
+          else
+          set act to beginning of myselection
+          end if
+          end if
+
+          if act is 0 or (class of act is project) or (is milestone of act is true) then
+          display dialog \"Cannot locate activity for %s\" buttons {\"OK\"}
+          else
+          tell act
+          if ((class is not project) and (is milestone is not true)) then
+          set actual start date to (date \"%s\")
+          if %s then
+          set actual end date to (date \"%s\")
+          delete last actuals reporting date
+
+          set given remaining work to {amount:0, unit:hours, floating:false, ¬
+          relative error:0}
+          else
+          delete actual end date
+          set last actuals reporting date to (date \"%s\")
+          end if
+          set given actual work to {amount:%s, unit:%s, floating:false, ¬
+          relative error:0}
+          end if
+          end tell
+          end if
+          end tell" account account start (if cleared "true" "false")
+            end end  duration commodity))))))
+
+#+end_src
+
+** mudel
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-06-28 Fri 08:09
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+;;;_ , mudel
+
+(use-package mudel
+  :commands mudel
+  :bind ("C-c M" . mud)
+  :init
+  (defun mud ()
+    (interactive)
+    (mudel "4dimensions" "4dimensions.org" 6000)))
+
+#+end_src
+
+** multi-term
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-06-28 Fri 08:09
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+;;;_ , multi-term
+
+(use-package multi-term
+  :bind (("C-. t" . multi-term-next)
+         ("C-. T" . multi-term))
+  :init
+  (defun screen ()
+    (interactive)
+    (let (term-buffer)
+      ;; Set buffer.
+      (setq term-buffer
+            (let ((multi-term-program (executable-find "screen"))
+                  (multi-term-program-switches "-DR"))
+              (multi-term-get-buffer)))
+      (set-buffer term-buffer)
+      ;; Internal handle for `multi-term' buffer.
+      (multi-term-internal)
+      ;; Switch buffer
+      (switch-to-buffer term-buffer)))
+
+  :config
+  (progn
+    (if t
+        (defalias 'my-term-send-raw-at-prompt 'term-send-raw)
+      (defun my-term-send-raw-at-prompt ()
+        (interactive)
+        (if (save-excursion
+              (search-backward " $ " (line-beginning-position) t))
+            (progn
+              (if (memq 'meta (event-modifiers last-command-event))
+                  (progn
+                    (term-send-raw-string
+                     (format "\e%c"
+                             (logand last-command-event (lognot #x8000000)))))
+                (call-interactively #'term-send-raw)))
+          (call-interactively (lookup-key (current-global-map)
+                                          (vector last-command-event))))))
+
+    (defun my-term-end-of-buffer ()
+      (interactive)
+      (call-interactively #'end-of-buffer)
+      (if (and (eobp) (bolp))
+          (delete-char -1)))
+
+    (require 'term)
+
+    (defadvice term-process-pager (after term-process-rebind-keys activate)
+      (define-key term-pager-break-map  "\177" 'term-pager-back-page))))
+
+#+end_src
+
+** nxhtml
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2013-06-28 Fri 08:10
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+
+#+begin_src emacs-lisp
+     (load "~/.emacs.d/site-lisp/nxhtml/autostart.el")
+
+#+end_src
+
+** nxml-mode
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2013-06-28 Fri 08:10
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+  ;;;_ , nxml-mode
+
+  (use-package nxml-mode
+    :commands nxml-mode
+    :init
+    (defalias 'xml-mode 'nxml-mode)
+    :mode ("\\.html$" . nxml-mode)
+    :config
+    (progn
+      (add-to-list 'rng-schema-locating-files "~/.emacs.d/site-lisp/html5-el/schemas.xml")
+      (use-package whattf-dt)
+
+      (defun my-nxml-mode-hook ()
+        (bind-key "<return>" 'newline-and-indent nxml-mode-map))
+
+      (add-hook 'nxml-mode-hook 'my-nxml-mode-hook)
+
+      (defun tidy-xml-buffer ()
+        (interactive)
+        (save-excursion
+          (call-process-region (point-min) (point-max) "tidy" t t nil
+                               "-xml" "-i" "-wrap" "0" "-omit" "-q")))
+
+      (bind-key "C-. C-. t" 'tidy-xml-buffer nxml-mode-map)))
+
+#+end_src
+
+** puppet-mode
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-06-28 Fri 08:11
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+;;;_ , puppet-mode
+
+(use-package puppet-mode
+  :mode ("\\.pp\\'" . puppet-mode)
+  :config
+  (use-package puppet-ext))
+
+#+end_src
+
+** repeat-insert
+:PROPERTIES:
+:tangle:   yes
+:ARCHIVE_TIME: 2013-06-28 Fri 08:11
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+;;;_ , repeat-insert
+
+(use-package repeat-insert
+  :disabled t
+  :commands (insert-patterned
+             insert-patterned-2
+             insert-patterned-3
+             insert-patterned-4))
+
+#+end_src
+
+** tablegen-mode
+:PROPERTIES:
+:tangle:   yes
+:ARCHIVE_TIME: 2013-06-28 Fri 08:13
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+;;;_ , tablegen-mode
+
+(use-package tablegen-mode
+  :description "\
+  This mode is used for editing .td files in the LLVM/Clang source code."
+  :mode ("\\.td\\'" . tablegen-mode))
+
+#+end_src
+
+** workgroups
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-06-28 Fri 08:15
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+;;;_ , workgroups
+
+(use-package workgroups
+  :diminish workgroups-mode
+  :if (not noninteractive)
+  :init
+  (progn
+    (workgroups-mode 1)
+
+    (let ((workgroups-file (expand-file-name "workgroups" user-data-directory)))
+      (if (file-readable-p workgroups-file)
+          (wg-load workgroups-file)))
+
+    (bind-key "C-\\" 'wg-switch-to-previous-workgroup wg-map)
+    (bind-key "\\" 'toggle-input-method wg-map)))
+
+#+end_src
+
+** wrap-region
+:PROPERTIES:
+:tangle:   yes
+:ARCHIVE_TIME: 2013-06-28 Fri 08:15
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+;;;_ , wrap-region
+
+(use-package wrap-region
+  :commands wrap-region-mode
+  :diminish wrap-region-mode
+  :config
+  (wrap-region-add-wrappers
+   '(("$" "$")
+     ("/" "/" nil ruby-mode)
+     ("/* " " */" "#" (java-mode javascript-mode css-mode c-mode c++-mode))
+     ("`" "`" nil (markdown-mode ruby-mode shell-script-mode)))))
+
+#+end_src
+
+** files
+  :PROPERTIES:
+  :tangle:   no
+  :ARCHIVE_TIME: 2013-06-28 Fri 08:15
+  :ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+  :ARCHIVE_CATEGORY: dotemacs
+  :END:
+
+#+name: init-file-loads
+| file                 | toggle |
+|----------------------+--------|
+| org-mode-prequel.org |        |
+| org-mode.org         |        |
+| org-mode-mods.org    |        |
+| my-old-org.org       |        |
+
+#+begin_src emacs-lisp :var init-file-loads=init-file-loads
+  (defvar other-init-files
+        (list ())
+        "Files that are loaded in addition to dotemacs.org.")
+  (setq file-loads (org-table-list-and-toggle init-file-loads))
+  (dolist (file file-loads)
+    (org-babel-load-file (expand-file-name file user-emacs-directory)))
+#+end_src
+
+** Load customization settings (turned off)
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2013-06-28 Fri 08:16
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: endboot
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+;;;_ , Load customization settings
+
+(defvar running-alternate-emacs nil)
+
+(if (string-match (concat "/Applications/\\(Misc/\\)?"
+                          "Emacs\\([A-Za-z]+\\).app/Contents/MacOS/")
+                  invocation-directory)
+
+    (let ((settings (with-temp-buffer
+                      (insert-file-contents
+                       (expand-file-name "settings.el" user-emacs-directory))
+                      (goto-char (point-min))
+                      (read (current-buffer))))
+          (suffix (downcase (match-string 2 invocation-directory))))
+
+      (setq running-alternate-emacs t
+            user-data-directory
+            (replace-regexp-in-string "/data/" (format "/data-%s/" suffix)
+                                      user-data-directory))
+
+      (let* ((regexp "/\\.emacs\\.d/data/")
+             (replace (format "/.emacs.d/data-%s/" suffix)))
+        (dolist (setting settings)
+          (let ((value (and (listp setting)
+                            (nth 1 (nth 1 setting)))))
+            (if (and (stringp value)
+                     (string-match regexp value))
+                (setcar (nthcdr 1 (nth 1 setting))
+                        (replace-regexp-in-string regexp replace value)))))
+
+        (eval settings)))
+
+  (load (expand-file-name "settings" user-emacs-directory)))
+
+#+end_src
+
+** alternative load-path method
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-06-28 Fri 08:16
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: clipboard/debugs and tools
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+
+#+begin_src emacs-lisp
+  (defun test-funk ()
+    (setq src-dir (expand-file-name "src" user-emacs-directory))
+    ;; add the src directory to the load path
+    (add-to-list 'load-path src-dir user-emacs-directory)
+    ;; load all subdirectories
+      (when (file-exists-p src-dir)
+        (let ((default-directory src-dir))
+          (normal-top-level-add-subdirs-to-load-path))))
+#+end_src
+
+#+begin_src emacs-lisp
+  (defun test-funk ()
+    (setq src-dir (expand-file-name "src" user-emacs-directory))
+     (when (file-exists-p src-dir)
+        (add-to-list 'load-path src-dir)
+        (mapc #'sk-load
+              (remove-duplicates
+               (mapcar #'remove-extension
+                       (directory-files user-dir t ".*\.\\(org\\|el\\)\\(\\.gpg\\)?$"))
+               :test #'string=))))))
+#+end_src
+
+** debugs and tools
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2013-06-28 Fri 08:16
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: clipboard
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+
+** TODO fetchmail-mode
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2013-07-07 Sun 15:54
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:ARCHIVE_TODO: TODO
+:END:
+#+begin_src emacs-lisp
+;;;_ , fetchmail-mode
+
+(use-package fetchmail-mode
+  :commands fetchmail-mode)
+
+#+end_src
+
+** TODO fold-dwim
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-07-07 Sun 15:56
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:ARCHIVE_TODO: TODO
+:END:
+#+begin_src emacs-lisp
+;;;_ , fold-dwim
+
+(use-package fold-dwim
+  :bind (("<f13>" . fold-dwim-toggle)
+         ("<f14>" . fold-dwim-hide-all)
+         ("<f15>" . fold-dwim-show-all)))
+
+#+end_src
+
+** TODO iedit
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-07-07 Sun 15:58
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:ARCHIVE_TODO: TODO
+:END:
+#+begin_src emacs-lisp
+  (use-package iedit
+:init (progn
+(defun iedit-dwim (arg)
+  "Starts iedit but uses \\[narrow-to-defun] to limit its scope."
+  (interactive "P")
+  (if arg
+      (iedit-mode)
+    (save-excursion
+      (save-restriction
+        (widen)
+        ;; this function determines the scope of `iedit-start'.
+        (narrow-to-defun)
+        (if iedit-mode
+            (iedit-done)
+          ;; `current-word' can of course be replaced by other
+          ;; functions.
+          (iedit-start (current-word)))))))
+
+(bind-key "H-;" 'iedit-dwim)
+)
+
+
+)
+
+#+end_src
+
+** TODO ipa
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2013-07-07 Sun 16:02
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:ARCHIVE_TODO: TODO
+:END:
+#+begin_src emacs-lisp
+;;;_ , ipa
+
+(use-package ipa
+  :commands ipa-insert
+  :init
+  (progn
+    (autoload 'ipa-load-annotations-into-buffer "ipa")
+    (add-hook 'find-file-hook 'ipa-load-annotations-into-buffer)))
+
+#+end_src
+
+** TODO nf-procmail-mode
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-07-07 Sun 16:03
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:ARCHIVE_TODO: TODO
+:END:
+#+begin_src emacs-lisp
+;;;_ , nf-procmail-mode
+
+(use-package nf-procmail-mode
+  :commands nf-procmail-mode)
+
+#+end_src
+
+** TODO nroff-mode
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-07-07 Sun 16:03
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:ARCHIVE_TODO: TODO
+:END:
+#+begin_src emacs-lisp
+;;;_ , nroff-mode
+
+(use-package nroff-mode
+  :commands nroff-mode
+  :config
+  (progn
+    (defun update-nroff-timestamp ()
+      (save-excursion
+        (goto-char (point-min))
+        (when (re-search-forward "^\\.Dd ")
+          (let ((stamp (format-time-string "%B %e, %Y")))
+            (unless (looking-at stamp)
+              (delete-region (point) (line-end-position))
+              (insert stamp)
+              (let (after-save-hook)
+                (save-buffer)))))))
+
+    (add-hook 'nroff-mode-hook
+              #'(lambda ()
+                  (add-hook 'after-save-hook 'update-nroff-timestamp nil t)))))
+
+#+end_src
+
+** TODO quickrun
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2013-07-07 Sun 16:05
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:ARCHIVE_TODO: TODO
+:END:
+#+begin_src emacs-lisp
+;;;_ , quickrun
+
+(use-package quickrun
+  :bind* ("C-c C-r" . quickrun))
+
+#+end_src
+
+** TODO selectkey
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2013-07-07 Sun 16:08
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:ARCHIVE_TODO: TODO
+:END:
+#+begin_src emacs-lisp
+;;;_ , selectkey
+
+(use-package selectkey
+  :init
+  (progn
+    (bind-key "C-. b" 'selectkey-select-prefix-map)
+
+    (selectkey-define-select-key compile "c" "\\*compilation")
+    (selectkey-define-select-key shell-command "o" "Shell Command")
+    (selectkey-define-select-key shell "s" "\\*shell" (shell))
+    (selectkey-define-select-key multi-term "t" "\\*terminal" (multi-term-next))
+    (selectkey-define-select-key eshell "z" "\\*eshell" (eshell))))
+
+#+end_src
+
+** TODO smerge-mode
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2013-07-07 Sun 16:09
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:ARCHIVE_TODO: TODO
+:END:
+#+begin_src emacs-lisp
+;;;_ , smerge-mode
+
+(use-package smerge-mode
+  :commands (smerge-mode smerge-command-prefix)
+  :init
+  (setq smerge-command-prefix (kbd "C-. C-=")))
+
+#+end_src
+
+** TODO yaoddmuse
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2013-07-07 Sun 16:30
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:ARCHIVE_TODO: TODO
+:END:
+#+begin_src emacs-lisp
+;;;_ , yaoddmuse
+
+(use-package yaoddmuse
+
+  :init
+(progn
+(define-prefix-command 'ctl-c-w-map)
+      (bind-key "C-c w" 'ctl-c-w-map)
+      (bind-key "C-c w f" 'yaoddmuse-browse-page-default)
+      (bind-key "C-c w e" 'yaoddmuse-edit-default)
+      (bind-key "C-c w p" 'yaoddmuse-post-library-default)
+      ))
+
+#+end_src
+
+** ascii
+:PROPERTIES:
+:tangle:   yes
+:ARCHIVE_TIME: 2013-07-07 Sun 19:15
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+;;;_ , ascii
+
+(use-package ascii
+  :commands (ascii-on ascii-toggle)
+  :init
+  (progn
+    (defun ascii-toggle ()
+      (interactive)
+      (if ascii-display
+          (ascii-off)
+        (ascii-on)))
+
+    (bind-key "C-c e A" 'ascii-toggle)))
+
+#+end_src
+
+** bbdb
+:PROPERTIES:
+:tangle:   yes
+:ARCHIVE_TIME: 2013-07-07 Sun 20:31
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+
+#+begin_src emacs-lisp
+;;;_ , bbdb
+
+(use-package bbdb-com
+  :commands bbdb-create
+  :bind ("M-B" . bbdb)
+  :disabled t
+  :config (progn
+(use-package vcard
+  :load-path "~/.emacs.d/site-lisp/gnus/contrib")
+(use-package bbdb-vcard-import
+  :commands bbdb-vcard-import )
+(use-package bbdb-vcard-export
+  :commands bbdb-vcard-export-update-all)))
+
+#+end_src
+
+** color-moccur
+:PROPERTIES:
+:tangle:   yes
+:ARCHIVE_TIME: 2013-07-07 Sun 20:50
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+;;;_ , color-moccur
+
+(let ((ad-redefinition-action 'accept))
+  (use-package color-moccur
+    :commands (isearch-moccur isearch-all)
+    :bind ("M-s O" . moccur)
+    :init
+    (progn
+      (bind-key "M-o" 'isearch-moccur isearch-mode-map)
+      (bind-key "M-O" 'isearch-moccur-all isearch-mode-map))
+
+    :config
+    (use-package moccur-edit)))
+
+#+end_src
+
+** org table defuns
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-07-08 Mon 04:40
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: bootstrap
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+
+Helper code to enable the use of org-tables in the stratup process.
+Remember right here we are in a load environment and relying on
+standard emacs packages to do stuff.
+
+#+begin_src emacs-lisp
+(require 'cl)
+(defun org-table-list-and-toggle (table)
+"turns an org-table into a list"
+(if (eq (cadr table) 'hline)
+    (setq table (cddr table)))
+(loop for el in table
+      when (not (equal "" (cadr el)))
+      collect
+      (car el)))
+
+  (defun org-table-remove-header (table)
+    "turns an org-table into a list"
+    (if (eq (cadr table) 'hline)
+        (setq table (cddr table))))
+#+end_src
+
+** getting info directories right
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-07-08 Mon 04:49
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages/info
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+TBLNAME: info-dirs
+| /Users/tonyday/.emacs.d/info |
+| /usr/share/info/             |
+| ~/.emacs.d/site-lisp/auctex/doc      |
+
+  #+begin_src emacs-lisp :var table=info-dirs
+     (setq clean-table
+           (delete nil
+                   (loop for line in table
+                         collect
+                         (delete "" (delete-dups line)))))
+    (setq Info-default-directory-list (apply #'append (list 
+
+
+(list "/Users/tonyday/.emacs.d/info")
+(list "/usr/share/info"))))
+    (setq Info-directory-list Info-default-directory-list)
+  #+end_src
+
+  #+results:
+  | /Users/tonyday/.emacs.d/info | /usr/share/info/ | ~/.emacs.d/site-lisp/auctex/doc |
+
+** git repo list
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-07-08 Mon 04:51
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+
+#+name: git-repos
+| ~/git/hft                   |
+| ~/stuff                     |
+| ~/.emacs.d                  |
+| ~/git/o-blog                |
+| ~/projects/opoker           |
+| ~/projects/alice            |
+| ~/projects/metalice         |
+| ~/projects/fgr              |
+| ~/git/tonyday567.github.com |
+
+
+#+begin_src emacs-lisp :var table=git-repos
+     (setq magit-repo-dirs
+           (loop for file in table
+                     collect (car file)))
+#+end_src
+
+#+results:
+| ~/git/hft | ~/stuff | ~/.emacs.d | ~/git/o-blog | ~/projects/opoker | ~/projects/alice | ~/projects/metalice | ~/projects/fgr | ~/git/tonyday567.github.com |
+
+** agenda-files
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2013-07-08 Mon 04:51
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages/org-mode
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+
+Moved to the default agenda files control via custom.
+
+Using tables as well for agenda files is very useful, especially for
+quickly changing ordering.
+
+#+TBLNAME: agenda-files
+| .emacs.d |           | README.org                 |               |
+| .emacs.d |           | dotemacs.org               |               |
+| git      | acme      | acme.org                   |               |
+| git      | o-blog    | example                    | oblog-min.org |
+| stuff    |           | stuff.org                  |               |
+| stuff    | biz       | scarce.org                 |               |
+| stuff    | content   | allocation_final.org       |               |
+| stuff    | content   | life.org                   |               |
+| stuff    | content   | writing.org                |               |
+| stuff    | content   | ideas.org                  |               |
+| stuff    | content   | tail-material.org          |               |
+| stuff    | content   | grob.org                   |               |
+| stuff    | dev       | alice.org                  |               |
+| stuff    | dev       | webdev.org                 |               |
+| stuff    | dev       | sandpit                    | sandpit.org   |
+| stuff    | dev       | dot.org                    |               |
+| stuff    | dev       | beamer.org                 |               |
+| stuff    | emacs     | emacs.org                  |               |
+| stuff    | emacs     | bindings.org               |               |
+| stuff    | factor    | factor.org                 |               |
+| stuff    | org       | refile.org                 |               |
+| stuff    | org       | bugz.org                   |               |
+| stuff    | org       | snipz.org                  |               |
+| stuff    | org       | org.org                    |               |
+| stuff    | quant     | rdev.org                   |               |
+| stuff    | quant     | volatility.org             |               |
+| stuff    | quant     | strategy_run_annotated.org |               |
+| stuff    | quant     | strategy_run_default.org   |               |
+| stuff    | quant     | momentum.org               |               |
+| stuff    | quant     | mom-report.org             |               |
+| stuff    | quant     | jgb.org                    |               |
+| stuff    | quant     | data.org                   |               |
+| stuff    | quant     | quaff.org                  |               |
+| stuff    | quant     | moments.org                |               |
+| stuff    | quant     | da.org                     |               |
+| stuff    | site      | site-dev.org               |               |
+| stuff    | sys       | sys.org                    |               |
+| projects | fgr       | fgr.org                    |               |
+| projects | opoker    | opoker.org                 |               |
+| projects | alice     | alice.org                  |               |
+| projects | metaalice | metaalice.org              |               |
+
+  #+begin_src emacs-lisp :var data=agenda-files
+    (setq clean-table
+          (delete nil
+                  (loop for line in data
+                        collect
+                        (delete "" (delete-dups line)))))
+
+    (setq org-agenda-files
+          (mapcar
+           (lambda (x)
+             (concat "~/"
+                     (mapconcat
+                      'eval x "/")))
+           clean-table))
+  #+end_src
+
+  #+results:
+  | ~/.emacs.d/README.org | ~/.emacs.d/dotemacs.org | ~/git/acme/acme.org | ~/git/o-blog/example/oblog-min.org | ~/stuff/stuff.org | ~/stuff/biz/scarce.org | ~/stuff/content/allocation_final.org | ~/stuff/content/life.org | ~/stuff/content/writing.org | ~/stuff/content/ideas.org | ~/stuff/content/tail-material.org | ~/stuff/content/grob.org | ~/stuff/dev/alice.org | ~/stuff/dev/webdev.org | ~/stuff/dev/sandpit/sandpit.org | ~/stuff/dev/dot.org | ~/stuff/dev/beamer.org | ~/stuff/emacs/emacs.org | ~/stuff/emacs/bindings.org | ~/stuff/factor/factor.org | ~/stuff/org/refile.org | ~/stuff/org/bugz.org | ~/stuff/org/snipz.org | ~/stuff/org/org.org | ~/stuff/quant/rdev.org | ~/stuff/quant/volatility.org | ~/stuff/quant/strategy_run_annotated.org | ~/stuff/quant/strategy_run_default.org | ~/stuff/quant/momentum.org | ~/stuff/quant/mom-report.org | ~/stuff/quant/jgb.org | ~/stuff/quant/data.org | ~/stuff/quant/quaff.org | ~/stuff/quant/moments.org | ~/stuff/quant/da.org | ~/stuff/site/site-dev.org | ~/stuff/sys/sys.org | ~/projects/fgr/fgr.org | ~/projects/opoker/opoker.org | ~/projects/alice/alice.org | ~/projects/metaalice/metaalice.org |
+
+** erlang
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-07-08 Mon 13:57
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+  (use-package erlang-start)
+(setq erlang-root-dir "/usr/local/Cellar/erlang/R15B02/share")
+#+end_src
+
+*** ps-print
+#+begin_src emacs-lisp
+;;;_ , ps-print
+
+(use-package ps-print
+  :defer t
+  :config
+  (progn
+    (defun ps-spool-to-pdf (beg end &rest ignore)
+      (interactive "r")
+      (let ((temp-file (concat (make-temp-name "ps2pdf") ".pdf")))
+        (call-process-region beg end (executable-find "ps2pdf")
+                             nil nil nil "-" temp-file)
+        (call-process (executable-find "open") nil nil nil temp-file)))
+
+    (setq ps-print-region-function 'ps-spool-to-pdf)))
+
+#+end_src
+
+** ps-print
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-07-08 Mon 14:00
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+;;;_ , ps-print
+
+(use-package ps-print
+  :defer t
+  :config
+  (progn
+    (defun ps-spool-to-pdf (beg end &rest ignore)
+      (interactive "r")
+      (let ((temp-file (concat (make-temp-name "ps2pdf") ".pdf")))
+        (call-process-region beg end (executable-find "ps2pdf")
+                             nil nil nil "-" temp-file)
+        (call-process (executable-find "open") nil nil nil temp-file)))
+
+    (setq ps-print-region-function 'ps-spool-to-pdf)))
+
+#+end_src
+
+** python-mode
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-07-08 Mon 14:00
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+;;;_ , python-mode
+
+(use-package python-mode
+  :mode ("\\.py\\'" . python-mode)
+  :interpreter ("python" . python-mode)
+  :config
+  (progn
+    (defvar python-mode-initialized nil)
+
+    (defun my-python-mode-hook ()
+      (unless python-mode-initialized
+        (setq python-mode-initialized t)
+
+        (info-lookup-add-help
+         :mode 'python-mode
+         :regexp "[a-zA-Z_0-9.]+"
+         :doc-spec
+         '(("(python)Python Module Index" )
+           ("(python)Index"
+            (lambda
+              (item)
+              (cond
+               ((string-match
+                 "\\([A-Za-z0-9_]+\\)() (in module \\([A-Za-z0-9_.]+\\))" item)
+                (format "%s.%s" (match-string 2 item)
+                        (match-string 1 item)))))))))
+
+      (setq indicate-empty-lines t)
+      (set (make-local-variable 'parens-require-spaces) nil)
+      (setq indent-tabs-mode nil)
+
+      (bind-key "C-c C-z" 'python-shell python-mode-map)
+      (unbind-key "C-c c" python-mode-map))
+
+    (add-hook 'python-mode-hook 'my-python-mode-hook)))
+
+#+end_src
+
+** session
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-07-08 Mon 14:00
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+;;;_ , session
+
+(use-package session
+  :if (not noninteractive)
+  :load-path "site-lisp/session/lisp/"
+  :init
+  (progn
+    (session-initialize)
+
+    (defun remove-session-use-package-from-settings ()
+      (when (string= (buffer-file-name)
+                     (expand-file-name "settings.el"
+                                       user-emacs-directory))
+        (save-excursion
+          (goto-char (point-min))
+          (when (re-search-forward "^ '(session-use-package " nil t)
+            (delete-region (line-beginning-position)
+                           (1+ (line-end-position)))))))
+
+    (add-hook 'before-save-hook 'remove-session-use-package-from-settings)
+
+    ;; expanded folded secitons as required
+    (defun le::maybe-reveal ()
+      (when (and (or (memq major-mode  '(org-mode outline-mode))
+                     (and (boundp 'outline-minor-mode)
+                          outline-minor-mode))
+                 (outline-invisible-p))
+        (if (eq major-mode 'org-mode)
+            (org-reveal)
+          (show-subtree))))
+
+    (add-hook 'session-after-jump-to-last-change-hook
+              'le::maybe-reveal)
+
+    (defun save-information ()
+      (with-temp-message "Saving Emacs information..."
+        (recentf-cleanup)
+
+        (loop for func in kill-emacs-hook
+              unless (memq func '(exit-gnus-on-exit server-force-stop))
+              do (funcall func))
+
+        (unless (or noninteractive
+                    running-alternate-emacs
+                    (eq 'listen (process-status server-process)))
+          (server-start))))
+
+    (run-with-idle-timer 300 t 'save-information)
+
+    (if window-system
+        (add-hook 'after-init-hook 'session-initialize t))))
+
+#+end_src
+
+** sh-script
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-07-08 Mon 14:02
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+;;;_ , sh-script
+
+(use-package sh-script
+  :defer t
+  :config
+  (progn
+    (defvar sh-script-initialized nil)
+    (defun initialize-sh-script ()
+      (unless sh-script-initialized
+        (setq sh-script-initialized t)
+        (info-lookup-add-help :mode 'shell-script-mode
+                              :regexp ".*"
+                              :doc-spec
+                              '(("(bash)Index")))))
+
+    (add-hook 'shell-mode-hook 'initialize-sh-script)))
+
+#+end_src
+
+** sh-toggle
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-07-08 Mon 14:02
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+;;;_ , sh-toggle
+
+(use-package sh-toggle
+  :bind ("C-. C-z" . shell-toggle))
+
+#+end_src
+
+* hacking jw init.el
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-07-10 Wed 01:55
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: upfront/other dots
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+- regexp-search-replace
+
+  #+begin_example
+  ^;;;_[,. ]+\(.*\)$
+  #+end_example
+
+  #+begin_example
+  '#+end_src
+  '** \1
+  '#+begin_src emacs-lisp
+  '\&
+  #+end_example
+- clean-up extra end_src and insert last one
+- adjust sections manually (allout format = programmatically possible too)
+- add column properties thingy to add tangle option
+- turn tangle on
+
+
+* (old) haskell-mode
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2013-07-13 Sat 08:34
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+
+#+begin_src emacs-lisp
+  ;;;_ , haskell-mode
+
+(use-package haskell-mode
+  :mode (("\\.hsc?\\'" . haskell-mode)
+         ("\\.lhs\\'" . literate-haskell-mode))
+  :init
+  (progn
+    (use-package haskell-process)
+    (use-package haskell-navigate-imports)
+    (use-package haskell-align-imports)
+    (use-package haskell-sort-imports)
+    (use-package haskell-font-lock)
+    (use-package haskell-interactive-mode)
+    (use-package haskell-indentation)
+    (use-package haskell-doc)
+    (use-package haskell-decl-scan)
+    (use-package inf-haskell)
+    (add-hook 'haskell-mode-hook 'haskell-hook)
+    ;; bindings
+    (define-prefix-command 'haskell-mode-map)
+    (define-prefix-command 'haskell-cabal-map)
+    (bind-key "C-c c" 'haskell-cabal-map haskell-mode-map)
+    (bind-key "C-c C-l" 'haskell-process-load-file haskell-mode-map)
+    (bind-key "C-c C-z" 'haskell-interactive-switch haskell-mode-map)
+    (bind-key "C-`" 'haskell-interactive-bring haskell-mode-map)
+    (bind-key "C-c c b" 'haskell-process-cabal-build haskell-mode-map)
+    (bind-key "C-c c <spc>" 'haskell-process-cabal haskell-mode-map)
+    (bind-key "C-c t" 'haskell-process-do-type haskell-mode-map)
+    (bind-key "C-c i" 'haskell-process-do-info haskell-mode-map)
+    (bind-key "C-c r" 'haskell-process-restart haskell-mode-map)
+    (bind-key "C-c a" 'haskell-align-imports haskell-mode-map)
+    (bind-key "C-c s" 'haskell-sort-imports haskell-mode-map)
+    (bind-key "C-c n" 'haskell-navigate-imports haskell-mode-map)
+    (bind-key "C-c [" 'align-code haskell-mode-map)
+    (bind-key "C-c g" 'haskell-process-generate-tags haskell-mode-map)
+    (bind-key "C-c f" 'inferior-haskell-start-process haskell-mode-map)
+    (bind-key "C-c d" 'inferior-haskell-send-decl haskell-mode-map)
+    (bind-key "C-c l" 'inferior-haskell-load-file haskell-mode-map)
+    (bind-key "C-c b" 'my-inferior-haskell-break haskell-mode-map)
+    (bind-key "C-c ." 'inferior-haskell-find-haddock haskell-mode-map)
+    (define-prefix-command 'haskell-hoogle-map)
+    (bind-key "C-c h" 'haskell-hoogle-map haskell-mode-map)
+    (bind-key "C-c h l" 'hoogle-local haskell-mode-map)
+    (bind-key "C-c h t" 'haskell-hoogle-local-toggle haskell-mode-map)
+    (bind-key "C-c h h" 'haskell-hoogle haskell-mode-map)
+    (bind-key "SPC" 'haskell-mode-contextual-space haskell-mode-map)
+    (bind-key "M-." 'haskell-mode-tag-find haskell-mode-map)
+    (bind-key "C-<right>"
+              (lambda ()
+                (interactive)
+                (haskell-move-nested 1)) haskell-mode-map)
+    (bind-key "C-<left>"
+              (lambda ()
+                (interactive)
+                (haskell-move-nested -1)) haskell-mode-map)
+
+    (defun haskell-hook ()
+      ;; Use simple indentation.
+      (turn-on-haskell-indentation)
+      (turn-on-haskell-doc-mode)
+      (turn-on-haskell-decl-scan)
+      (turn-on-haskell-font-lock)
+      (flymake-mode)
+      (yas-minor-mode 1)
+      (auto-complete-mode t)
+      (setq ac-sources (list 'ac-source-words-in-same-mode-buffers
+			     ))
+      (bind-key "<A-tab>" 'ac-complete haskell-mode-map)
+
+      (use-package align)
+      (add-to-list 'align-rules-list
+                   '(haskell-types
+                     (regexp . "\\(\\s-+\\)\\(::\\|∷\\)\\s-+")
+                     (modes quote (haskell-mode literate-haskell-mode))))
+      (add-to-list 'align-rules-list
+                   '(haskell-assignment
+                     (regexp . "\\(\\s-+\\)=\\s-+")
+                     (modes quote (haskell-mode literate-haskell-mode))))
+      (add-to-list 'align-rules-list
+                   '(haskell-arrows
+                     (regexp . "\\(\\s-+\\)\\(->\\|→\\)\\s-+")
+                     (modes quote (haskell-mode literate-haskell-mode))))
+      (add-to-list 'align-rules-list
+                   '(haskell-left-arrows
+                     (regexp . "\\(\\s-+\\)\\(<-\\|←\\)\\s-+")
+                     (modes quote (haskell-mode literate-haskell-mode)))))
+
+    (defvar haskell-mode-message-line-multi
+      "allow multiple lines in mini-buffer"
+      t)
+    (defadvice haskell-mode-message-line (around multi-line
+						 activate)
+      (if haskell-mode-message-line-multi
+	  (message "%s" (ad-get-arg 0))
+	(ad-do-it (ad-get-arg 0))))
+
+    (defun my-inferior-haskell-break (&optional arg)
+      (interactive "P")
+      (let ((line (line-number-at-pos))
+	    (col (if arg
+		     ""
+		   (format " %d" (current-column))))
+	    (proc (inferior-haskell-process)))
+	(inferior-haskell-send-command
+	 proc (format ":break %d%s" line col))
+	(message "Breakpoint set at %s:%d%s"
+		 (file-name-nondirectory (buffer-file-name)) line col)))
+
+    (defadvice inferior-haskell-start-process (before find-cabal-directory-first
+						      activate)
+      (cd (haskell-cabal-find-dir)))
+
+    (defcustom hoogle-binary-path
+      (expand-file-name "~/Library/haskell/bin/hoogle")
+      "Path to the local 'hoogle' binary."
+      :type 'file
+      :group 'haskell)
+
+    (defun hoogle-local (query)
+      (interactive
+       (let ((def (haskell-ident-at-point)))
+	 (if (and def (symbolp def)) (setq def (symbol-name def)))
+	 (list (read-string (if def
+				(format "Hoogle query (default %s): " def)
+			      "Hoogle query: ")
+			    nil nil def))))
+      (let ((buf (get-buffer "*hoogle*")))
+	(if buf
+	    (kill-buffer buf))
+	(setq buf (get-buffer-create "*hoogle*"))
+	(with-current-buffer buf
+	  (delete-region (point-min) (point-max))
+	  (call-process hoogle-binary-path nil t t query)
+	  (goto-char (point-min))
+	  (highlight-lines-matching-regexp (regexp-quote query) 'helm-match)
+	  (display-buffer (current-buffer)))))
+
+    (defvar hoogle-server-process nil)
+
+    (defun haskell-hoogle-local-toggle ()
+      "Toggle between a local hoogle server and the website"
+      (interactive)
+      (if (not haskell-hoogle-command)
+	  (setq haskell-hoogle-command "hoogle")
+	(setq haskell-hoogle-command nil)))
+
+    (defun my-haskell-hoogle (query &optional arg)
+      "Do a Hoogle search for QUERY."
+      (interactive
+       (let ((def (haskell-ident-at-point)))
+	 (if (and def (symbolp def)) (setq def (symbol-name def)))
+	 (list (read-string (if def
+				(format "Hoogle query (default %s): " def)
+			      "Hoogle query: ")
+			    nil nil def)
+	       current-prefix-arg)))
+      (let ((browse-url-browser-function
+	     (if (not arg)
+		 browse-url-browser-function
+	       '((".*" . w3m-browse-url)))))
+	(if (null haskell-hoogle-command)
+	    (progn
+	      (unless (and hoogle-server-process
+			   (process-live-p hoogle-server-process))
+		(message "Starting local Hoogle server on port 8687...")
+		(with-current-buffer (get-buffer-create " *hoogle-web*")
+		  (cd temporary-file-directory)
+		  (setq hoogle-server-process
+			(start-process "hoogle-web" (current-buffer)
+				       "hoogle")
+				       "server" "--local" "--port=8687")))
+		(sleep-for 0 500)
+		(message "Starting local Hoogle server on port 8687...done"))
+	      (browse-url (format "http://localhost:8687/?hoogle=%s" query)))
+	  (lexical-let ((temp-buffer (if (fboundp 'help-buffer)
+					 (help-buffer) "*Help*")))
+	    (with-output-to-temp-buffer temp-buffer
+	      (with-current-buffer standard-output
+		(let ((hoogle-process
+		       (start-process "hoogle" (current-buffer)
+				      haskell-hoogle-command query))
+		      (scroll-to-top
+		       (lambda (process event)
+			 (set-window-start
+			  (get-buffer-window temp-buffer t) 1))))
+		  (set-process-sentinel hoogle-process scroll-to-top))))))))))
+
+#+end_src
+
+
+* hsenv
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2013-07-13 Sat 08:35
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+(use-package hsenv
+:init
+(define-minor-mode hsenv-minor-mode
+       "Toggle hsenv mode.
+     Interactively with no argument, this command toggles the mode.
+     A positive prefix argument enables the mode, any other prefix
+     argument disables it.  From Lisp, argument omitted or nil enables
+     the mode, `toggle' toggles the state.
+
+     When hsenv mode is enabled, the .hsenv environment is activated
+     See the command \\[hsenv-activate]."
+      :init-value nil
+      :lighter " hsenv"
+      :keymap
+
+(let ((map (make-sparse-keymap)))
+            (define-key map (kbd "C-c C-a") ' hsenv-activate)
+            (define-key map (kbd "C-c C-d") ' hsenv-deactivate)
+            map)
+      :group 'hsenv
+      (progn
+         (hsenv-activate))))
+#+end_src
+
+
+* artbollocks
+:PROPERTIES:
+:tangle:   yes
+:ARCHIVE_TIME: 2013-08-04 Sun 23:02
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+    #+begin_src emacs-lisp
+      (use-package artbollocks-mode
+        :init
+        (progn
+          (setq artbollocks-weasel-words-regex
+                (concat "\\b" (regexp-opt
+                               '("one of the"
+                                 "should"
+                                 "just"
+                                 "sort of"
+                                 "a lot"
+                                 "probably"
+                                 "maybe"
+                                 "perhaps"
+                                 "I think"
+                                 "really"
+                                 "pretty"
+                                 "maybe"
+                                 "nice"
+                                 "action"
+                                 "utilize"
+                                 "leverage") t) "\\b"))
+          ;; Don't show the art critic words, or at least until I figure
+          ;; out my own jargon
+          (setq artbollocks-jargon nil)))
+#+end_src
+
+    #+results:
+    : t
+
+
+* flymake-html-validator
+:PROPERTIES:
+:tangle:   yes
+:ARCHIVE_TIME: 2013-08-04 Sun 23:02
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+  (use-package flymake-html-validator
+    :init
+    (progn
+      ;;(add-hook 'html-mode-hook 'flymake-mode)
+
+      (defvar flymake-minor-map-mode)
+      (define-prefix-command 'flymake-minor-mode-map)
+      (bind-key "H-f" 'flymake-minor-mode)
+      (bind-key "M-p" 'flymake-goto-prev-error)
+      (bind-key "M-n" 'flymake-goto-next-error)
+
+      (defun flymake-err-at (pos)
+        (let ((overlays (overlays-at pos)))
+          (remove nil
+                  (mapcar (lambda (overlay)
+                            (and (overlay-get overlay 'flymake-overlay)
+                                 (overlay-get overlay 'help-echo)))
+                          overlays))))
+
+      (defun flymake-err-echo ()
+        (message "%s" (mapconcat 'identity (flymake-err-at (point)) "\n")))
+
+      (defadvice flymake-goto-next-error (after display-message activate compile)
+        (flymake-err-echo))
+
+      (defadvice flymake-goto-prev-error (after display-message activate compile)
+        (flymake-err-echo))
+
+      (define-minor-mode flymake-minor-mode
+        "Simple minor mode which adds some key bindings for moving to the next and previous errors.
+
+  Key bindings:
+
+  \\{my-flymake-minor-mode-map}"
+        nil
+        nil
+        flymake-minor-mode-map)
+
+      ;; Enable this keybinding (my-flymake-minor-mode) by default
+      ;; Added by Hartmut 2011-07-05
+      ;; (add-hook 'html-mode-hook 'flymake-minor-mode)
+
+      ;;(setq validator-script
+      ;;"~/.emacs.d/site-lisp/flymake-html-validator")
+      ))
+#+end_src
+
+#+results:
+: t
+
+
+* twitter
+:PROPERTIES:
+:tangle:   yes
+:ARCHIVE_TIME: 2013-08-04 Sun 23:03
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+  (use-package twittering-mode
+:defer t
+   :config (setq twittering-use-master-password t))
+#+end_src
+
+
+
+* abbrev
+    :PROPERTIES:
+    :tangle:   yes
+    :ARCHIVE_TIME: 2014-01-15 Wed 00:29
+    :ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+    :ARCHIVE_OLPATH: packages
+    :ARCHIVE_CATEGORY: dotemacs
+    :END:
+#+begin_src emacs-lisp
+(use-package abbrev
+  :commands abbrev-mode
+  :diminish abbrev-mode
+  :init
+  (hook-into-modes #'abbrev-mode '(text-mode-hook))
+
+  :config
+  (progn
+   (if (file-exists-p abbrev-file-name)
+       (quietly-read-abbrev-file))
+
+   (add-hook 'expand-load-hook
+             (lambda ()
+               (add-hook 'expand-expand-hook 'indent-according-to-mode)
+               (add-hook 'expand-jump-hook 'indent-according-to-mode)))))
+
+#+end_src
+
+* autofill
+:PROPERTIES:
+:ARCHIVE_TIME: 2014-01-15 Wed 00:44
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+
+#+begin_src emacs-lisp
+(hook-into-modes 'turn-on-auto-fill
+       '(org-mode-hook
+         erc-mode-hook))
+(diminish 'auto-fill-mode "f")
+#+end_src
+
+
+* crosshairs
+:PROPERTIES:
+:tangle:   yes
+:ARCHIVE_TIME: 2014-01-15 Wed 00:49
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+(use-package crosshairs
+  :bind ("M-o c" . crosshairs-mode))
+
+#+end_src
+
+* flymake
+:PROPERTIES:
+:tangle:   yes
+:ARCHIVE_TIME: 2014-01-15 Wed 00:52
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+
+#+begin_src emacs-lisp
+(defadvice flymake-start-syntax-check-process (after
+                                               cheeso-advice-flymake-start-syntax-check-1
+                                               (cmd args dir)
+                                               activate compile)
+  ;; set flag to allow exit without query on any
+  ;;active flymake processes
+  (set-process-query-on-exit-flag ad-return-value nil))
+
+#+end_src
+
+
+
+* flymake-cursor
+:PROPERTIES:
+:tangle:   yes
+:ARCHIVE_TIME: 2014-01-15 Wed 00:52
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+(use-package flymake-cursor)
+#+end_src
+
+
+* fpco
+:PROPERTIES:
+:ARCHIVE_TIME: 2014-01-15 Wed 00:52
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+https://www.fpcomplete.com/blog/2013/12/api-emacs
+https://www.fpcomplete.com/page/api
+
+
+* slime (new)
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2014-01-15 Wed 07:31
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+
+#+begin_src emacs-lisp
+(use-package slime
+  ;;:load-path "~/git/slime/"
+  :commands (slime)
+  :config
+  (progn
+    (setq inferior-lisp-program "sbcl")
+    (slime-setup '(slime-fancy))
+    (use-package slime-repl
+      :load-path "~/.emacs.d/site-lisp/slime/contrib/")
+    (use-package slime-js)))
+#+end_src
+
+#+results:
+: t
+
+
+* slime (jw)
+    :PROPERTIES:
+    :tangle:   no
+    :ARCHIVE_TIME: 2014-01-15 Wed 07:32
+    :ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+    :ARCHIVE_OLPATH: packages
+    :ARCHIVE_CATEGORY: dotemacs
+    :END:
+#+begin_src emacs-lisp
+
+
+(use-package slime
+  :commands (sbcl slime)
+  :init
+  (add-hook
+   'slime-load-hook
+   #'(lambda ()
+       (slime-setup
+        '(slime-asdf
+          slime-autodoc
+          slime-banner
+          slime-c-p-c
+          slime-editing-commands
+          slime-fancy-inspector
+          slime-fancy
+          slime-fuzzy
+          slime-highlight-edits
+          slime-parse
+          slime-presentation-streams
+          slime-presentations
+          slime-references
+          slime-repl
+          slime-sbcl-exts
+          slime-package-fu
+          slime-fontifying-fu
+          slime-mdot-fu
+          slime-scratch
+          slime-tramp
+          ;; slime-enclosing-context
+          ;; slime-typeout-frame
+          slime-xref-browser))
+
+       (define-key slime-repl-mode-map [(control return)] 'other-window)
+
+       (define-key slime-mode-map [return] 'paredit-newline)
+       (define-key slime-mode-map [(control ?h) ?F] 'info-lookup-symbol)))
+
+  :config
+  (progn
+    (eval-when-compile
+      (defvar slime-repl-mode-map))
+
+
+
+    (setq slime-net-coding-system 'utf-8-unix)
+
+    (setq slime-lisp-implementations
+          '((sbcl
+             ("sbcl" "--core"
+              "/Users/johnw/Library/Lisp/sbcl.core-with-slime-X86-64")
+             :init
+             (lambda (port-file _)
+               (format "(swank:start-server %S)\n" port-file)))
+            (ecl ("ecl" "-load" "/Users/johnw/Library/Lisp/init.lisp"))
+            (clisp ("clisp" "-i" "/Users/johnw/Library/Lisp/lwinit.lisp"))))
+
+    (setq slime-default-lisp 'sbcl)
+    (setq slime-complete-symbol*-fancy t)
+    (setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol)
+
+    (defun sbcl (&optional arg)
+      (interactive "P")
+      (let ((slime-default-lisp (if arg 'sbcl64 'sbcl))
+            (current-prefix-arg nil))
+        (slime)))
+    (defun clisp () (interactive) (let ((slime-default-lisp 'clisp)) (slime)))
+    (defun ecl () (interactive) (let ((slime-default-lisp 'ecl)) (slime)))
+
+    (defun start-slime ()
+      (interactive)
+      (unless (slime-connected-p)
+        (save-excursion (slime))))
+
+    (add-hook 'slime-mode-hook 'start-slime)
+    (add-hook 'slime-load-hook #'(lambda () (require 'slime-fancy)))
+    (add-hook 'inferior-lisp-mode-hook #'(lambda () (inferior-slime-mode t)))
+
+    (use-package hyperspec
+      :init
+      (setq common-lisp-hyperspec-root
+            "/opt/local/share/doc/lisp/HyperSpec-7-0/HyperSpec/"))))
+
+#+end_src
+
+
+* swank-js
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2014-01-15 Wed 07:42
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+;; swank
+
+#+end_src
+
+- [ ] npm install -g swank-js
+- slime connect
+
+
+
+* taskjuggler
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2014-01-15 Wed 07:42
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+
+http://www.taskjuggler.org/download/tj3-clt-2012.pdf
+
+#+begin_src emacs-lisp
+(use-package ox-taskjuggler)
+(use-package taskjuggler-mode)
+
+;; Compile
+(defun taskjuggler-build-compile-command (buffer &optional args)
+  (concat "tj3 "
+          (cond
+           ((listp args) (mapconcat 'identity args " "))
+           ((stringp args) args))
+          " "
+          (buffer-file-name buffer)))
+
+
+(defun org-taskjuggler--build-report (report info)
+  "Return a report declaration.
+REPORT is a headline.  INFO is a plist used as a communication
+channel."
+  (concat
+   ;; Opening report.
+   (format "%s \"%s\" {\n"
+           (or (org-element-property :REPORT_KIND report) "taskreport")
+           (org-taskjuggler-get-name report))
+   ;; Add attributes.
+   (org-taskjuggler--indent-string
+    (org-taskjuggler--build-attributes
+     report org-taskjuggler-valid-report-attributes))
+   ;; Add inner reports.
+   (org-taskjuggler--indent-string
+    (mapconcat
+     'identity
+     (org-element-map (org-element-contents report) 'headline
+       (lambda (hl) (org-taskjuggler--build-report hl info))
+       info nil 'headline)
+     ""))
+   ;; Closing report.
+   "}\n"))
+
+
+#+end_src
+
+#+results:
+: org-taskjuggler--build-report
+
+
+
+* w3m
+    :PROPERTIES:
+    :tangle:   yes
+    :ARCHIVE_TIME: 2014-01-15 Wed 07:47
+    :ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+    :ARCHIVE_OLPATH: packages
+    :ARCHIVE_CATEGORY: dotemacs
+    :END:
+#+begin_src emacs-lisp
+
+
+(use-package w3m
+  :commands (w3m-search w3m-find-file)
+  :bind (("C-. u"   . w3m-browse-url)
+         ("C-. U"   . w3m-browse-url-new-session)
+         ("C-. A-u" . w3m-browse-chrome-url-new-session))
+  :init
+  (progn
+    (setq w3m-command "/usr/local/bin/w3m")
+
+    (setq w3m-coding-system 'utf-8
+          w3m-file-coding-system 'utf-8
+          w3m-file-name-coding-system 'utf-8
+          w3m-input-coding-system 'utf-8
+          w3m-output-coding-system 'utf-8
+          w3m-terminal-coding-system 'utf-8)
+
+    (add-hook 'w3m-mode-hook 'w3m-link-numbering-mode)
+
+    (autoload 'w3m-session-crash-recovery-remove "w3m-session")
+
+    (defun show-browser ()
+      (interactive)
+      (let ((w3m-buf
+             (catch 'found
+               (dolist (buf (buffer-list))
+                 (if (string-match "\\*w3m" (buffer-name buf))
+                     (throw 'found buf))))))
+        (if w3m-buf
+            (switch-to-buffer-other-window w3m-buf)
+          (call-interactively 'w3m-find-file))))
+
+    (bind-key "C-. w" 'show-browser)
+
+    (defun wikipedia-query (term)
+      (interactive (list (read-string "Wikipedia search: " (word-at-point))))
+      (require 'w3m-search)
+      (w3m-search "en.wikipedia" term))
+
+    (eval-when-compile
+      (autoload 'w3m-search-escape-query-string "w3m-search"))
+
+    (defun wolfram-alpha-query (term)
+      (interactive (list (read-string "Ask Wolfram Alpha: " (word-at-point))))
+      (require 'w3m-search)
+      (w3m-browse-url (concat "http://m.wolframalpha.com/input/?i="
+                              (w3m-search-escape-query-string term))))
+
+    (defun goto-emacswiki ()
+      (interactive)
+      (w3m-browse-url "http://www.emacswiki.org"))
+
+    (defun w3m-browse-url-new-session (url)
+      (interactive (progn
+                     (require 'browse-url)
+                     (browse-url-interactive-arg "Emacs-w3m URL: ")))
+      (w3m-browse-url url t))
+
+    (defun w3m-browse-chrome-url-new-session ()
+      (interactive)
+      (let ((url (do-applescript
+                  (string-to-multibyte "tell application \"Google Chrome\"
+  URL of active tab of front window
+  end tell"))))
+        (w3m-browse-url (substring url 1 (1- (length url))) t)))
+
+    (bind-key "A-M-e" 'goto-emacswiki)
+    (bind-key "A-M-g" 'w3m-search)
+    (bind-key "A-M-w" 'wikipedia-query))
+
+  :config
+  (let (proxy-host proxy-port)
+    (with-temp-buffer
+      (shell-command "scutil --proxy" (current-buffer))
+
+      (when (re-search-forward "HTTPPort : \\([0-9]+\\)" nil t)
+        (setq proxy-port (match-string 1)))
+      (when (re-search-forward "HTTPProxy : \\(\\S-+\\)" nil t)
+        (setq proxy-host (match-string 1))))
+
+    (if (and proxy-host proxy-port)
+        (setq w3m-command-arguments
+              (nconc w3m-command-arguments
+                     (list "-o" (format "http_proxy=http://%s:%s/"
+                                        proxy-host proxy-port)))))
+
+    (use-package w3m-type-ahead
+      :requires w3m
+      :init
+      (add-hook 'w3m-mode-hook 'w3m-type-ahead-mode))
+
+    (add-hook 'w3m-display-hook
+              (lambda (url)
+                (let ((buffer-read-only nil))
+                  (delete-trailing-whitespace))))
+
+    (defun my-w3m-linknum-follow ()
+      (interactive)
+      (w3m-linknum-follow))
+
+    (bind-key "k" 'w3m-delete-buffer w3m-mode-map)
+    (bind-key "i" 'w3m-view-previous-page w3m-mode-map)
+    (bind-key "p" 'w3m-previous-anchor w3m-mode-map)
+    (bind-key "n" 'w3m-next-anchor w3m-mode-map)
+
+    (defun dka-w3m-textarea-hook()
+      (save-excursion
+        (while (re-search-forward "\r\n" nil t)
+          (replace-match "\n" nil nil))
+        (delete-other-windows)))
+
+    (add-hook 'w3m-form-input-textarea-mode-hook 'dka-w3m-textarea-hook)
+
+    (bind-key "<return>" 'w3m-view-url-with-external-browser
+              w3m-minor-mode-map)
+    (bind-key "S-<return>" 'w3m-safe-view-this-url w3m-minor-mode-map)
+
+    (use-package w3m-lnum)))
+
+#+end_src
+
+
+* wcount-mode
+:PROPERTIES:
+:tangle:   yes
+:ARCHIVE_TIME: 2014-01-15 Wed 07:47
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+(use-package wcount-mode
+  :commands wcount)
+
+#+end_src
+
+* write-room
+:PROPERTIES:
+:tangle:   yes
+:ARCHIVE_TIME: 2014-01-15 Wed 07:49
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+
+
+#+begin_src emacs-lisp
+
+(defvar in-write-room nil)
+
+(defun write-room ()
+  "Make a frame without any bling."
+  (interactive)
+  ;; to restore:
+  ;; (setq mode-line-format (default-value 'mode-line-format))
+  (let ((frame (make-frame
+                '((minibuffer . nil)
+                  (vertical-scroll-bars . nil)
+                  (left-fringe . 0); no fringe
+                  (right-fringe . 0)
+                  ;;(background-mode . dark)
+                  ;;(background-color . "cornsilk")
+                  ;;(foreground-color . "black")
+                  (cursor-color . "green")
+                  (border-width . 0)
+                  (border-color . "black"); should be unnecessary
+                  (internal-border-width . 64); whitespace!
+                  (cursor-type . box)
+                  (menu-bar-lines . 0)
+                  (tool-bar-lines . 0)
+                  (fullscreen . fullboth)  ; this should work
+                  (unsplittable . t)))))
+    (select-frame frame)
+    (find-file "~/Documents/Notes.txt")
+    (setq mode-line-format nil
+          fill-column 65)
+    (set-window-margins (selected-window) 50 50)))
+
+(defun toggle-write-room ()
+  (interactive)
+  (if in-write-room
+      (progn
+        (select-frame (make-frame))
+        (setq mode-line-format (default-value 'mode-line-format))
+        (setq in-write-room nil))
+    (progn
+      (setq in-write-room t)
+      (write-room))))
+
+(bind-key "C-c w" 'toggle-write-room)
+#+end_src
+
+
+* csv-mode
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2014-01-15 Wed 07:50
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+(use-package csv-mode)
+#+end_src
+
+
+* initsplit
+:PROPERTIES:
+:tangle:   no
+:ARCHIVE_TIME: 2014-01-15 Wed 07:51
+:ARCHIVE_FILE: ~/.emacs.d/dotemacs.org
+:ARCHIVE_OLPATH: packages
+:ARCHIVE_CATEGORY: dotemacs
+:END:
+#+begin_src emacs-lisp
+(eval-after-load "cus-edit"
+  '(use-package initsplit))
+
+#+end_src
+
