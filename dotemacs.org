@@ -148,6 +148,12 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
 (global-linum-mode 1)
 )
     #+END_SRC
+** move-text
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'load-path "~/emacs")
+(require 'move-text)
+(move-text-default-bindings)
+#+END_SRC
 ** multiple-cursors
 #+BEGIN_SRC emacs-lisp
 (use-package multiple-cursors
@@ -158,6 +164,12 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this))
 )
+#+END_SRC
+** expand-region
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'load-path "~/emacs/packages/expand-region")
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
 #+END_SRC
 ** paren
 #+BEGIN_SRC emacs-lisp
