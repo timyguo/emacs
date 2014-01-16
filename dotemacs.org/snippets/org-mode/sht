@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: sht
-# --
-#+begin_html
-`yas-selected-text`$0
-#+end_html

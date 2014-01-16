@@ -4,7 +4,7 @@
   (package-initialize)
   (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
   )
-(require 'package)
+(require 'use-package)
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
@@ -22,8 +22,10 @@
  '(tool-bar-mode nil))
 
 ;; enable autopair
-(require 'autopair)
-(autopair-global-mode 1)
+(use-package autopair
+	     :init
+	     (progn
+	      (autopair-global-mode 1)))
 
 ;; enable line number
 (require 'linum)

@@ -1,6 +1,0 @@
-# key: sh
-# name: sh
-# --
-#+begin_src haskell
-`yas-selected-text`$0
-#+end_src

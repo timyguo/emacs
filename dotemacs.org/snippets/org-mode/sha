@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: hask
-# --
-#+begin_src haskell
-`yas-selected-text`$0
-#+end_src
-
-  

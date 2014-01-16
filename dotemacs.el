@@ -1,0 +1,105 @@
+
+(let ((default-directory "~/.emacs.d/elpa/"))
+  (normal-top-level-add-subdirs-to-load-path))
+
+(custom-set-faces
+ '(default ((t (:family "Comic Sans MS" :foundry "outline" :slant normal :weight normal :height 98 :width normal)))))
+
+(require 'use-package)
+(require 'bind-key)
+
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+(global-set-key (kbd "C-x k") 'kill-this-buffer)
+(global-unset-key (kbd "C-z"))
+(global-set-key (kbd "C-x C-z") 'suspend-frame)
+
+(defun indent-buffer ()
+  (interactive)
+  (save-excursion
+    (indent-region (point-min) (point-max) nil)))
+(global-set-key [f12] 'indent-buffer)
+(defun duplicate-line()
+  (interactive)
+  (move-beginning-of-line 1)
+  (kill-line)
+  (yank)
+  (open-line 1)
+  (next-line 1)
+  (yank)
+  )
+(global-set-key (kbd "C-S-d") 'duplicate-line)
+
+(use-package autopair
+             :init
+             (progn
+              (autopair-global-mode 1)))
+
+(eval-after-load "comint"
+  '(progn
+     (define-key comint-mode-map [up]
+       'comint-previous-matching-input-from-input)
+     (define-key comint-mode-map [down]
+       'comint-next-matching-input-from-input)
+     ;; also recommended for ESS use --
+     (setq comint-scroll-to-bottom-on-output -1)
+     (setq comint-scroll-show-maximum-output -1)
+     ;; somewhat extreme, almost disabling writing in *R*, *shell* buffers above prompt
+     (setq comint-scroll-to-bottom-on-input 1)
+     ))
+'(comint-highlight-input ((t (:weight normal))))
+(setq ess-tab-complete-in-script t)
+(setq-default ess-dialect "R")
+(use-package ess-site
+  :mode ("\\.[rR]\\'" . R-mode)
+  :bind ("C-. C-. r" . R))
+
+(use-package helm-config
+  :init
+  (progn
+    (bind-key "M-x" 'helm-M-x)
+    (bind-key "C-h a" 'helm-apropos)
+    (bind-key "M-s a" 'helm-do-grep)
+    (bind-key "M-s b" 'helm-occur)
+    (bind-key "M-s F" 'helm-for-files)
+    (bind-key "C-x f" 'helm-find-git-file)
+    (bind-key "C-h 2" 'helm-info-org)
+    (bind-key "C-h 3" 'helm-info-emacs)
+    (bind-key "C-h 4" 'helm-info-elisp)
+    (bind-key "C-h 5" 'helm-locate-library)
+    (bind-key "C-h 6" 'helm-locate))
+  :config
+  (helm-match-plugin-mode t))
+
+(use-package linum
+:init
+(global-linum-mode 1)
+)
+
+(use-package multiple-cursors
+:init
+(progn
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this))
+)
+
+(use-package tabbar
+:init
+ (progn
+  (tabbar-mode 1)
+  (global-set-key [M-left] 'tabbar-backward-tab)
+  (global-set-key [M-right] 'tabbar-forward-tab))
+)
+
+(use-package winner
+:init
+(progn
+(winner-mode 1)
+(windmove-default-keybindings))
+)

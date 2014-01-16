@@ -1,4 +1,0 @@
-# -*- mode: snippet -*-
-# name: obda
-# --
-<lisp>(ob:path-to-root)</lisp>/<lisp>(ob:blog-assets-dir BLOG)</lisp>/

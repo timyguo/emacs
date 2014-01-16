@@ -1,0 +1,181 @@
+#+TITLE: dotemacs.org
+#+AUTHOR: Tim Guo
+#+COLUMNS: %25ITEM %30tangle
+#+PROPERTIES: tangle yes
+
+Dotemacs.org file inspired by Tony's dotemacs.org. The current objectives are:
+- Just to have a manageable way the setup emacs and the structure will mirror Tony's setup
+- Be able to do real work ASAP!
+  
+* init.el
+  :PROPERTIES:
+  :tangle:   no
+  :END:
+The init.el is just pointing to the tangled dotemacs until I figure out how Tony does it
+#+BEGIN_SRC emacs-lisp
+(load "~/emacs/dotemacs.el")
+#+END_SRC
+* bootstrap
+  :PROPERTIES:
+  :tangle:   yes
+  :END:
+  Necessaties and order of execution is important.
+** initialization
+** load-path
+#+BEGIN_SRC emacs-lisp
+(let ((default-directory "~/.emacs.d/elpa/"))
+  (normal-top-level-add-subdirs-to-load-path))
+#+END_SRC
+** theme
+   :PROPERTIES:
+   :tangle:   yes
+   :END:
+#+BEGIN_SRC emacs-lisp
+(custom-set-faces
+ '(default ((t (:family "Comic Sans MS" :foundry "outline" :slant normal :weight normal :height 98 :width normal)))))
+#+END_SRC
+** use-package
+   :PROPERTIES:
+   :tangle:   yes
+   :END:
+   #+BEGIN_SRC emacs-lisp
+(require 'use-package)
+(require 'bind-key)
+   #+END_SRC
+** startup look and feel
+   :PROPERTIES:
+   :tangle:   yes
+   :END:
+#+BEGIN_SRC emacs-lisp
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+#+END_SRC
+* miscellaneous settings
+  :PROPERTIES:
+  :tangle:   yes
+  :END:
+** yes-or-no
+#+BEGIN_SRC emacs-lisp
+(defalias 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+** keybindings
+*** ctl-x-map
+    #+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "C-x k") 'kill-this-buffer)
+(global-unset-key (kbd "C-z"))
+(global-set-key (kbd "C-x C-z") 'suspend-frame)
+    #+END_SRC
+** defuns
+   #+BEGIN_SRC emacs-lisp
+(defun indent-buffer ()
+  (interactive)
+  (save-excursion
+    (indent-region (point-min) (point-max) nil)))
+(global-set-key [f12] 'indent-buffer)
+(defun duplicate-line()
+  (interactive)
+  (move-beginning-of-line 1)
+  (kill-line)
+  (yank)
+  (open-line 1)
+  (next-line 1)
+  (yank)
+  )
+(global-set-key (kbd "C-S-d") 'duplicate-line)
+   #+END_SRC
+* packages
+  :PROPERTIES:
+  :tangle:   yes
+  :END:
+*** autopair
+    #+BEGIN_SRC emacs-lisp
+(use-package autopair
+	     :init
+	     (progn
+	      (autopair-global-mode 1)))
+    #+END_SRC
+*** ess
+    #+BEGIN_SRC emacs-lisp
+(eval-after-load "comint"
+  '(progn
+     (define-key comint-mode-map [up]
+       'comint-previous-matching-input-from-input)
+     (define-key comint-mode-map [down]
+       'comint-next-matching-input-from-input)
+     ;; also recommended for ESS use --
+     (setq comint-scroll-to-bottom-on-output -1)
+     (setq comint-scroll-show-maximum-output -1)
+     ;; somewhat extreme, almost disabling writing in *R*, *shell* buffers above prompt
+     (setq comint-scroll-to-bottom-on-input 1)
+     ))
+'(comint-highlight-input ((t (:weight normal))))
+(setq ess-tab-complete-in-script t)
+(setq-default ess-dialect "R")
+(use-package ess-site
+  :mode ("\\.[rR]\\'" . R-mode)
+  :bind ("C-. C-. r" . R))
+    #+END_SRC
+*** helm
+#+BEGIN_SRC emacs-lisp
+(use-package helm-config
+  :init
+  (progn
+    (bind-key "M-x" 'helm-M-x)
+    (bind-key "C-h a" 'helm-apropos)
+    (bind-key "M-s a" 'helm-do-grep)
+    (bind-key "M-s b" 'helm-occur)
+    (bind-key "M-s F" 'helm-for-files)
+    (bind-key "C-x f" 'helm-find-git-file)
+    (bind-key "C-h 2" 'helm-info-org)
+    (bind-key "C-h 3" 'helm-info-emacs)
+    (bind-key "C-h 4" 'helm-info-elisp)
+    (bind-key "C-h 5" 'helm-locate-library)
+    (bind-key "C-h 6" 'helm-locate))
+  :config
+  (helm-match-plugin-mode t))
+#+END_SRC
+*** ido
+    #+BEGIN_SRC emac-lisp
+(use-package ido
+  :init
+  (ido-mode t)
+)
+    #+END_SRC
+*** linum
+    #+BEGIN_SRC emacs-lisp
+(use-package linum
+:init
+(global-linum-mode 1)
+)
+    #+END_SRC
+*** multiple-cursors
+#+BEGIN_SRC emacs-lisp
+(use-package multiple-cursors
+:init
+(progn
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this))
+)
+#+END_SRC
+*** tabbar
+    #+BEGIN_SRC emacs-lisp
+    (use-package tabbar
+    :init
+     (progn
+      (tabbar-mode 1)
+      (global-set-key [M-left] 'tabbar-backward-tab)
+      (global-set-key [M-right] 'tabbar-forward-tab))
+    )
+    #+END_SRC
+*** winner
+    #+BEGIN_SRC emacs-lisp
+(use-package winner
+:init
+(progn
+(winner-mode 1)
+(windmove-default-keybindings))
+)
+    #+END_SRC

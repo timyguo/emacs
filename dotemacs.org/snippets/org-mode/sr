@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: sr
-# --
-#+begin_src R
-`yas-selected-text`$0
-#+end_src
