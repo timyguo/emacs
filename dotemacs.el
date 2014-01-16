@@ -1,9 +1,9 @@
 
 (let ((default-directory "~/.emacs.d/elpa/"))
   (normal-top-level-add-subdirs-to-load-path))
+(add-to-list 'load-path "~/emacs/packages")
 
-(custom-set-faces
- '(default ((t (:family "Comic Sans MS" :foundry "outline" :slant normal :weight normal :height 98 :width normal)))))
+
 
 (require 'use-package)
 (require 'bind-key)
@@ -51,7 +51,6 @@
      ;; somewhat extreme, almost disabling writing in *R*, *shell* buffers above prompt
      (setq comint-scroll-to-bottom-on-input 1)
      ))
-'(comint-highlight-input ((t (:weight normal))))
 (setq ess-tab-complete-in-script t)
 (setq-default ess-dialect "R")
 (use-package ess-site
@@ -80,10 +79,13 @@
   (ido-mode t)
 )
 
-(use-package linum
-:init
-(global-linum-mode 1)
-)
+(require 'minimal)
+(minimal-mode 1)
+(nconc default-frame-alist '((cursor-type . bar)))
+(setq inhibit-startup-message t)
+
+(require 'move-text)
+(move-text-default-bindings)
 
 (use-package multiple-cursors
 :init
@@ -94,17 +96,13 @@
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this))
 )
 
+(add-to-list 'load-path "~/emacs/packages/expand-region")
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+
 (use-package paren
 :init
 (show-paren-mode 1)
-)
-
-(use-package tabbar
-:init
- (progn
-  (tabbar-mode 1)
-  (global-set-key [M-left] 'tabbar-backward-tab)
-  (global-set-key [M-right] 'tabbar-forward-tab))
 )
 
 (use-package winner

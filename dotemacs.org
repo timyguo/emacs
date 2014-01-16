@@ -25,14 +25,13 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
 #+BEGIN_SRC emacs-lisp
 (let ((default-directory "~/.emacs.d/elpa/"))
   (normal-top-level-add-subdirs-to-load-path))
+(add-to-list 'load-path "~/emacs/packages")
 #+END_SRC
 ** theme
    :PROPERTIES:
    :tangle:   yes
    :END:
 #+BEGIN_SRC emacs-lisp
-(custom-set-faces
- '(default ((t (:family "Comic Sans MS" :foundry "outline" :slant normal :weight normal :height 98 :width normal)))))
 #+END_SRC
 ** use-package
    :PROPERTIES:
@@ -142,15 +141,24 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
 )
     #+END_SRC
 ** linum
+   :PROPERTIES:
+   :tangle:   no
+   :END:
     #+BEGIN_SRC emacs-lisp
 (use-package linum
 :init
 (global-linum-mode 1)
 )
     #+END_SRC
+** minimal
+#+BEGIN_SRC emacs-lisp
+(require 'minimal)
+(minimal-mode 1)
+(nconc default-frame-alist '((cursor-type . bar)))
+(setq inhibit-startup-message t)
+#+END_SRC
 ** move-text
 #+BEGIN_SRC emacs-lisp
-(add-to-list 'load-path "~/emacs")
 (require 'move-text)
 (move-text-default-bindings)
 #+END_SRC
@@ -179,6 +187,9 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
 )
 #+END_SRC
 ** tabbar
+   :PROPERTIES:
+   :tangle:   no
+   :END:
     #+BEGIN_SRC emacs-lisp
 (use-package tabbar
     :init
