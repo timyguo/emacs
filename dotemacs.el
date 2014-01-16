@@ -105,6 +105,8 @@
 (show-paren-mode 1)
 )
 
+(use-package smex)
+
 (use-package winner
 :init
 (progn
