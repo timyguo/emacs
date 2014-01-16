@@ -91,11 +91,13 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
    #+BEGIN_SRC emacs-lisp
 (add-to-list 'load-path "~/emacs/packages/ace-jump-mode")
 (require 'ace-jump-mode)
-(bind-key "C-c C-SPC" 'ace-jump-word-mode)
+(global-set-key (kbd "C-c C-8") 'ace-jump-word-mode)
+(global-set-key (kbd "C-c C-9") 'ace-jump-char-mode)
+(global-set-key (kbd "C-c C-0") 'ace-jump-line-mode)
    #+END_SRC
 
    #+RESULTS:
-   : ace-jump-word-mode
+   : ace-jump-line-mode
 
 ** autopair
    :PROPERTIES:
