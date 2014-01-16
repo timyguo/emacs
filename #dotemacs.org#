@@ -109,7 +109,6 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
      ;; somewhat extreme, almost disabling writing in *R*, *shell* buffers above prompt
      (setq comint-scroll-to-bottom-on-input 1)
      ))
-'(comint-highlight-input ((t (:weight normal))))
 (setq ess-tab-complete-in-script t)
 (setq-default ess-dialect "R")
 (use-package ess-site
@@ -149,6 +148,12 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
 (global-linum-mode 1)
 )
     #+END_SRC
+** move-text
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'load-path "~/emacs")
+(require 'move-text)
+(move-text-default-bindings)
+#+END_SRC
 ** multiple-cursors
 #+BEGIN_SRC emacs-lisp
 (use-package multiple-cursors
@@ -160,6 +165,12 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this))
 )
 #+END_SRC
+** expand-region
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'load-path "~/emacs/packages/expand-region")
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+#+END_SRC
 ** paren
 #+BEGIN_SRC emacs-lisp
 (use-package paren
@@ -169,12 +180,12 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
 #+END_SRC
 ** tabbar
     #+BEGIN_SRC emacs-lisp
-    (use-package tabbar
+(use-package tabbar
     :init
      (progn
       (tabbar-mode 1)
-      (global-set-key [M-left] 'tabbar-backward-tab)
-      (global-set-key [M-right] 'tabbar-forward-tab))
+      (global-set-key (kbd "C-j")  'tabbar-backward-tab)
+      (global-set-key (kbd "C-l")  'tabbar-forward-tab))
     )
     #+END_SRC
 ** winner

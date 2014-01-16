@@ -88,14 +88,14 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
   :PROPERTIES:
   :tangle:   yes
   :END:
-*** autopair
+** autopair
     #+BEGIN_SRC emacs-lisp
 (use-package autopair
 	     :init
 	     (progn
 	      (autopair-global-mode 1)))
     #+END_SRC
-*** ess
+** ess
     #+BEGIN_SRC emacs-lisp
 (eval-after-load "comint"
   '(progn
@@ -109,14 +109,13 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
      ;; somewhat extreme, almost disabling writing in *R*, *shell* buffers above prompt
      (setq comint-scroll-to-bottom-on-input 1)
      ))
-'(comint-highlight-input ((t (:weight normal))))
 (setq ess-tab-complete-in-script t)
 (setq-default ess-dialect "R")
 (use-package ess-site
   :mode ("\\.[rR]\\'" . R-mode)
   :bind ("C-. C-. r" . R))
     #+END_SRC
-*** helm
+** helm
 #+BEGIN_SRC emacs-lisp
 (use-package helm-config
   :init
@@ -135,21 +134,21 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
   :config
   (helm-match-plugin-mode t))
 #+END_SRC
-*** ido
-    #+BEGIN_SRC emac-lisp
+** ido
+    #+BEGIN_SRC emacs-lisp
 (use-package ido
   :init
   (ido-mode t)
 )
     #+END_SRC
-*** linum
+** linum
     #+BEGIN_SRC emacs-lisp
 (use-package linum
 :init
 (global-linum-mode 1)
 )
     #+END_SRC
-*** multiple-cursors
+** multiple-cursors
 #+BEGIN_SRC emacs-lisp
 (use-package multiple-cursors
 :init
@@ -160,22 +159,33 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this))
 )
 #+END_SRC
-*** tabbar
+** paren
+#+BEGIN_SRC emacs-lisp
+(use-package paren
+:init
+(show-paren-mode 1)
+)
+#+END_SRC
+** tabbar
     #+BEGIN_SRC emacs-lisp
-    (use-package tabbar
+(use-package tabbar
     :init
      (progn
       (tabbar-mode 1)
-      (global-set-key [M-left] 'tabbar-backward-tab)
-      (global-set-key [M-right] 'tabbar-forward-tab))
+      (global-set-key (kbd "C-j")  'tabbar-backward-tab)
+      (global-set-key (kbd "C-l")  'tabbar-forward-tab))
     )
     #+END_SRC
-*** winner
+** winner
     #+BEGIN_SRC emacs-lisp
 (use-package winner
 :init
 (progn
 (winner-mode 1)
-(windmove-default-keybindings))
+(global-set-key (kbd "M-j")  'windmove-left)
+(global-set-key (kbd "M-l") 'windmove-right)
+(global-set-key (kbd "M-i")    'windmove-up)
+(global-set-key (kbd "M-k")  'windmove-down)
+)
 )
     #+END_SRC

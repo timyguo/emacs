@@ -75,6 +75,11 @@
   :config
   (helm-match-plugin-mode t))
 
+(use-package ido
+  :init
+  (ido-mode t)
+)
+
 (use-package linum
 :init
 (global-linum-mode 1)
@@ -89,6 +94,11 @@
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this))
 )
 
+(use-package paren
+:init
+(show-paren-mode 1)
+)
+
 (use-package tabbar
 :init
  (progn
@@ -101,5 +111,9 @@
 :init
 (progn
 (winner-mode 1)
-(windmove-default-keybindings))
+(global-set-key (kbd "M-j")  'windmove-left)
+(global-set-key (kbd "M-l") 'windmove-right)
+(global-set-key (kbd "M-i")    'windmove-up)
+(global-set-key (kbd "M-k")  'windmove-down)
+)
 )
