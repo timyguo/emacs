@@ -1,7 +1,7 @@
 
 (let ((default-directory "~/.emacs.d/elpa/"))
   (normal-top-level-add-subdirs-to-load-path))
-(add-to-list 'load-path "~/emacs/packages")
+(add-to-list 'load-path "~/emacs/packages/")
 
 
 
@@ -34,6 +34,12 @@
   )
 (global-set-key (kbd "C-S-d") 'duplicate-line)
 
+(add-to-list 'load-path "~/emacs/packages/ace-jump-mode")
+(require 'ace-jump-mode)
+(global-set-key (kbd "C-c C-8") 'ace-jump-word-mode)
+(global-set-key (kbd "C-c C-9") 'ace-jump-char-mode)
+(global-set-key (kbd "C-c C-0") 'ace-jump-line-mode)
+
 (use-package autopair
              :init
              (progn
@@ -57,10 +63,27 @@
   :mode ("\\.[rR]\\'" . R-mode)
   :bind ("C-. C-. r" . R))
 
+(require 'god-mode)
+(global-set-key (kbd "<escape>") 'god-mode-all)
+(defun my-update-cursor ()
+  (setq cursor-type (if (or god-local-mode buffer-read-only)
+                        'box
+                      'bar)))
+
+(add-hook 'god-mode-enabled-hook 'my-update-cursor)
+(add-hook 'god-mode-disabled-hook 'my-update-cursor)
+(define-key god-local-mode-map (kbd ".") 'repeat)
+(define-key god-local-mode-map (kbd "i") 'god-local-mode)
+(global-set-key (kbd "C-x C-1") 'delete-other-windows)
+(global-set-key (kbd "C-x C-2") 'split-window-below)
+(global-set-key (kbd "C-x C-3") 'split-window-right)
+(global-set-key (kbd "C-x C-0") 'delete-window)
+
 (use-package helm-config
   :init
   (progn
     (bind-key "M-x" 'helm-M-x)
+    (bind-key "C-X C-f" 'helm-find-files)
     (bind-key "C-h a" 'helm-apropos)
     (bind-key "M-s a" 'helm-do-grep)
     (bind-key "M-s b" 'helm-occur)
@@ -81,7 +104,6 @@
 
 (require 'minimal)
 (minimal-mode 1)
-(nconc default-frame-alist '((cursor-type . bar)))
 (setq inhibit-startup-message t)
 
 (require 'move-text)

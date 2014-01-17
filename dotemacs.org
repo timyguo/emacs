@@ -25,7 +25,7 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
 #+BEGIN_SRC emacs-lisp
 (let ((default-directory "~/.emacs.d/elpa/"))
   (normal-top-level-add-subdirs-to-load-path))
-(add-to-list 'load-path "~/emacs/packages")
+(add-to-list 'load-path "~/emacs/packages/")
 #+END_SRC
 ** theme
    :PROPERTIES:
@@ -101,7 +101,7 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
 
 ** autopair
    :PROPERTIES:
-   :tangle:   no
+   :tangle:   yes
    :END:
     #+BEGIN_SRC emacs-lisp
 (use-package autopair
@@ -129,12 +129,31 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
   :mode ("\\.[rR]\\'" . R-mode)
   :bind ("C-. C-. r" . R))
     #+END_SRC
+** god-mode
+#+BEGIN_SRC emacs-lisp
+(require 'god-mode)
+(global-set-key (kbd "<escape>") 'god-mode-all)
+(defun my-update-cursor ()
+  (setq cursor-type (if (or god-local-mode buffer-read-only)
+                        'box
+                      'bar)))
+
+(add-hook 'god-mode-enabled-hook 'my-update-cursor)
+(add-hook 'god-mode-disabled-hook 'my-update-cursor)
+(define-key god-local-mode-map (kbd ".") 'repeat)
+(define-key god-local-mode-map (kbd "i") 'god-local-mode)
+(global-set-key (kbd "C-x C-1") 'delete-other-windows)
+(global-set-key (kbd "C-x C-2") 'split-window-below)
+(global-set-key (kbd "C-x C-3") 'split-window-right)
+(global-set-key (kbd "C-x C-0") 'delete-window)
+#+END_SRC
 ** helm
 #+BEGIN_SRC emacs-lisp
 (use-package helm-config
   :init
   (progn
     (bind-key "M-x" 'helm-M-x)
+    (bind-key "C-X C-f" 'helm-find-files)
     (bind-key "C-h a" 'helm-apropos)
     (bind-key "M-s a" 'helm-do-grep)
     (bind-key "M-s b" 'helm-occur)
@@ -148,6 +167,10 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
   :config
   (helm-match-plugin-mode t))
 #+END_SRC
+
+#+RESULTS:
+: t
+
 ** ido
     #+BEGIN_SRC emacs-lisp
 (use-package ido
@@ -166,10 +189,12 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
 )
     #+END_SRC
 ** minimal
+   :PROPERTIES:
+   :tangle:   yes
+   :END:
 #+BEGIN_SRC emacs-lisp
 (require 'minimal)
 (minimal-mode 1)
-(nconc default-frame-alist '((cursor-type . bar)))
 (setq inhibit-startup-message t)
 #+END_SRC
 ** move-text
@@ -218,6 +243,13 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
       (global-set-key (kbd "C-l")  'tabbar-forward-tab))
     )
     #+END_SRC
+** td-startup-look-and-feel
+   :PROPERTIES:
+   :tangle:   no
+   :END:
+#+BEGIN_SRC emacs-lisp
+(require 'td-startup-look-and-feel)
+#+END_SRC
 ** winner
     #+BEGIN_SRC emacs-lisp
 (use-package winner
