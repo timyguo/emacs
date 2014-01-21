@@ -10,3 +10,6 @@
 [submodule "packages/structured-haskell-mode"]
 	path = packages/structured-haskell-mode
 	url = https://github.com/chrisdone/structured-haskell-mode.git
+[submodule "packages/god-mode"]
+	path = packages/god-mode
+	url = https://github.com/chrisdone/god-mode.git
