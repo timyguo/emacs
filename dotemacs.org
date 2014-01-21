@@ -147,13 +147,31 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
 (global-set-key (kbd "C-x C-3") 'split-window-right)
 (global-set-key (kbd "C-x C-0") 'delete-window)
 #+END_SRC
+** haskell-mode
+#+BEGIN_SRC emacs-lisp
+ (add-to-list 'load-path "~/emacs/packages/haskell-mode")
+(require 'haskell-mode)
+#+END_SRC
+
+#+RESULTS:
+: haskell-mode
+
+** structured-haskell-mode
+#+BEGIN_SRC emacs-lisp
+ (add-to-list 'load-path "~/emacs/packages/structured-haskell-mode/elisp")
+(require 'shm)
+(add-hook 'haskell-mode-hook 'structured-haskell-mode)
+#+END_SRC
+
+#+RESULTS:
+| structured-haskell-mode |
+
 ** helm
 #+BEGIN_SRC emacs-lisp
 (use-package helm-config
   :init
   (progn
     (bind-key "M-x" 'helm-M-x)
-    (bind-key "C-X C-f" 'helm-find-files)
     (bind-key "C-h a" 'helm-apropos)
     (bind-key "M-s a" 'helm-do-grep)
     (bind-key "M-s b" 'helm-occur)

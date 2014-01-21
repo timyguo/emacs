@@ -4,3 +4,9 @@
 [submodule "packages/ace-jump-mode"]
 	path = packages/ace-jump-mode
 	url = https://github.com/winterTTr/ace-jump-mode.git
+[submodule "packages/haskell-mode"]
+	path = packages/haskell-mode
+	url = https://github.com/haskell/haskell-mode.git
+[submodule "packages/structured-haskell-mode"]
+	path = packages/structured-haskell-mode
+	url = https://github.com/chrisdone/structured-haskell-mode.git

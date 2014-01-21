@@ -79,11 +79,17 @@
 (global-set-key (kbd "C-x C-3") 'split-window-right)
 (global-set-key (kbd "C-x C-0") 'delete-window)
 
+(add-to-list 'load-path "~/emacs/packages/haskell-mode")
+(require 'haskell-mode)
+
+(add-to-list 'load-path "~/emacs/packages/structured-haskell-mode/elisp")
+(require 'shm)
+(add-hook 'haskell-mode-hook 'structured-haskell-mode)
+
 (use-package helm-config
   :init
   (progn
     (bind-key "M-x" 'helm-M-x)
-    (bind-key "C-X C-f" 'helm-find-files)
     (bind-key "C-h a" 'helm-apropos)
     (bind-key "M-s a" 'helm-do-grep)
     (bind-key "M-s b" 'helm-occur)
