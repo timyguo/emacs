@@ -131,6 +131,7 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
     #+END_SRC
 ** god-mode
 #+BEGIN_SRC emacs-lisp
+(add-to-list 'load-path "~/emacs/packages/god-mode")
 (require 'god-mode)
 (global-set-key (kbd "<escape>") 'god-mode-all)
 (defun my-update-cursor ()
