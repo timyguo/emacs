@@ -34,6 +34,12 @@
   )
 (global-set-key (kbd "C-S-d") 'duplicate-line)
 
+(setq-default c-basic-offset 4 c-default-style "linux")
+(setq-default tab-width 4 indent-tabs-mode t)
+(add-hook 'c-mode-common-hook
+        (lambda ()
+          (define-key c-mode-base-map "\C-m" 'newline-and-indent)))
+
 (add-to-list 'load-path "~/emacs/packages/ace-jump-mode")
 (require 'ace-jump-mode)
 (global-set-key (kbd "C-c C-8") 'ace-jump-word-mode)
@@ -41,9 +47,24 @@
 (global-set-key (kbd "C-c C-0") 'ace-jump-line-mode)
 
 (use-package autopair
-             :init
-             (progn
-              (autopair-global-mode 1)))
+         :init
+         (progn
+          (autopair-global-mode 1)))
+
+;;; yasnippet
+;;; should be loaded before auto complete so that they can work together
+(require 'yasnippet)
+(yas-global-mode 1)
+;;; auto complete mod
+;;; should be loaded after yasnippet so that they can work together
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+(ac-config-default)
+;;; set the trigger key so that it can work together with yasnippet on tab key,
+;;; if the word exists in yasnippet, pressing tab will cause yasnippet to
+;;; activate, otherwise, auto-complete will
+(ac-set-trigger-key "TAB")
+(ac-set-trigger-key "<tab>")
 
 (eval-after-load "comint"
   '(progn

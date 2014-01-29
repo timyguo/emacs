@@ -87,11 +87,13 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
 #+BEGIN_SRC emacs-lisp
   (setq-default c-basic-offset 4 c-default-style "linux")
   (setq-default tab-width 4 indent-tabs-mode t)
-  (define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
+  (add-hook 'c-mode-common-hook
+          (lambda ()
+            (define-key c-mode-base-map "\C-m" 'newline-and-indent)))
 #+END_SRC
 
 #+RESULTS:
-: newline-and-indent
+| lambda | nil | (define-key c-mode-base-map \n (quote newline-and-indent)) |
 
 * packages
   :PROPERTIES:
