@@ -83,6 +83,9 @@
 (use-package ess-site
   :mode ("\\.[rR]\\'" . R-mode)
   :bind ("C-. C-. r" . R))
+(org-babel-do-load-languages
+      'org-babel-load-languages
+      '((R . t)))
 
 (add-to-list 'load-path "~/emacs/packages/god-mode")
 (require 'god-mode)
