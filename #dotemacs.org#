@@ -1,0 +1,339 @@
+#+TITLE: dotemacs.org
+#+AUTHOR: Tim Guo
+#+COLUMNS: %25ITEM %30tangle
+#+PROPERTIES: tangle yes
+
+Dotemacs.org file inspired by Tony's dotemacs.org. The current objectives are:
+- Just to have a manageable way the setup emacs and the structure will mirror Tony's setup
+- Be able to do real work ASAP!
+  
+* init.el
+  :PROPERTIES:
+  :tangle:   no
+  :END:
+The init.el is just pointing to the tangled dotemacs until I figure out how Tony does it
+#+BEGIN_SRC emacs-lisp
+(load "~/emacs/dotemacs.el")
+#+END_SRC
+* bootstrap
+  :PROPERTIES:
+  :tangle:   yes
+  :END:
+  Necessaties and order of execution is important.
+** initialization
+** load-path
+#+BEGIN_SRC emacs-lisp
+(let ((default-directory "~/.emacs.d/elpa/"))
+  (normal-top-level-add-subdirs-to-load-path))
+(add-to-list 'load-path "~/emacs/packages/")
+#+END_SRC
+** theme
+   :PROPERTIES:
+   :tangle:   yes
+   :END:
+#+BEGIN_SRC emacs-lisp
+#+END_SRC
+** use-package
+   :PROPERTIES:
+   :tangle:   yes
+   :END:
+   #+BEGIN_SRC emacs-lisp
+(require 'use-package)
+(require 'bind-key)
+   #+END_SRC
+** startup look and feel
+   :PROPERTIES:
+   :tangle:   yes
+   :END:
+#+BEGIN_SRC emacs-lisp
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+#+END_SRC
+* miscellaneous settings
+  :PROPERTIES:
+  :tangle:   yes
+  :END:
+** yes-or-no
+#+BEGIN_SRC emacs-lisp
+(defalias 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+** keybindings
+*** ctl-x-map
+    #+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "C-x k") 'kill-this-buffer)
+(global-unset-key (kbd "C-z"))
+(global-set-key (kbd "C-x C-z") 'suspend-frame)
+    #+END_SRC
+** defuns
+   #+BEGIN_SRC emacs-lisp
+(defun indent-buffer ()
+  (interactive)
+  (save-excursion
+    (indent-region (point-min) (point-max) nil)))
+(global-set-key [f12] 'indent-buffer)
+(defun duplicate-line()
+  (interactive)
+  (move-beginning-of-line 1)
+  (kill-line)
+  (yank)
+  (open-line 1)
+  (next-line 1)
+  (yank)
+  )
+(global-set-key (kbd "C-S-d") 'duplicate-line)
+   #+END_SRC
+** C/C++ settings
+#+BEGIN_SRC emacs-lisp
+  (setq-default c-basic-offset 4 c-default-style "linux")
+  (setq-default tab-width 4 indent-tabs-mode t)
+  (add-hook 'c-mode-common-hook
+          (lambda ()
+            (define-key c-mode-base-map "\C-m" 'newline-and-indent)))
+#+END_SRC
+
+#+RESULTS:
+| lambda | nil | (define-key c-mode-base-map \n (quote newline-and-indent)) |
+
+** Replace selection
+#+BEGIN_SRC emacs-lisp
+  (delete-selection-mode 1)
+#+END_SRC
+
+#+RESULTS:
+: t
+
+* packages
+  :PROPERTIES:
+  :tangle:   yes
+  :END:
+** ace-jump-mode
+   #+BEGIN_SRC emacs-lisp
+(add-to-list 'load-path "~/emacs/packages/ace-jump-mode")
+(require 'ace-jump-mode)
+(global-set-key (kbd "C-c C-8") 'ace-jump-word-mode)
+(global-set-key (kbd "C-c C-9") 'ace-jump-char-mode)
+(global-set-key (kbd "C-c C-0") 'ace-jump-line-mode)
+   #+END_SRC
+
+   #+RESULTS:
+   : ace-jump-line-mode
+
+** autopair
+   :PROPERTIES:
+   :tangle:   yes
+   :END:
+    #+BEGIN_SRC emacs-lisp
+(use-package autopair
+	     :init
+	     (progn
+	      (autopair-global-mode 1)))
+    #+END_SRC
+** auto-complete and yasnippet
+#+BEGIN_SRC emacs-lisp
+  (use-package yasnippet
+    :init
+    (progn
+      (setq yas-snippet-dirs '("~/emacs/mysnippets"))
+      (yas/reload-all)
+      (add-hook 'org-mode-hook
+                '(lambda ()
+                   (yas-minor-mode)))
+      (add-hook 'ess-mode-hook
+                '(lambda ()
+                   (yas-minor-mode)))
+      (use-package yasnippet-bundle)
+      (use-package r-autoyas)
+      )
+    )   
+
+  (defun yas/org-very-safe-expand ()
+    (let ((yas/fallback-behavior 'return-nil)) (yas/expand)))
+
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (make-variable-buffer-local 'yas/trigger-key)
+              (setq yas/trigger-key [tab])
+              (add-to-list 'org-tab-first-hook 'yas/org-very-safe-expand)
+              (define-key yas/keymap [tab] 'yas/next-field)))
+#+END_SRC
+
+#+RESULTS:
+| (lambda nil (yas-minor-mode)) | er/add-org-mode-expansions | #[nil \300\301\302\303\304$\207 [org-add-hook change-major-mode-hook org-show-block-all append local] 5] | #[nil \300\301\302\303\304$\207 [org-add-hook change-major-mode-hook org-babel-show-result-all append local] 5] | org-babel-result-hide-spec | org-babel-hide-all-hashes | (lambda nil (make-variable-buffer-local (quote yas/trigger-key)) (setq yas/trigger-key [tab]) (add-to-list (quote org-tab-first-hook) (quote yas/org-very-safe-expand)) (define-key yas/keymap [tab] (quote yas/next-field))) |
+
+** ess
+    #+BEGIN_SRC emacs-lisp
+(eval-after-load "comint"
+  '(progn
+     (define-key comint-mode-map [up]
+       'comint-previous-matching-input-from-input)
+     (define-key comint-mode-map [down]
+       'comint-next-matching-input-from-input)
+     ;; also recommended for ESS use --
+     (setq comint-scroll-to-bottom-on-output -1)
+     (setq comint-scroll-show-maximum-output -1)
+     ;; somewhat extreme, almost disabling writing in *R*, *shell* buffers above prompt
+     (setq comint-scroll-to-bottom-on-input 1)
+     ))
+(setq ess-tab-complete-in-script t)
+(setq-default ess-dialect "R")
+(use-package ess-site
+  :mode ("\\.[rR]\\'" . R-mode)
+  :bind ("C-. C-. r" . R))
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((R . t)))
+    #+END_SRC
+** god-mode
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'load-path "~/emacs/packages/god-mode")
+(require 'god-mode)
+(global-set-key (kbd "<escape>") 'god-mode-all)
+(defun my-update-cursor ()
+  (setq cursor-type (if (or god-local-mode buffer-read-only)
+                        'box
+                      'bar)))
+
+(add-hook 'god-mode-enabled-hook 'my-update-cursor)
+(add-hook 'god-mode-disabled-hook 'my-update-cursor)
+(define-key god-local-mode-map (kbd ".") 'repeat)
+(define-key god-local-mode-map (kbd "i") 'god-local-mode)
+(global-set-key (kbd "C-x C-1") 'delete-other-windows)
+(global-set-key (kbd "C-x C-2") 'split-window-below)
+(global-set-key (kbd "C-x C-3") 'split-window-right)
+(global-set-key (kbd "C-x C-0") 'delete-window)
+#+END_SRC
+** haskell-mode
+#+BEGIN_SRC emacs-lisp
+ (add-to-list 'load-path "~/emacs/packages/haskell-mode")
+(require 'haskell-mode)
+#+END_SRC
+
+#+RESULTS:
+: haskell-mode
+
+** structured-haskell-mode
+#+BEGIN_SRC emacs-lisp
+ (add-to-list 'load-path "~/emacs/packages/structured-haskell-mode/elisp")
+(require 'shm)
+(add-hook 'haskell-mode-hook 'structured-haskell-mode)
+#+END_SRC
+
+#+RESULTS:
+| structured-haskell-mode |
+
+** helm
+#+BEGIN_SRC emacs-lisp
+(use-package helm-config
+  :init
+  (progn
+    (bind-key "M-x" 'helm-M-x)
+    (bind-key "C-h a" 'helm-apropos)
+    (bind-key "M-s a" 'helm-do-grep)
+    (bind-key "M-s b" 'helm-occur)
+    (bind-key "M-s F" 'helm-for-files)
+    (bind-key "C-x f" 'helm-find-git-file)
+    (bind-key "C-h 2" 'helm-info-org)
+    (bind-key "C-h 3" 'helm-info-emacs)
+    (bind-key "C-h 4" 'helm-info-elisp)
+    (bind-key "C-h 5" 'helm-locate-library)
+    (bind-key "C-h 6" 'helm-locate))
+  :config
+  (helm-match-plugin-mode t))
+#+END_SRC
+
+#+RESULTS:
+: t
+
+** ido
+    #+BEGIN_SRC emacs-lisp
+(use-package ido
+  :init
+  (ido-mode t)
+)
+    #+END_SRC
+** linum
+   :PROPERTIES:
+   :tangle:   no
+   :END:
+    #+BEGIN_SRC emacs-lisp
+(use-package linum
+:init
+(global-linum-mode 1)
+)
+    #+END_SRC
+** minimal
+   :PROPERTIES:
+   :tangle:   yes
+   :END:
+#+BEGIN_SRC emacs-lisp
+(require 'minimal)
+(minimal-mode 1)
+(setq inhibit-startup-message t)
+#+END_SRC
+** move-text
+#+BEGIN_SRC emacs-lisp
+(require 'move-text)
+(move-text-default-bindings)
+#+END_SRC
+** multiple-cursors
+#+BEGIN_SRC emacs-lisp
+(use-package multiple-cursors
+:init
+(progn
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this))
+)
+#+END_SRC
+** expand-region
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'load-path "~/emacs/packages/expand-region")
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+#+END_SRC
+** paren
+#+BEGIN_SRC emacs-lisp
+(use-package paren
+:init
+(show-paren-mode 1)
+)
+#+END_SRC
+** smex
+   #+BEGIN_SRC emacs-lisp
+(use-package smex)
+   #+END_SRC
+** tabbar
+   :PROPERTIES:
+   :tangle:   no
+   :END:
+    #+BEGIN_SRC emacs-lisp
+(use-package tabbar
+    :init
+     (progn
+      (tabbar-mode 1)
+      (global-set-key (kbd "C-j")  'tabbar-backward-tab)
+      (global-set-key (kbd "C-l")  'tabbar-forward-tab))
+    )
+    #+END_SRC
+** td-startup-look-and-feel
+   :PROPERTIES:
+   :tangle:   no
+   :END:
+#+BEGIN_SRC emacs-lisp
+(require 'td-startup-look-and-feel)
+#+END_SRC
+** winner
+    #+BEGIN_SRC emacs-lisp
+(use-package winner
+:init
+(progn
+(winner-mode 1)
+(global-set-key (kbd "M-j")  'windmove-left)
+(global-set-key (kbd "M-l") 'windmove-right)
+(global-set-key (kbd "M-i")    'windmove-up)
+(global-set-key (kbd "M-k")  'windmove-down)
+)
+)
+    #+END_SRC
