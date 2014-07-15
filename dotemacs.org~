@@ -83,6 +83,26 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
   )
 (global-set-key (kbd "C-S-d") 'duplicate-line)
    #+END_SRC
+** C/C++ settings
+#+BEGIN_SRC emacs-lisp
+  (setq-default c-basic-offset 4 c-default-style "linux")
+  (setq-default tab-width 4 indent-tabs-mode t)
+  (add-hook 'c-mode-common-hook
+          (lambda ()
+            (define-key c-mode-base-map "\C-m" 'newline-and-indent)))
+#+END_SRC
+
+#+RESULTS:
+| lambda | nil | (define-key c-mode-base-map \n (quote newline-and-indent)) |
+
+** Replace selection
+#+BEGIN_SRC emacs-lisp
+  (delete-selection-mode 1)
+#+END_SRC
+
+#+RESULTS:
+: t
+
 * packages
   :PROPERTIES:
   :tangle:   yes
@@ -109,6 +129,32 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
 	     (progn
 	      (autopair-global-mode 1)))
     #+END_SRC
+** auto-complete and yasnippet
+#+BEGIN_SRC emacs-lisp
+  (use-package yasnippet
+    :init
+    (progn
+      (setq yas-snippet-dirs '("~/emacs/mysnippets"))
+      (yas/global-mode)
+      (use-package yasnippet-bundle)
+      (use-package r-autoyas)
+      )
+    )   
+
+  (defun yas/org-very-safe-expand ()
+    (let ((yas/fallback-behavior 'return-nil)) (yas/expand)))
+
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (make-variable-buffer-local 'yas/trigger-key)
+              (setq yas/trigger-key [tab])
+              (add-to-list 'org-tab-first-hook 'yas/org-very-safe-expand)
+              (define-key yas/keymap [tab] 'yas/next-field)))
+#+END_SRC
+
+#+RESULTS:
+| (lambda nil (make-variable-buffer-local (quote yas/trigger-key)) (setq yas/trigger-key [tab]) (add-to-list (quote org-tab-first-hook) (quote yas/org-very-safe-expand)) (define-key yas/keymap [tab] (quote yas/next-field))) | er/add-org-mode-expansions | #[nil \300\301\302\303\304$\207 [org-add-hook change-major-mode-hook org-show-block-all append local] 5] | #[nil \300\301\302\303\304$\207 [org-add-hook change-major-mode-hook org-babel-show-result-all append local] 5] | org-babel-result-hide-spec | org-babel-hide-all-hashes |
+
 ** ess
     #+BEGIN_SRC emacs-lisp
 (eval-after-load "comint"
@@ -128,9 +174,13 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
 (use-package ess-site
   :mode ("\\.[rR]\\'" . R-mode)
   :bind ("C-. C-. r" . R))
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((R . t)))
     #+END_SRC
 ** god-mode
 #+BEGIN_SRC emacs-lisp
+(add-to-list 'load-path "~/emacs/packages/god-mode")
 (require 'god-mode)
 (global-set-key (kbd "<escape>") 'god-mode-all)
 (defun my-update-cursor ()
@@ -147,6 +197,25 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
 (global-set-key (kbd "C-x C-3") 'split-window-right)
 (global-set-key (kbd "C-x C-0") 'delete-window)
 #+END_SRC
+** haskell-mode
+#+BEGIN_SRC emacs-lisp
+ (add-to-list 'load-path "~/emacs/packages/haskell-mode")
+(require 'haskell-mode)
+#+END_SRC
+
+#+RESULTS:
+: haskell-mode
+
+** structured-haskell-mode
+#+BEGIN_SRC emacs-lisp
+ (add-to-list 'load-path "~/emacs/packages/structured-haskell-mode/elisp")
+(require 'shm)
+(add-hook 'haskell-mode-hook 'structured-haskell-mode)
+#+END_SRC
+
+#+RESULTS:
+| structured-haskell-mode |
+
 ** helm
 #+BEGIN_SRC emacs-lisp
 (use-package helm-config
@@ -166,6 +235,10 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
   :config
   (helm-match-plugin-mode t))
 #+END_SRC
+
+#+RESULTS:
+: t
+
 ** ido
     #+BEGIN_SRC emacs-lisp
 (use-package ido

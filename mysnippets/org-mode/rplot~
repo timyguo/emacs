@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: rplot
+# --
+#+ATTR_LATEX: width=8cm placement=[htbp]
+#+BEGIN_SRC r :session *R* :results output graphics :exports none :file (org-babel-temp-file "./figure-" ".pdf")  
+$0                                                                                                             #+END_SRC

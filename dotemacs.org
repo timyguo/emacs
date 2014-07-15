@@ -95,6 +95,14 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
 #+RESULTS:
 | lambda | nil | (define-key c-mode-base-map \n (quote newline-and-indent)) |
 
+** Replace selection
+#+BEGIN_SRC emacs-lisp
+  (delete-selection-mode 1)
+#+END_SRC
+
+#+RESULTS:
+: t
+
 * packages
   :PROPERTIES:
   :tangle:   yes
@@ -123,24 +131,35 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
     #+END_SRC
 ** auto-complete and yasnippet
 #+BEGIN_SRC emacs-lisp
-  ;;; yasnippet
-  ;;; should be loaded before auto complete so that they can work together
-  ;;(require 'yasnippet)
-  ;;(yas-global-mode 1)
-  ;;; auto complete mod
-  ;;; should be loaded after yasnippet so that they can work together
-  ;;(require 'auto-complete-config)
-  ;;(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
-  ;;(ac-config-default)
-  ;;; set the trigger key so that it can work together with yasnippet on tab key,
-  ;;; if the word exists in yasnippet, pressing tab will cause yasnippet to
-  ;;; activate, otherwise, auto-complete will
-  ;;(ac-set-trigger-key "TAB")
-  ;;(ac-set-trigger-key "<tab>")
+  (use-package yasnippet
+    :init
+    (progn
+      (setq yas-snippet-dirs '("~/emacs/mysnippets"))
+      (yas/reload-all)
+      (add-hook 'org-mode-hook
+                '(lambda ()
+                   (yas-minor-mode)))
+      (add-hook 'ess-mode-hook
+                '(lambda ()
+                   (yas-minor-mode)))
+      (use-package yasnippet-bundle)
+      (use-package r-autoyas)
+      )
+    )   
+
+  (defun yas/org-very-safe-expand ()
+    (let ((yas/fallback-behavior 'return-nil)) (yas/expand)))
+
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (make-variable-buffer-local 'yas/trigger-key)
+              (setq yas/trigger-key [tab])
+              (add-to-list 'org-tab-first-hook 'yas/org-very-safe-expand)
+              (define-key yas/keymap [tab] 'yas/next-field)))
 #+END_SRC
 
 #+RESULTS:
-: ac-trigger-key-command
+| (lambda nil (make-variable-buffer-local (quote yas/trigger-key)) (setq yas/trigger-key [tab]) (add-to-list (quote org-tab-first-hook) (quote yas/org-very-safe-expand)) (define-key yas/keymap [tab] (quote yas/next-field))) | er/add-org-mode-expansions | #[nil \300\301\302\303\304$\207 [org-add-hook change-major-mode-hook org-show-block-all append local] 5] | #[nil \300\301\302\303\304$\207 [org-add-hook change-major-mode-hook org-babel-show-result-all append local] 5] | org-babel-result-hide-spec | org-babel-hide-all-hashes |
 
 ** ess
     #+BEGIN_SRC emacs-lisp
@@ -161,6 +180,9 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
 (use-package ess-site
   :mode ("\\.[rR]\\'" . R-mode)
   :bind ("C-. C-. r" . R))
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((R . t)))
     #+END_SRC
 ** god-mode
 #+BEGIN_SRC emacs-lisp

@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: new
+# --
+Name:                $1
+Version:             0.0
+Description:         $2
+License:             GPL
+License-file:        LICENSE
+Author:              Tony Day
+Maintainer:          tony.day567@gmail.com
+Build-Type:          Simple
+Cabal-Version:       >=1.2
+Executable dev
+  Main-is:           Dev.hs
+  Build-Depends:     base >= 3 && < 5

@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: setupreport
+# --
+#+TITLE: $0
+#+AUTHOR: Tim Guo
+#+COLUMNS: %20ITEM %30tangle %30header-args
+#+PROPERTIES: tangle yes
+
