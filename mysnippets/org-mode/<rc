@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: <rc
+# --
+#+BEGIN_SRC r :session *R* :exports none
+$0
+#+END_SRC

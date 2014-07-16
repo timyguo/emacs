@@ -6,3 +6,6 @@
 #+COLUMNS: %20ITEM %30tangle %30header-args
 #+PROPERTIES: tangle yes
 
+#+BEGIN_SRC emacs-lisp
+(setq plot-directory (concatenate 'string r-default-directory "/org/plots/figure-"))
+#+END_SRC
