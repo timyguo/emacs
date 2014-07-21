@@ -2,6 +2,6 @@
 # name: rplot
 # --
 #+ATTR_LATEX: width=8cm placement=[htbp]
-#+BEGIN_SRC r :session *R* :results output graphics :exports none :file (org-babel-temp-file plot-directory ".pdf") 
+#+BEGIN_SRC r :session *R* :results graphics :exports results :file (org-babel-temp-file plot-directory ".pdf") 
 $0
 #+END_SRC

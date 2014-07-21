@@ -135,7 +135,13 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
     :init
     (progn
       (setq yas-snippet-dirs '("~/emacs/mysnippets"))
-      (yas/global-mode)
+      (add-hook 'org-mode-hook
+                '(lambda ()
+                   (yas-minor-mode)))
+      (add-hook 'ess-mode-hook
+                '(lambda ()
+                   (yas-minor-mode)))
+      (yas/reload-all)
       (use-package yasnippet-bundle)
       (use-package r-autoyas)
       )
@@ -153,7 +159,7 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
 #+END_SRC
 
 #+RESULTS:
-| (lambda nil (make-variable-buffer-local (quote yas/trigger-key)) (setq yas/trigger-key [tab]) (add-to-list (quote org-tab-first-hook) (quote yas/org-very-safe-expand)) (define-key yas/keymap [tab] (quote yas/next-field))) | er/add-org-mode-expansions | #[nil \300\301\302\303\304$\207 [org-add-hook change-major-mode-hook org-show-block-all append local] 5] | #[nil \300\301\302\303\304$\207 [org-add-hook change-major-mode-hook org-babel-show-result-all append local] 5] | org-babel-result-hide-spec | org-babel-hide-all-hashes |
+| (lambda nil (yas-minor-mode)) | er/add-org-mode-expansions | #[nil \300\301\302\303\304$\207 [org-add-hook change-major-mode-hook org-show-block-all append local] 5] | #[nil \300\301\302\303\304$\207 [org-add-hook change-major-mode-hook org-babel-show-result-all append local] 5] | org-babel-result-hide-spec | org-babel-hide-all-hashes | (lambda nil (make-variable-buffer-local (quote yas/trigger-key)) (setq yas/trigger-key [tab]) (add-to-list (quote org-tab-first-hook) (quote yas/org-very-safe-expand)) (define-key yas/keymap [tab] (quote yas/next-field))) |
 
 ** ess
     #+BEGIN_SRC emacs-lisp

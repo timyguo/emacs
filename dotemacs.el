@@ -57,7 +57,13 @@
   :init
   (progn
     (setq yas-snippet-dirs '("~/emacs/mysnippets"))
-    (yas/global-mode)
+    (yas/reload-all)
+    (add-hook 'org-mode-hook
+              '(lambda ()
+                 (yas-minor-mode)))
+    (add-hook 'ess-mode-hook
+              '(lambda ()
+                 (yas-minor-mode)))
     (use-package yasnippet-bundle)
     (use-package r-autoyas)
     )

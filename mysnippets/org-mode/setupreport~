@@ -4,8 +4,7 @@
 #+TITLE: $0
 #+AUTHOR: Tim Guo
 #+COLUMNS: %20ITEM %30tangle %30header-args
-#+PROPERTY: tangle yes
-#+PROPERTY: results output
+#+PROPERTIES: tangle yes
 
 #+BEGIN_SRC emacs-lisp
 (setq plot-directory (concatenate 'string r-default-directory "/org/plots/figure-"))
