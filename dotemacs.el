@@ -53,6 +53,11 @@
          (progn
           (autopair-global-mode 1)))
 
+(use-package auto-complete-config
+         :init
+         (progn
+          (ac-config-default)))
+
 (use-package yasnippet
   :init
   (progn
@@ -180,6 +185,10 @@
 )
 
 (use-package smex)
+
+(use-package scala-mode2)
+(use-package ensime)
+(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
 (use-package winner
 :init

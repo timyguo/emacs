@@ -135,13 +135,13 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
     :init
     (progn
       (setq yas-snippet-dirs '("~/emacs/mysnippets"))
+      (yas/reload-all)
       (add-hook 'org-mode-hook
                 '(lambda ()
                    (yas-minor-mode)))
       (add-hook 'ess-mode-hook
                 '(lambda ()
                    (yas-minor-mode)))
-      (yas/reload-all)
       (use-package yasnippet-bundle)
       (use-package r-autoyas)
       )
@@ -204,14 +204,22 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
 (global-set-key (kbd "C-x C-0") 'delete-window)
 #+END_SRC
 ** haskell-mode
-#+BEGIN_SRC emacs-lisp
- (add-to-list 'load-path "~/emacs/packages/haskell-mode")
-(require 'haskell-mode)
-#+END_SRC
-
-#+RESULTS:
+   #+BEGIN_SRC emacs-lisp
+  (add-to-list 'load-path "~/emacs/packages/haskell-mode")
+  (require 'haskell-mode)
+  (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
+  (define-key haskell-mode-map (kbd "C-`") 'haskell-interactive-bring)
+  (define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
+  (define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
+  (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
+  (define-key haskell-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
+  (define-key haskell-mode-map (kbd "C-c c") 'haskell-process-cabal)
+  (define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)
+   #+END_SRC
+   
+   #+RESULTS:
 : haskell-mode
-
+   
 ** structured-haskell-mode
 #+BEGIN_SRC emacs-lisp
  (add-to-list 'load-path "~/emacs/packages/structured-haskell-mode/elisp")
@@ -304,6 +312,12 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
    #+BEGIN_SRC emacs-lisp
 (use-package smex)
    #+END_SRC
+** scala-mode
+#+begin_src emacs-lisp :tangle yes
+(use-package scala-mode2)
+(use-package ensime)
+(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+#+end_src
 ** tabbar
    :PROPERTIES:
    :tangle:   no
