@@ -9,8 +9,9 @@
 (require 'bind-key)
 
 (scroll-bar-mode -1)
-(tool-bar-mode -1)
+(tool-bar-mode 1)
 (menu-bar-mode -1)
+(global-visual-line-mode 1)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -159,8 +160,8 @@
   (ido-mode t)
 )
 
-(require 'minimal)
-(minimal-mode 1)
+;(require 'minimal)
+;(minimal-mode -1)
 (setq inhibit-startup-message t)
 
 (require 'move-text)
@@ -185,7 +186,7 @@
 )
 
 (use-package python-mode)
-(setq-default py-shell-name "ipython")
+(setq-default py-shell-name "ipython3")
 (setq-default py-which-bufname "IPython")
 ; use the wx backend, for both mayavi and matplotlib
 (setq py-python-command-args
@@ -206,10 +207,6 @@
 (global-fci-mode t)
 
 (use-package smex)
-
-(use-package scala-mode2)
-(use-package ensime)
-(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
 (use-package winner
 :init
