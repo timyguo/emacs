@@ -139,6 +139,9 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
 
 #+end_src
 ** yasnippet
+   :PROPERTIES:
+   :tangle:   no
+   :END:
 #+BEGIN_SRC emacs-lisp
   (use-package yasnippet
     :init
@@ -318,6 +321,9 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
 )
 #+END_SRC
 ** python
+   :PROPERTIES:
+   :tangle:   no
+   :END:
 #+BEGIN_SRC emacs-lisp
 (use-package python-mode)
 (setq-default py-shell-name "ipython3")
@@ -336,6 +342,9 @@ The init.el is just pointing to the tangled dotemacs until I figure out how Tony
 (setq py-smart-indentation t)
 #+END_SRC
 ** fill-column-indicator
+   :PROPERTIES:
+   :tangle:   no
+   :END:
 #+BEGIN_SRC emacs-lisp
 (use-package fill-column-indicator)
 (define-globalized-minor-mode

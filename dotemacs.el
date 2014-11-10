@@ -50,40 +50,14 @@
 (global-set-key (kbd "C-c C-0") 'ace-jump-line-mode)
 
 (use-package autopair
-         :init
-         (progn
-          (autopair-global-mode 1)))
+             :init
+             (progn
+              (autopair-global-mode 1)))
 
 (use-package auto-complete-config
-         :init
-         (progn
-          (ac-config-default)))
-
-(use-package yasnippet
-  :init
-  (progn
-    (setq yas-snippet-dirs '("~/emacs/mysnippets"))
-    (yas/reload-all)
-    (add-hook 'org-mode-hook
-              '(lambda ()
-                 (yas-minor-mode)))
-    (add-hook 'ess-mode-hook
-              '(lambda ()
-                 (yas-minor-mode)))
-    (use-package yasnippet-bundle)
-    (use-package r-autoyas)
-    )
-  )   
-
-(defun yas/org-very-safe-expand ()
-  (let ((yas/fallback-behavior 'return-nil)) (yas/expand)))
-
-(add-hook 'org-mode-hook
-          (lambda ()
-            (make-variable-buffer-local 'yas/trigger-key)
-            (setq yas/trigger-key [tab])
-            (add-to-list 'org-tab-first-hook 'yas/org-very-safe-expand)
-            (define-key yas/keymap [tab] 'yas/next-field)))
+             :init
+             (progn
+              (ac-config-default)))
 
 (eval-after-load "comint"
   '(progn
@@ -184,27 +158,6 @@
 :init
 (show-paren-mode 1)
 )
-
-(use-package python-mode)
-(setq-default py-shell-name "ipython3")
-(setq-default py-which-bufname "IPython")
-; use the wx backend, for both mayavi and matplotlib
-(setq py-python-command-args
-  '("--gui=wx" "--pylab=wx" "-colors" "Windows"))
-(setq py-force-py-shell-name-p t)
-
-; switch to the interpreter after executing code
-(setq py-shell-switch-buffers-on-execute-p nil)
-(setq py-switch-buffers-on-execute-p nil)
-; don't split windows
-(setq py-split-windows-on-execute-p nil)
-; try to automagically figure out indentation
-(setq py-smart-indentation t)
-
-(use-package fill-column-indicator)
-(define-globalized-minor-mode
- global-fci-mode fci-mode (lambda () (fci-mode 1)))
-(global-fci-mode t)
 
 (use-package smex)
 
