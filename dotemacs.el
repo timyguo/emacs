@@ -50,14 +50,14 @@
 (global-set-key (kbd "C-c C-0") 'ace-jump-line-mode)
 
 (use-package autopair
-             :init
-             (progn
-              (autopair-global-mode 1)))
+         :init
+         (progn
+          (autopair-global-mode 1)))
 
 (use-package auto-complete-config
-             :init
-             (progn
-              (ac-config-default)))
+         :init
+         (progn
+          (ac-config-default)))
 
 (eval-after-load "comint"
   '(progn
