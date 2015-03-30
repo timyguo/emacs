@@ -80,6 +80,9 @@
  'org-babel-load-languages
  '((R . t)))
 
+(add-to-list 'load-path "~/emacs/packages/ssh")
+(require 'ssh)
+
 (add-to-list 'load-path "~/emacs/packages/god-mode")
 (require 'god-mode)
 (global-set-key (kbd "<escape>") 'god-mode-all)
